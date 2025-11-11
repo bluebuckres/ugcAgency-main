@@ -37,7 +37,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- UTM Parameter Tracking -->
-    <script src="assets/js/utm-tracker.js" defer></script>
+    <script src="/assets/js/utm-tracker.js" defer></script>
     
     <style>
         /* Wabi-Sabi CSS Variables */
@@ -466,17 +466,20 @@
         };
     </script>
     
+    <!-- Environment Configuration (Load First) -->
+    <script src="/env-config.js"></script>
+    
     <!-- Enhanced Analytics Script -->
-    <script src="analytics-setup.js" defer></script>
+    <script src="/assets/js/analytics-setup.js" defer></script>
     
     <!-- Supabase Client Library (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <!-- Supabase Configuration -->
-    <script src="assets/js/supabase-config.js"></script>
+    <script src="/assets/js/supabase-config.js"></script>
     
     <!-- Creator Form Handler -->
-    <script src="assets/js/creator-form-handler.js" defer></script>
+    <script src="/assets/js/creator-form-handler.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->

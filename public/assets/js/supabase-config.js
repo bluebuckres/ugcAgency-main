@@ -9,9 +9,10 @@
  */
 
 // Supabase Configuration
+// For production: Set these via Vercel environment variables
 const SUPABASE_CONFIG = {
-    url: 'YOUR_SUPABASE_PROJECT_URL', // e.g., https://xxxxx.supabase.co
-    anonKey: 'YOUR_SUPABASE_ANON_KEY' // Your public anon key
+    url: window.ENV?.SUPABASE_URL || 'YOUR_SUPABASE_PROJECT_URL', // e.g., https://xxxxx.supabase.co
+    anonKey: window.ENV?.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY' // Your public anon key
 };
 
 // Initialize Supabase client
@@ -23,8 +24,24 @@ function initSupabase() {
         return null;
     }
     
+    // Validate configuration
+    if (!SUPABASE_CONFIG.url || SUPABASE_CONFIG.url === 'YOUR_SUPABASE_PROJECT_URL') {
+        console.error('Supabase URL not configured. Please set SUPABASE_URL environment variable.');
+        return null;
+    }
+    
+    if (!SUPABASE_CONFIG.anonKey || SUPABASE_CONFIG.anonKey === 'YOUR_SUPABASE_ANON_KEY') {
+        console.error('Supabase anon key not configured. Please set SUPABASE_ANON_KEY environment variable.');
+        return null;
+    }
+    
     if (!supabaseClient) {
-        supabaseClient = supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+        try {
+            supabaseClient = supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+        } catch (error) {
+            console.error('Failed to initialize Supabase client:', error);
+            return null;
+        }
     }
     
     return supabaseClient;
