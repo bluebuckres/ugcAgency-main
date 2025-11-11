@@ -12,7 +12,6 @@
     "dev:alt": "python -m http.server 8001", 
     "dev:8080": "python -m http.server 8080",
     "start": "npm run dev",
-    "build": "echo 'Static site ready for production'",
     "preview": "python -m http.server 3000",
     "analytics:setup": "./deployment/scripts/setup-analytics.sh",
     "analytics:start": "cd deployment/docker && docker-compose up -d",
