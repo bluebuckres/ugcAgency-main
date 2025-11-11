@@ -1,38 +1,29 @@
-# MakeUGC Website
+# 🎨 MakeUGC - Professional UGC Agency Website
 
-A professional UGC (User Generated Content) agency website built with modern web technologies.
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat&logo=vercel)](https://makeugc.vercel.app)
+[![Supabase](https://img.shields.io/badge/Database-Supabase-green?style=flat&logo=supabase)](https://supabase.com)
+[![Vanilla JS](https://img.shields.io/badge/Built%20with-Vanilla%20JS-yellow?style=flat&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-## 🚀 Project Structure
+> India's leading UGC agency website with Supabase integration, modern design, and production-ready deployment.
 
-```
-ugcAgency-main/
-├── 📁 public/                    # Static assets and pages
-│   ├── 📁 blog/                 # Blog articles
-│   ├── 📁 legal/                # Legal pages (privacy, terms, etc.)
-│   └── 📁 tools/                # Interactive tools (calculators, etc.)
-├── 📁 src/                      # Source code
-│   ├── 📁 components/           # Reusable components
-│   ├── 📁 pages/               # Main pages
-│   └── 📁 layouts/             # Page layouts
-├── 📁 assets/                   # Static assets (CSS, JS, images)
-├── 📁 analytics/               # Analytics configuration
-├── 📁 deployment/              # Deployment scripts and configs
-├── 📁 docs/                    # Documentation
-└── 📁 scripts/                 # Build and utility scripts
-```
+## ✨ Features
 
-## 🛠️ Features
-
-- **Modern Design**: Clean, professional UGC agency website
-- **Blog System**: Comprehensive blog with 9+ articles
-- **Interactive Tools**: ROI calculators, content calendars, quizzes
-- **Analytics**: Privacy-compliant Umami analytics
-- **SEO Optimized**: Proper meta tags, sitemap, structured data
-- **Mobile Responsive**: Optimized for all devices
-- **Performance**: Fast loading with optimized assets
+- 🎨 **Modern Design** - Wabi-Sabi inspired UI with sage green palette
+- 📝 **Form Integration** - Supabase-powered creator applications & contact forms
+- 📚 **Blog System** - Professional case studies and guides
+- 📊 **Analytics Ready** - Umami analytics integration
+- 📱 **Mobile Responsive** - Optimized for all devices
+- 🔒 **Secure** - Row Level Security with Supabase
+- ⚡ **Fast** - Static site with CDN delivery
+- 🔍 **SEO Optimized** - Meta tags, sitemap, robots.txt
 
 ## 🚀 Quick Start
 
+### Prerequisites
+- Node.js 16+ (for local dev server)
+- Git
+- Supabase account (free tier)
+- Vercel account (free tier)
 ### Development Server
 ```bash
 # Start local development server
