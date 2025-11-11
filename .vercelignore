@@ -1,27 +1,42 @@
-# Documentation files (not needed in production)
+# Vercel deployment ignore patterns
+# Only /public directory will be deployed
+
+# Documentation (not needed for deployment)
+docs/
 *.md
 !README.md
+Blog/
 
 # Development files
-node_modules/
+.env.example
+.editorconfig
+DEPLOY.sh
+QUICK_DEPLOY_COMMANDS.sh
+
+# Git
 .git/
+.gitignore
+
+# Analytics & Deployment configs (handled separately)
+analytics/
+deployment/
+scripts/
+
+# Database
+supabase-tables.sql
+
+# Temporary & system files
 .DS_Store
 *.log
-
-# Deployment configs for other platforms
-netlify.toml
+*.tmp
+node_modules/
 _redirects
-
-# Analytics (if using Docker locally)
-analytics/
-umami/
-deployment/docker/
+netlify.toml
 
 # Scripts
 scripts/
 deployment/scripts/
 
-# Temporary files
 *.tmp
 *.temp
 .cache/

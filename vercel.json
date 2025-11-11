@@ -4,7 +4,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "buildCommand": null,
-  "outputDirectory": ".",
+  "outputDirectory": "public",
   "installCommand": null,
   "headers": [
     {
@@ -42,13 +42,10 @@
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "handle": "filesystem"
+      "source": "/(.*)",
+      "destination": "/$1"
     }
   ],
   "redirects": [
