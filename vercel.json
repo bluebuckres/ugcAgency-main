@@ -3,6 +3,9 @@
   "public": false,
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
   "headers": [
     {
       "source": "/(.*)",
@@ -39,10 +42,13 @@
       ]
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/index.html"
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "handle": "filesystem"
     }
   ],
   "redirects": [
