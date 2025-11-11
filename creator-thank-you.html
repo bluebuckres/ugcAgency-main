@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Received | MakeUGC</title>
+    <meta name="description" content="Thank you for applying to become a UGC creator with MakeUGC.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/makeugclogo-01.svg">
+    <link rel="apple-touch-icon" href="/assets/images/makeugclogo-01.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#9CAF88',
+                        'warm-stone': '#E6DDD4',
+                        charcoal: '#3A3A3A',
+                        'soft-clay': '#D4C4B0',
+                        moss: '#7A8471',
+                        cream: '#F5F1EB',
+                        rust: '#B85450',
+                        'dust-blue': '#8B9DC3'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes checkmark {
+            0% {
+                transform: scale(0) rotate(45deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(45deg);
+            }
+            100% {
+                transform: scale(1) rotate(45deg);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .checkmark-circle {
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .checkmark-icon {
+            animation: checkmark 0.6s ease-out 0.3s both;
+        }
+        
+        .content-fade {
+            animation: fadeInUp 0.6s ease-out 0.5s both;
+        }
+    </style>
+</head>
+<body class="font-inter bg-cream text-charcoal min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-2xl w-full text-center">
+        <!-- Success Checkmark -->
+        <div class="checkmark-circle mb-8 inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-sage to-moss rounded-full shadow-2xl">
+            <i data-lucide="check" class="checkmark-icon w-16 h-16 text-white"></i>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="content-fade">
+            <h1 class="font-crimson text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                Application Received! 🎉
+            </h1>
+            <p class="text-xl text-charcoal/80 mb-8 leading-relaxed">
+                Thank you for applying to become a UGC creator with MakeUGC.
+            </p>
+            
+            <!-- What Happens Next -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg mb-8 text-left">
+                <h2 class="font-crimson text-2xl font-bold text-charcoal mb-6 text-center">What Happens Next?</h2>
+                
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center">
+                            <span class="font-bold text-sage">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-charcoal mb-1">Application Review</h3>
+                            <p class="text-charcoal/70 text-sm">Our team will review your application and portfolio within 2-3 business days.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center">
+                            <span class="font-bold text-sage">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-charcoal mb-1">Email Response</h3>
+                            <p class="text-charcoal/70 text-sm">We'll send you an email with next steps or a request for more information.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center">
+                            <span class="font-bold text-sage">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-charcoal mb-1">Onboarding Call</h3>
+                            <p class="text-charcoal/70 text-sm">If approved, we'll schedule a call to discuss opportunities and training.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center">
+                            <span class="font-bold text-sage">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-charcoal mb-1">Start Creating</h3>
+                            <p class="text-charcoal/70 text-sm">Begin working with brands and earning through UGC content creation!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Important Note -->
+            <div class="bg-dust-blue/10 border-2 border-dust-blue/30 rounded-xl p-6 mb-8">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="info" class="w-6 h-6 text-dust-blue flex-shrink-0 mt-1"></i>
+                    <div class="text-left">
+                        <h3 class="font-semibold text-charcoal mb-2">Check Your Email</h3>
+                        <p class="text-sm text-charcoal/70">
+                            Please check your email (including spam folder) for our response. Make sure to whitelist <strong>contact@makeugc.in</strong> to ensure you receive our messages.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-sage text-white px-8 py-4 rounded-xl font-semibold hover:bg-moss transition-all hover:shadow-lg hover:-translate-y-0.5">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                    Back to Home
+                </a>
+                <a href="blog.html" class="inline-flex items-center justify-center gap-2 bg-white text-charcoal px-8 py-4 rounded-xl font-semibold border-2 border-sage/20 hover:border-sage transition-all hover:shadow-lg hover:-translate-y-0.5">
+                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                    Read Our Blog
+                </a>
+            </div>
+            
+            <!-- Social Proof -->
+            <div class="mt-12 pt-8 border-t border-charcoal/10">
+                <p class="text-sm text-charcoal/60 mb-4">Join our growing creator community</p>
+                <div class="flex items-center justify-center gap-8 text-charcoal/50">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-sage">120+</div>
+                        <div class="text-xs">Active Creators</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-sage">500+</div>
+                        <div class="text-xs">Videos Created</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-sage">₹2k-10k</div>
+                        <div class="text-xs">Per Video</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - UGC Agency</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-warm-stone);
+            color: var(--color-charcoal);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: var(--color-cream);
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--color-sage);
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            color: rgba(44, 44, 44, 0.7);
+            font-size: 16px;
+        }
+
+        .content {
+            background: var(--color-cream);
+            padding: 40px;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-sage);
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(139, 154, 122, 0.2);
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            color: var(--color-muted-teal);
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .highlight {
+            background: rgba(212, 165, 116, 0.1);
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            border-left: 4px solid var(--color-soft-terracotta);
+            margin: 20px 0;
+        }
+
+        .no-refund-notice {
+            background: rgba(139, 154, 122, 0.1);
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            border-left: 4px solid var(--color-sage);
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-sage);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .contact-info {
+            background: var(--color-warm-stone);
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Refund Policy</h1>
+            <p>Last updated: January 15, 2025</p>
+        </div>
+
+        <div class="content">
+            <div class="no-refund-notice">
+                <h2 style="border: none; margin: 0; color: var(--color-sage);">🚨 NO REFUND POLICY</h2>
+                <p style="margin: 10px 0 0 0; font-weight: 600;">All sales are final. UGC Agency operated by BlueBuck Research (Media) LLP does not offer refunds for any services purchased.</p>
+            </div>
+
+            <h2>1. Policy Overview</h2>
+            <p>Thank you for choosing UGC Agency, operated by BlueBuck Research (Media) LLP. This Refund Policy explains our stance on refunds and cancellations for all services provided through our platform.</p>
+
+            <div class="highlight">
+                <p><strong>Important Notice:</strong> By purchasing any of our services, you acknowledge and agree that all payments are final and non-refundable under any circumstances.</p>
+            </div>
+
+            <h2>2. No Refund Policy</h2>
+            
+            <h3>All Services</h3>
+            <p>We maintain a strict no-refund policy for all services offered by UGC Agency, including but not limited to:</p>
+            <ul>
+                <li>UGC content creation services</li>
+                <li>Creator management and coordination</li>
+                <li>Content strategy and consultation</li>
+                <li>Performance tracking and analytics</li>
+                <li>Premium tool access and subscriptions</li>
+                <li>Training and educational programs</li>
+                <li>Custom content packages</li>
+            </ul>
+
+            <h3>Digital Products and Tools</h3>
+            <p>Access to digital products, including templates, calculators, and tracking tools, is granted immediately upon payment. Due to the digital nature of these products, no refunds will be provided.</p>
+
+            <h2>3. Service Delivery</h2>
+            
+            <h3>Quality Assurance</h3>
+            <p>We are committed to delivering high-quality services that meet your expectations. Our no-refund policy is supported by:</p>
+            <ul>
+                <li>Detailed service descriptions and expectations</li>
+                <li>Pre-project consultations to ensure alignment</li>
+                <li>Regular communication throughout project execution</li>
+                <li>Professional creator vetting and quality control</li>
+                <li>Performance tracking and reporting</li>
+            </ul>
+
+            <h3>Service Modifications</h3>
+            <p>If you are unsatisfied with any aspect of our services, we encourage you to contact us immediately. While we cannot offer refunds, we may be able to:</p>
+            <ul>
+                <li>Provide additional revisions within the scope of work</li>
+                <li>Adjust the project approach to better meet your needs</li>
+                <li>Offer alternative solutions within the existing budget</li>
+                <li>Apply credits toward future services (at our discretion)</li>
+            </ul>
+
+            <h2>4. Payment Processing</h2>
+            
+            <h3>Transaction Finality</h3>
+            <ul>
+                <li>All payments are processed immediately upon confirmation</li>
+                <li>Payment confirmation constitutes acceptance of this no-refund policy</li>
+                <li>Chargebacks and payment disputes will be contested in accordance with this policy</li>
+            </ul>
+
+            <h3>Billing Disputes</h3>
+            <p>If you believe there has been an error in billing, please contact us within 48 hours of the transaction. We will investigate and resolve legitimate billing errors, but this does not constitute a refund policy change.</p>
+
+            <h2>5. Service Cancellation</h2>
+            
+            <h3>Customer Cancellation</h3>
+            <ul>
+                <li>Services may be cancelled before work begins, but no refund will be provided</li>
+                <li>Partial work completed will be delivered as-is without refund</li>
+                <li>Future scheduled services may be cancelled without penalty if requested 48 hours in advance</li>
+            </ul>
+
+            <h3>Company Cancellation</h3>
+            <p>In the rare event that we must cancel services due to circumstances beyond our control, we will work with you to reschedule or provide alternative solutions. Refunds are not guaranteed even in these circumstances.</p>
+
+            <h2>6. Force Majeure</h2>
+            <p>We are not liable for any delays or inability to perform due to circumstances beyond our reasonable control, including but not limited to natural disasters, government actions, or other unforeseeable events. No refunds will be provided for delays caused by such circumstances.</p>
+
+            <h2>7. Subscription Services</h2>
+            
+            <h3>Recurring Billing</h3>
+            <ul>
+                <li>Subscription services are billed in advance</li>
+                <li>No refunds are provided for unused portions of subscription periods</li>
+                <li>Cancellations take effect at the end of the current billing period</li>
+                <li>Access to premium features continues until the end of the paid period</li>
+            </ul>
+
+            <h2>8. Legal Compliance</h2>
+            <p>This no-refund policy is designed to comply with Indian consumer protection laws while protecting our business interests. By using our services, you acknowledge that you have read and understood these terms.</p>
+
+            <h2>9. Exceptions</h2>
+            <p>The only exceptions to this no-refund policy may occur if:</p>
+            <ul>
+                <li>Required by applicable law</li>
+                <li>We are unable to deliver services due to technical failures on our part</li>
+                <li>Fraudulent activity is discovered in relation to the transaction</li>
+            </ul>
+            <p>Any exceptions will be evaluated on a case-by-case basis at our sole discretion.</p>
+
+            <h2>10. Customer Support</h2>
+            <p>We are committed to customer satisfaction within the bounds of this policy. If you have concerns about our services, please contact our support team. While we cannot offer refunds, we will work to address your concerns professionally.</p>
+
+            <div class="contact-info">
+                <h3>Questions About This Policy</h3>
+                <p>If you have questions about our refund policy, please contact us before making a purchase:</p>
+                <ul>
+                    <li><strong>Email:</strong> support@makeugc.in</li>
+                    <li><strong>Company:</strong> MakeUGC.in</li>
+                    <li><strong>Address:</strong> 4G KrishtiKunja, Airport, Kolkata, India</li>
+                    <li><strong>Mobile:</strong> +91 9239161632</li>
+                    <li><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM IST</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Final Notice:</strong> By proceeding with any purchase, you acknowledge that you have read, understood, and agree to this no-refund policy. This policy is part of our Terms and Conditions and is legally binding.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

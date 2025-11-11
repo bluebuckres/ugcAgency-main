@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Cost Calculator - UGC Pipeline Estimator</title>
+    
+    <!-- Authentication Protection -->
+    <script src="../assets/js/auth-protection.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-warm-stone);
+            padding: 20px;
+            min-height: 100vh;
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--color-cream);
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-lift);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--color-sage);
+            color: var(--color-cream);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .main-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-section {
+            background: white;
+            border: 2px solid rgba(139, 154, 122, 0.1);
+            border-radius: var(--radius-soft);
+            padding: 24px;
+        }
+
+        .form-section h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--color-sage);
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(139, 154, 122, 0.2);
+            border-radius: var(--radius-soft);
+            font-size: 14px;
+            transition: var(--transition-gentle);
+            background: var(--color-cream);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-sage);
+            box-shadow: 0 0 0 3px rgba(139, 154, 122, 0.1);
+        }
+
+        .slider-container {
+            position: relative;
+            margin: 16px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(139, 154, 122, 0.2);
+            outline: none;
+            appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-sage);
+            cursor: pointer;
+        }
+
+        .content-types {
+            display: grid;
+            gap: 12px;
+        }
+
+        .content-type-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 12px;
+            align-items: center;
+            padding: 12px;
+            background: var(--color-cream);
+            border-radius: var(--radius-soft);
+        }
+
+        .results-panel {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .results-card {
+            background: var(--color-sage);
+            color: var(--color-cream);
+            border-radius: var(--radius-soft);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .total-cost {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cost-breakdown {
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            border-radius: var(--radius-soft);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            color: var(--color-sage);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .content-type-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .total-cost {
+                font-size: 36px;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div id="user-info"></div>
+            <h1>💰 Content Cost Calculator</h1>
+            <p>Rough estimate of monthly spend for your content pipeline</p>
+        </div>
+
+        <div class="main-content">
+            <div class="calculator-form">
+                <!-- Content Volume Section -->
+                <div class="form-section">
+                    <h3>📊 Monthly Content Volume</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Total Videos Per Month: <span id="videoCount">20</span></label>
+                        <div class="slider-container">
+                            <input type="range" class="slider" id="videoCountSlider" min="5" max="100" value="20" oninput="updateVideoCount()">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Average Creator Tier</label>
+                        <select class="form-control" id="creatorTier" onchange="calculateCost()">
+                            <option value="micro">Micro Creators (1K-10K followers)</option>
+                            <option value="mid" selected>Mid-tier Creators (10K-100K followers)</option>
+                            <option value="macro">Macro Creators (100K-1M followers)</option>
+                            <option value="celebrity">Celebrity/Mega (1M+ followers)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Content Types Section -->
+                <div class="form-section">
+                    <h3>🎬 Content Type Distribution</h3>
+                    <div class="content-types" id="contentTypes">
+                        <div class="content-type-row">
+                            <span>Testimonials/Reviews</span>
+                            <input type="number" class="form-control" id="testimonials" value="8" min="0" onchange="updateDistribution()">
+                            <span class="cost-display" id="testimonialsCost">₹16,000</span>
+                        </div>
+                        <div class="content-type-row">
+                            <span>Product Demos</span>
+                            <input type="number" class="form-control" id="demos" value="6" min="0" onchange="updateDistribution()">
+                            <span class="cost-display" id="demosCost">₹15,000</span>
+                        </div>
+                        <div class="content-type-row">
+                            <span>Unboxing Videos</span>
+                            <input type="number" class="form-control" id="unboxing" value="4" min="0" onchange="updateDistribution()">
+                            <span class="cost-display" id="unboxingCost">₹8,000</span>
+                        </div>
+                        <div class="content-type-row">
+                            <span>Tutorials/How-to</span>
+                            <input type="number" class="form-control" id="tutorials" value="2" min="0" onchange="updateDistribution()">
+                            <span class="cost-display" id="tutorialsCost">₹6,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Costs Section -->
+                <div class="form-section">
+                    <h3>⚙️ Additional Services</h3>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="editing" onchange="calculateCost()"> 
+                            Video Editing & Post-production (+₹500/video)
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="whitelisting" onchange="calculateCost()"> 
+                            Creator Whitelisting Rights (+₹1,000/video)
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="management" onchange="calculateCost()"> 
+                            Campaign Management (15% of total cost)
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="rush" onchange="calculateCost()"> 
+                            Rush Delivery (48hrs) (+50% premium)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-panel">
+                <div class="results-card">
+                    <h2 style="margin-bottom: 16px; font-family: var(--font-serif);">Monthly Estimate</h2>
+                    <div class="total-cost" id="totalCost">₹45,000</div>
+                    <p style="opacity: 0.9; margin-bottom: 0;">Total Monthly Investment</p>
+
+                    <div class="cost-breakdown">
+                        <h4 style="margin-bottom: 16px; color: var(--color-sage);">Cost Breakdown</h4>
+                        <div class="breakdown-item">
+                            <span>Base Content Cost:</span>
+                            <span id="baseCost">₹45,000</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Editing Services:</span>
+                            <span id="editingCost">₹0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Whitelisting Rights:</span>
+                            <span id="whitelistingCost">₹0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Campaign Management:</span>
+                            <span id="managementCost">₹0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Rush Premium:</span>
+                            <span id="rushCost">₹0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <strong>Total Monthly Cost:</strong>
+                            <strong id="finalCost">₹45,000</strong>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; opacity: 0.9;">
+                        <p><strong>Per Video Average:</strong> <span id="perVideoCost">₹2,250</span></p>
+                        <p><strong>Per Day Cost:</strong> <span id="perDayCost">₹1,500</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const contentPricing = {
+            micro: { testimonials: 1500, demos: 2000, unboxing: 1800, tutorials: 2500 },
+            mid: { testimonials: 2000, demos: 2500, unboxing: 2000, tutorials: 3000 },
+            macro: { testimonials: 5000, demos: 7000, unboxing: 6000, tutorials: 8000 },
+            celebrity: { testimonials: 15000, demos: 20000, unboxing: 18000, tutorials: 25000 }
+        };
+
+        function updateVideoCount() {
+            const count = document.getElementById('videoCountSlider').value;
+            document.getElementById('videoCount').textContent = count;
+            updateDistribution();
+        }
+
+        function updateDistribution() {
+            const totalVideos = parseInt(document.getElementById('videoCountSlider').value);
+            const testimonials = parseInt(document.getElementById('testimonials').value) || 0;
+            const demos = parseInt(document.getElementById('demos').value) || 0;
+            const unboxing = parseInt(document.getElementById('unboxing').value) || 0;
+            const tutorials = parseInt(document.getElementById('tutorials').value) || 0;
+            
+            const currentTotal = testimonials + demos + unboxing + tutorials;
+            
+            if (currentTotal !== totalVideos) {
+                const remaining = totalVideos - currentTotal;
+                if (remaining !== 0) {
+                    document.getElementById('videoCount').style.color = 'var(--color-soft-terracotta)';
+                } else {
+                    document.getElementById('videoCount').style.color = 'var(--color-sage)';
+                }
+            }
+            
+            calculateCost();
+        }
+
+        function calculateCost() {
+            const creatorTier = document.getElementById('creatorTier').value;
+            const pricing = contentPricing[creatorTier];
+            
+            const testimonials = parseInt(document.getElementById('testimonials').value) || 0;
+            const demos = parseInt(document.getElementById('demos').value) || 0;
+            const unboxing = parseInt(document.getElementById('unboxing').value) || 0;
+            const tutorials = parseInt(document.getElementById('tutorials').value) || 0;
+            
+            const totalVideos = testimonials + demos + unboxing + tutorials;
+            
+            // Base costs
+            const testimonialsBaseCost = testimonials * pricing.testimonials;
+            const demosBaseCost = demos * pricing.demos;
+            const unboxingBaseCost = unboxing * pricing.unboxing;
+            const tutorialsBaseCost = tutorials * pricing.tutorials;
+            
+            let baseCost = testimonialsBaseCost + demosBaseCost + unboxingBaseCost + tutorialsBaseCost;
+            
+            // Update individual cost displays
+            document.getElementById('testimonialsCount').textContent = testimonials;
+            document.getElementById('testimonialsValue').textContent = `₹${testimonialsBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('testimonialsBreakdown').textContent = `${testimonials} × ₹${pricing.testimonials.toLocaleString('en-IN')}`;
+            
+            document.getElementById('demosCount').textContent = demos;
+            document.getElementById('demosValue').textContent = `₹${demosBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('demosBreakdown').textContent = `${demos} × ₹${pricing.demos.toLocaleString('en-IN')}`;
+            
+            document.getElementById('unboxingCount').textContent = unboxing;
+            document.getElementById('unboxingValue').textContent = `₹${unboxingBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('unboxingBreakdown').textContent = `${unboxing} × ₹${pricing.unboxing.toLocaleString('en-IN')}`;
+            
+            document.getElementById('tutorialsCount').textContent = tutorials;
+            document.getElementById('tutorialsValue').textContent = `₹${tutorialsBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('tutorialsBreakdown').textContent = `${tutorials} × ₹${pricing.tutorials.toLocaleString('en-IN')}`;
+            
+            // Additional services
+            let editingCost = 0;
+            let whitelistingCost = 0;
+            let managementCost = 0;
+            let rushCost = 0;
+            
+            if (document.getElementById('editing').checked) {
+                editingCost = totalVideos * 500;
+            }
+            
+            if (document.getElementById('whitelisting').checked) {
+                whitelistingCost = totalVideos * 1000;
+            }
+            
+            let subtotal = baseCost + editingCost + whitelistingCost;
+            
+            if (document.getElementById('management').checked) {
+                managementCost = subtotal * 0.15;
+            }
+            
+            if (document.getElementById('rush').checked) {
+                rushCost = subtotal * 0.5;
+            }
+            
+            const totalCost = subtotal + managementCost + rushCost;
+            
+            // Update displays
+            document.getElementById('baseCost').textContent = `₹${baseCost.toLocaleString('en-IN')}`;
+            document.getElementById('editingCost').textContent = `₹${editingCost.toLocaleString('en-IN')}`;
+            document.getElementById('whitelistingCost').textContent = `₹${whitelistingCost.toLocaleString('en-IN')}`;
+            document.getElementById('managementCost').textContent = `₹${Math.round(managementCost).toLocaleString('en-IN')}`;
+            document.getElementById('rushCost').textContent = `₹${Math.round(rushCost).toLocaleString('en-IN')}`;
+            document.getElementById('finalCost').textContent = `₹${Math.round(totalCost).toLocaleString('en-IN')}`;
+            document.getElementById('totalCost').textContent = `₹${Math.round(totalCost).toLocaleString('en-IN')}`;
+            
+            // Per video and per day costs
+            const perVideoCost = totalVideos > 0 ? totalCost / totalVideos : 0;
+            const perDayCost = totalCost / 30;
+            
+            document.getElementById('perVideoCost').textContent = `₹${Math.round(perVideoCost).toLocaleString('en-IN')}`;
+            document.getElementById('perDayCost').textContent = `₹${Math.round(perDayCost).toLocaleString('en-IN')}`;
+            
+            // Update individual content type costs
+            document.getElementById('testimonialsCount').textContent = `₹${testimonialsBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('demosCost').textContent = `₹${demosBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('unboxingCost').textContent = `₹${unboxingBaseCost.toLocaleString('en-IN')}`;
+            document.getElementById('tutorialsCost').textContent = `₹${tutorialsBaseCost.toLocaleString('en-IN')}`;
+        }
+
+        // Initialize
+        calculateCost();
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

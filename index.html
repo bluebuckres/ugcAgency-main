@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeUGC - Performance-First UGC That Drives Sales | MakeUGC.in</title>
+    <meta name="description" content="Performance-first UGC that drives sales, not just likes. 120+ creators ready to tell your brand story. Trusted by 50+ D2C brands with proven ROI results.">
+    <meta name="keywords" content="UGC agency, user generated content, D2C marketing, creator network, performance marketing, ROI driven UGC">
+    <meta name="author" content="MakeUGC">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeugc.in">
+    <meta property="og:title" content="MakeUGC - Performance-First UGC for D2C Brands">
+    <meta property="og:description" content="Transform your marketing with authentic UGC that converts. Get results from day one with our trained creator network.">
+    <meta property="og:image" content="https://makeugc.in/assets/images/makeugclogo-01.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://makeugc.in">
+    <meta property="twitter:title" content="MakeUGC - Performance-First UGC">
+    <meta property="twitter:description" content="Performance-first UGC that drives sales, not just likes. 120+ creators ready.">
+    <meta property="twitter:image" content="https://makeugc.in/assets/images/makeugclogo-01.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://makeugc.in">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/makeugclogo-01.svg">
+    <link rel="apple-touch-icon" href="/assets/images/makeugclogo-01.svg">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MakeUGC",
+      "alternateName": "MakeUGC.in",
+      "url": "https://makeugc.in",
+      "logo": "https://makeugc.in/assets/images/makeugclogo-01.svg",
+      "description": "Performance-first UGC agency for D2C brands. We create authentic user-generated content that drives sales and ROI.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9239161632",
+        "contactType": "Customer Service",
+        "email": "contact@makeugc.in",
+        "availableLanguage": ["English", "Hindi"],
+        "areaServed": "IN"
+      },
+      "sameAs": [
+        "https://instagram.com/makeugc",
+        "https://linkedin.com/company/makeugc"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "50"
+      },
+      "offers": {
+        "@type": "Offer",
+        "description": "UGC Content Creation Services for D2C Brands",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons with fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Fallback loading for Lucide
+        if (typeof lucide === 'undefined') {
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.js';
+            document.head.appendChild(fallbackScript);
+        }
+    </script>
+    
+    <style>
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            --shadow-glow: 0 8px 32px rgba(139, 154, 122, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-charcoal);
+            background: var(--color-warm-stone);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            color: var(--color-charcoal);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation Styles */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+            transition: var(--transition-gentle);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-charcoal);
+            text-decoration: none;
+            transition: var(--transition-gentle);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition-gentle);
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a:hover {
+            color: var(--color-sage);
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sage);
+            transition: var(--transition-gentle);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Special styling for navbar contact button */
+        .nav-links .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            color: var(--color-sage);
+            border: 1.5px solid var(--color-sage);
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white;
+            border-color: var(--color-sage);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+        }
+
+        .nav-links .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .nav-links .btn-primary::after {
+            display: none;
+        }
+
+        /* Default btn-primary for other uses */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--color-sage);
+            color: white;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-muted-teal);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--color-sage);
+            border: 2px solid var(--color-sage);
+            border-radius: var(--radius-soft);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-sage);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--color-charcoal);
+            padding: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-toggle:hover {
+            background: rgba(139, 154, 122, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-warm-stone) 0%, var(--color-cream) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%238B9A7A' fill-opacity='0.03'><path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/></g></g></svg>") repeat;
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--color-charcoal), var(--color-sage));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subheading {
+            font-size: 1.3rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        /* UGC Grid Styles */
+        .ugc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .ugc-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: scroll-up 20s linear infinite;
+        }
+
+        .ugc-column:nth-child(even) {
+            animation: scroll-down 20s linear infinite;
+            animation-delay: -10s;
+        }
+
+        .ugc-item {
+            position: relative;
+            border-radius: var(--radius-soft);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            min-height: 200px;
+            background: var(--color-cream);
+        }
+
+        .ugc-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .ugc-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-gentle);
+        }
+
+        .ugc-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 1rem;
+            opacity: 0;
+            transition: var(--transition-gentle);
+        }
+
+        .ugc-item:hover .ugc-overlay {
+            opacity: 1;
+        }
+
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes scroll-down {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 5rem 0;
+            background: var(--color-cream);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-gentle);
+            border-top: 4px solid var(--color-sage);
+            min-width: 200px;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--color-sage);
+            display: block;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+            opacity: 0.7;
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-smooth);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-sage);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-warm-stone) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 161, 137, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .testimonial-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border-left: 5px solid var(--color-sage);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 6rem;
+            color: var(--color-sage);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .star {
+            width: 24px;
+            height: 24px;
+            position: relative;
+        }
+
+        .star svg {
+            width: 100%;
+            height: 100%;
+            fill: #FFB800;
+            filter: drop-shadow(0 2px 4px rgba(255, 184, 0, 0.3));
+        }
+
+        blockquote {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-style: normal;
+            color: var(--color-charcoal);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--color-cream);
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #7a9278 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(139, 161, 137, 0.3);
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--color-charcoal);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-title {
+            color: var(--color-sage);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 5rem 0;
+            background: var(--color-cream);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-softer);
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-gentle);
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .result-metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-sage);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-description {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-detail {
+            color: var(--color-charcoal);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Resource Section */
+        .resource-section {
+            padding: 5rem 0;
+            background: var(--color-sage);
+            color: white;
+            text-align: center;
+        }
+
+        .resource-content h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .resource-content p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .resource-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkmark {
+            background: white;
+            color: var(--color-sage);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .resource-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+
+        .resource-form input {
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-size: 1rem;
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        /* ROI Calculator Section */
+        .roi-section {
+            padding: 5rem 0;
+            background: var(--color-warm-stone);
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .slider-container {
+            position: relative;
+        }
+
+        .slider-container input[type="range"] {
+            width: 100%;
+            height: 8px;
+            background: var(--color-warm-stone);
+            border-radius: 4px;
+            outline: none;
+            appearance: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-container input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--color-sage);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-container input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--color-sage);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .slider-value {
+            font-weight: 700;
+            color: var(--color-sage);
+            font-size: 1.1rem;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+            font-size: 1rem;
+            background: white;
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .result-card {
+            background: var(--color-cream);
+            padding: 2rem;
+            border-radius: var(--radius-soft);
+            text-align: center;
+            transition: var(--transition-gentle);
+        }
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .result-card h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-sage);
+            font-family: var(--font-serif);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-change {
+            font-size: 0.9rem;
+            color: var(--color-sage);
+            font-weight: 600;
+        }
+
+
+        .calculator-insights {
+            background: var(--color-warm-stone);
+            padding: 1.5rem;
+            border-radius: var(--radius-soft);
+            margin: 2rem 0;
+        }
+
+        .calculator-insights h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .calculator-insights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .calculator-insights li {
+            padding: 0.5rem 0;
+            color: var(--color-charcoal);
+            border-bottom: 1px solid rgba(139, 154, 122, 0.1);
+        }
+
+        .calculator-insights li:last-child {
+            border-bottom: none;
+        }
+
+        .calculator-cta {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+        }
+
+        /* Services Overview Section */
+        .services-overview {
+            padding: 5rem 0;
+            background: var(--color-cream);
+            text-align: center;
+        }
+
+        .services-grid-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-overview-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-gentle);
+            text-align: center;
+        }
+
+        .service-overview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .service-icon-overview {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: var(--color-sage);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-icon-overview i {
+            color: white;
+            width: 28px;
+            height: 28px;
+        }
+
+        .service-overview-card h3 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .service-overview-card p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-link {
+            color: var(--color-sage);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-gentle);
+        }
+
+        .service-link:hover {
+            color: var(--color-muted-teal);
+        }
+
+        /* Rules Section */
+        .rules-section {
+            padding: 5rem 0;
+            background: var(--color-charcoal);
+            color: white;
+            text-align: center;
+        }
+
+        .rules-section h2 {
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .rule-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: var(--radius-softer);
+            text-align: left;
+            transition: var(--transition-gentle);
+        }
+
+        .rule-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .rule-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-sage);
+            margin-bottom: 1rem;
+        }
+
+        .rule-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .rule-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Final CTA Section */
+        .final-cta-section {
+            padding: 5rem 0;
+            background: var(--color-warm-stone);
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cta-option {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+        }
+
+        .cta-option h3 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .cta-option p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--color-charcoal);
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+            border: 2px solid #ffb74d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .cta-note-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+            border-radius: 50%;
+            flex-shrink: 0;
+            z-index: 1;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .cta-note-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }
+
+        .cta-note-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile Navigation */
+        .nav-links.mobile-open {
+            display: flex;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1.5rem;
+            z-index: 999;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+        }
+
+        .nav-links.mobile-open li a {
+            font-size: 1.125rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.1);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Better touch targets */
+            .btn-primary, .btn-secondary {
+                min-height: 44px;
+                padding: 0.875rem 1.75rem;
+                font-size: 1rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .ugc-grid {
+                grid-template-columns: repeat(2, 1fr);
+                height: 400px;
+            }
+
+            .stats-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .service-icon-overview i {
+                color: white;
+                width: 28px;
+                height: 28px;
+            }
+
+            .service-overview-card h3 {
+                color: var(--color-charcoal);
+                margin-bottom: 1rem;
+            }
+
+            .service-overview-card p {
+                color: var(--color-charcoal);
+                opacity: 0.8;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+
+            .service-link {
+                color: var(--color-sage);
+                text-decoration: none;
+                font-weight: 600;
+                transition: var(--transition-gentle);
+            }
+
+            .service-link:hover {
+                color: var(--color-muted-teal);
+            }
+
+            /* Rules Section */
+            .rules-section {
+                padding: 5rem 0;
+                background: var(--color-charcoal);
+                color: white;
+                text-align: center;
+            }
+
+            .rules-section h2 {
+                color: white;
+                margin-bottom: 3rem;
+            }
+
+            .rules-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .rule-card {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 2.5rem;
+                border-radius: var(--radius-softer);
+                text-align: left;
+                transition: var(--transition-gentle);
+            }
+
+            .rule-card:hover {
+                background: rgba(255, 255, 255, 0.15);
+                transform: translateY(-8px);
+            }
+
+            .rule-number {
+                font-size: 3rem;
+                font-weight: 700;
+                color: var(--color-sage);
+                margin-bottom: 1rem;
+            }
+
+            .rule-card h3 {
+                color: white;
+                margin-bottom: 1rem;
+            }
+
+            .rule-card p {
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.6;
+            }
+
+            /* Final CTA Section */
+            .final-cta-section {
+                padding: 5rem 0;
+                background: var(--color-warm-stone);
+                text-align: center;
+            }
+
+            .cta-buttons {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+                margin: 3rem 0;
+            }
+
+            .cta-option {
+                background: white;
+                padding: 2.5rem;
+                border-radius: var(--radius-softer);
+                box-shadow: var(--shadow-subtle);
+                text-align: center;
+            }
+
+            .testimonial-card {
+                padding: 2rem;
+            }
+
+            /* ROI Calculator Mobile */
+            .calculator-inputs {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .input-group label {
+                font-size: 0.9rem;
+            }
+
+            .slider-value {
+                font-size: 1.25rem;
+            }
+
+            .calculator-results {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .result-card {
+                padding: 1.5rem !important;
+                text-align: center;
+            }
+
+            .result-value {
+                font-size: 1.5rem !important;
+            }
+
+            .result-subtitle {
+                font-size: 0.85rem !important;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover;">
+                <span>MakeUGC</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="creators.html">Creators</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
+            </ul>
+            <button class="mobile-nav-toggle"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Performance-First UGC That Drives Sales, Not Just Likes</h1>
+                    <p class="hero-subheading">120+ creators ready to tell your brand story. Transform your marketing with authentic UGC that converts browsers into buyers.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html?service=strategy" class="btn-primary">Book Free Strategy Call</a>
+                        <a href="roi-calculator.html" class="btn-secondary">Calculate Your ROI</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="ugc-grid" id="ugcGrid">
+                        <div class="ugc-column">
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-1.png" alt="UGC Content 1">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-5.png" alt="UGC Content 5">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-9.png" alt="UGC Content 9">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-1.png" alt="UGC Content 1">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-5.png" alt="UGC Content 5">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-9.png" alt="UGC Content 9">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ugc-column">
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-2.png" alt="UGC Content 2">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-6.png" alt="UGC Content 6">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-10.png" alt="UGC Content 10">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-2.png" alt="UGC Content 2">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-6.png" alt="UGC Content 6">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-10.png" alt="UGC Content 10">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ugc-column">
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-3.png" alt="UGC Content 3">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-7.png" alt="UGC Content 7">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-11.png" alt="UGC Content 11">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-3.png" alt="UGC Content 3">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-7.png" alt="UGC Content 7">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-11.png" alt="UGC Content 11">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ugc-column">
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-4.png" alt="UGC Content 4">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-8.png" alt="UGC Content 8">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-12.png" alt="UGC Content 12">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-4.png" alt="UGC Content 4">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-8.png" alt="UGC Content 8">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                            <div class="ugc-item" onclick="navigateToCreators()">
+                                <img src="assets/images/ugc-photo-12.png" alt="UGC Content 12">
+                                <div class="ugc-overlay">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Trusted by 50+ D2C Brands</h2>
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">120+</span>
+                    <div class="stat-label">Creators</div>
+                    <div class="stat-description">Ready to tell your brand story</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">5.2x</span>
+                    <div class="stat-label">Average ROAS</div>
+                    <div class="stat-description">Performance-driven results</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">₹2.5Cr+</span>
+                    <div class="stat-label">Revenue Generated</div>
+                    <div class="stat-description">For our brand partners</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <span class="stat-number">48hr</span>
+                    <div class="stat-label">Turnaround Time</div>
+                    <div class="stat-description">From brief to final content</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="testimonial-card animate-on-scroll">
+                <div class="stars">
+                    <div class="star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <div class="star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <div class="star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <div class="star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <div class="star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                </div>
+                <blockquote>
+                    The UGC content from this team outperformed our traditional ads by 340%. Within 3 months, our ROAS went from 2.1x to 7.9x. The authentic approach just works.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AS</div>
+                    <div class="author-info">
+                        <div class="author-name">Amit Sagar</div>
+                        <div class="author-title">Senior Manager, Meta & E-Fitness - Decatry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Latest Results We've Delivered</h2>
+            <div class="results-grid">
+                <div class="result-card animate-on-scroll">
+                    <div class="result-metric">5.2x ROAS</div>
+                    <div class="result-description">E-commerce Brand</div>
+                    <div class="result-detail">in 30 Days</div>
+                </div>
+                <div class="result-card animate-on-scroll">
+                    <div class="result-metric">2,847 Sign-ups</div>
+                    <div class="result-description">Fitness App</div>
+                    <div class="result-detail">from Single UGC Campaign</div>
+                </div>
+                <div class="result-card animate-on-scroll">
+                    <div class="result-metric">156% Increase</div>
+                    <div class="result-description">Beauty Brand</div>
+                    <div class="result-detail">in Sales Conversion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resource Section -->
+    <section class="resource-section">
+        <div class="container">
+            <div class="resource-content">
+                <h2>Free Resource: The UGC Content Strategy Template</h2>
+                <p>Download our proven framework that helped 50+ D2C brands scale with UGC content</p>
+                
+                <div class="resource-features">
+                    <div class="feature-item">
+                        <span class="checkmark">✓</span> 40+ UGC content calendar template
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✓</span> Creator brief templates
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✓</span> Hook formulas that convert
+                    </div>
+                    <div class="feature-item">
+                        <span class="checkmark">✓</span> Platform-specific optimization checklist
+                    </div>
+                </div>
+
+                <form class="resource-form" id="resourceForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Company name" required>
+                    <button type="submit" class="btn-primary">Download Free Template</button>
+                </form>
+
+                <p class="form-note">Join 1,200+ brands using our free resources</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="roi-section" id="roiCalculatorSection">
+        <div class="container">
+            <div class="calculator-card">
+                <div class="calculator-header">
+                    <h3>Calculate Your UGC Investment Returns</h3>
+                    <p>Enter your current marketing details to see how UGC can improve your ROI</p>
+                </div>
+                
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="currentSpend">Current Monthly Marketing Spend (₹)</label>
+                        <div class="slider-container">
+                            <input type="range" id="currentSpend" min="50000" max="1000000" value="200000" step="10000">
+                            <div class="slider-value">₹<span id="currentSpendValue">2,00,000</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="currentROAS">Current ROAS (Return on Ad Spend)</label>
+                        <div class="slider-container">
+                            <input type="range" id="currentROAS" min="1" max="8" value="2.5" step="0.1">
+                            <div class="slider-value"><span id="currentROASValue">2.5</span>x</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="timeframe">Investment Timeframe</label>
+                        <select id="timeframe">
+                            <option value="3">3 Months</option>
+                            <option value="6" selected>6 Months</option>
+                            <option value="12">12 Months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="ugcBudget">UGC Investment Budget (₹)</label>
+                        <div class="slider-container">
+                            <input type="range" id="ugcBudget" min="100000" max="500000" value="250000" step="10000">
+                            <div class="slider-value">₹<span id="ugcBudgetValue">2,50,000</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card improved-revenue">
+                        <h4>Projected Revenue</h4>
+                        <div class="result-value" id="projectedRevenue">₹12,00,000</div>
+                        <div class="result-change" id="revenueIncrease">+67% increase</div>
+                    </div>
+                    
+                    <div class="result-card net-profit">
+                        <h4>Net Profit Gain</h4>
+                        <div class="result-value" id="netProfit">₹4,80,000</div>
+                        <div class="result-change" id="profitMargin">192% ROI</div>
+                    </div>
+                    
+                    <div class="result-card improved-roas">
+                        <h4>New ROAS</h4>
+                        <div class="result-value" id="newROAS">4.8x</div>
+                        <div class="result-change" id="roasImprovement">+92% better</div>
+                    </div>
+                </div>
+                
+                
+                <div class="calculator-insights">
+                    <h4>Your Investment Breakdown</h4>
+                    <ul id="insights">
+                        <li>With ₹2,50,000 invested in UGC content creation</li>
+                        <li>Improved authenticity can boost conversion rates by 2.3x</li>
+                        <li>UGC performs 5x better than brand-created content</li>
+                        <li>Expected payback period: 4-6 months</li>
+                    </ul>
+                </div>
+                
+                <div class="calculator-cta">
+                    <h4>Ready to achieve these results?</h4>
+                    <p>Book a free strategy call to discuss your specific goals and see how our UGC approach can transform your marketing ROI.</p>
+                    <a href="contact.html?service=roi-strategy" class="btn-primary">Schedule Strategy Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="services-overview">
+        <div class="container">
+            <h2>We create content that converts customers, not just content that looks pretty.</h2>
+            <p>Every piece of content we create is optimized for performance metrics that matter - conversions, ROAS, and revenue growth.</p>
+
+            <div class="services-grid-overview">
+                <div class="service-overview-card animate-on-scroll">
+                    <div class="service-icon-overview">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3>Creator Partnerships</h3>
+                    <p>Vetted creators with full authentic brand voices. Strategic matchings by demographics and psychographics. No generic 'influenced' anything.</p>
+                    <a href="creators.html" class="service-link">View Our Creators →</a>
+                </div>
+
+                <div class="service-overview-card animate-on-scroll">
+                    <div class="service-icon-overview">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Campaign Optimization</h3>
+                    <p>High-converting ad creatives with A/B testing protocols. Data-driven optimization strategies with in-depth creative content optimization.</p>
+                    <a href="services.html" class="service-link">See Our Process →</a>
+                </div>
+
+                <div class="service-overview-card animate-on-scroll">
+                    <div class="service-icon-overview">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h3>Performance Analytics</h3>
+                    <p>Comprehensive tracking from creative-level performance. Attribution modeling and ROI reporting with weekly and strategic optimization work.</p>
+                    <a href="roi-calculator.html" class="service-link">View Case Studies →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Break the Rules Section -->
+    <section class="rules-section">
+        <div class="container">
+            <h2>We Break the Rules</h2>
+            
+            <div class="rules-grid">
+                <div class="rule-card animate-on-scroll">
+                    <div class="rule-number">01</div>
+                    <h3>No Portfolio Hero</h3>
+                    <p>Forget outdated UGC tailored to YOUR brand TODAY. Every strategist, work-focused on quick Every project grows from deep analysis of top performers.</p>
+                </div>
+
+                <div class="rule-card animate-on-scroll">
+                    <div class="rule-number">02</div>
+                    <h3>No Client Name-Drops</h3>
+                    <p>We don't sell on past glory. Content evolution. not drop YOUR brand's hook straight out. Results speak trends.</p>
+                </div>
+
+                <div class="rule-card animate-on-scroll">
+                    <div class="rule-number">03</div>
+                    <h3>Skip the History Lesson</h3>
+                    <p>No 'having over startups from 2018. More authentic, convert that drives performance and conversion with real people.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="container">
+            <h2>Ready to 3x Your Conversion Rate?</h2>
+            <p>Let's create content that actually moves the needle for your business.</p>
+            
+            <div class="cta-buttons">
+                <div class="cta-option">
+                    <h3>Book a Free 30-Minute Strategy Call</h3>
+                    <p>Get personalized recommendations for your brand's UGC strategy</p>
+                    <a href="contact.html?service=strategy" class="btn-primary">Schedule Call Now</a>
+                </div>
+
+                <div class="cta-option">
+                    <h3>Get Your Free UGC Content Audit</h3>
+                    <p>We'll analyze your current content and show you where UGC can improve performance</p>
+                    <a href="contact.html?service=audit" class="btn-secondary">Request Audit</a>
+                </div>
+            </div>
+
+            <p class="cta-note">
+                <span class="cta-note-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                </span>
+                <span class="cta-note-text">Only 3 Strategy Call Spots Left This Week</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;">
+                        <h4 style="margin: 0;">MakeUGC</h4>
+                    </div>
+                    <p>MakeUGC.in<br>
+                    4G KrishtiKunja, Airport, Kolkata, India</p>
+                    <p>contact@makeugc.in<br>
+                    Mobile: +91 9239161632</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a><br>
+                    <a href="services.html">Services</a><br>
+                    <a href="creators.html">Creators</a><br>
+                    <a href="blog.html">Blog</a><br>
+                    <a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <p><a href="resources.html">Free Templates</a><br>
+                    <a href="creator-brief-template.html">Creator Brief Template</a><br>
+                    <a href="roi-calculator.html">ROI Calculator</a><br>
+                    <a href="blog.html">Case Studies</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Trust & Legal</h4>
+                    <p>Trusted by 50+ D2C Brands<br>
+                    Meta Business Partner<br>
+                    <a href="public/legal/security.html">🛡️ Your Data is Secure</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MakeUGC • All rights reserved • <a href="public/legal/privacy-policy.html">Privacy Policy</a> • <a href="public/legal/terms-conditions.html">Terms of Service</a> • <a href="public/legal/refund-policy.html">Refund Policy</a> • <a href="public/legal/security.html">Security</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navigate to creators page from UGC grid
+        function navigateToCreators() {
+            window.location.href = 'creators.html';
+        }
+
+        // Initialize scroll animations for stats
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initialize Lucide icons with retry mechanism
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+                console.log('Lucide icons initialized successfully');
+            } else {
+                console.warn('Lucide not loaded, retrying...');
+                setTimeout(initializeLucideIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLucideIcons();
+        });
+
+        // Also initialize after page load as backup
+        window.addEventListener('load', function() {
+            setTimeout(initializeLucideIcons, 200);
+        });
+
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('mobile-open');
+                    this.innerHTML = navLinks.classList.contains('mobile-open') ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
+                
+                // Close mobile menu when clicking on links
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('mobile-open');
+                        mobileToggle.innerHTML = '<i data-lucide="menu"></i>';
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    });
+                });
+            }
+        });
+
+        // ROI Calculator Functionality
+        function updateROICalculator() {
+            // Get input values
+            const currentSpend = parseInt(document.getElementById('currentSpend')?.value) || 200000;
+            const currentROAS = parseFloat(document.getElementById('currentROAS')?.value) || 2.5;
+            const timeframe = parseInt(document.getElementById('timeframe')?.value) || 6;
+            const ugcBudget = parseInt(document.getElementById('ugcBudget')?.value) || 250000;
+
+            // Update slider value displays
+            if (document.getElementById('currentSpendValue')) {
+                document.getElementById('currentSpendValue').textContent = formatIndianCurrency(currentSpend);
+            }
+            if (document.getElementById('currentROASValue')) {
+                document.getElementById('currentROASValue').textContent = currentROAS.toFixed(1);
+            }
+            if (document.getElementById('ugcBudgetValue')) {
+                document.getElementById('ugcBudgetValue').textContent = formatIndianCurrency(ugcBudget);
+            }
+
+            // Calculate projections
+            const currentRevenue = currentSpend * currentROAS * timeframe;
+            
+            // UGC improvement factors (realistic estimates)
+            const ugcImprovementFactor = 1.4; // 40% improvement (more realistic)
+            const newROAS = currentROAS * ugcImprovementFactor;
+            
+            // Projected revenue with improved ROAS (don't add UGC budget to ad spend)
+            const projectedRevenue = currentSpend * newROAS * timeframe;
+            
+            // Net profit is additional revenue minus UGC investment
+            const additionalRevenue = projectedRevenue - currentRevenue;
+            const netProfit = additionalRevenue - ugcBudget;
+            const roi = ((netProfit / ugcBudget) * 100);
+
+            // Update display
+            if (document.getElementById('projectedRevenue')) {
+                document.getElementById('projectedRevenue').textContent = '₹' + formatIndianCurrency(Math.round(projectedRevenue));
+            }
+            if (document.getElementById('netProfit')) {
+                document.getElementById('netProfit').textContent = '₹' + formatIndianCurrency(Math.round(netProfit));
+            }
+            if (document.getElementById('newROAS')) {
+                document.getElementById('newROAS').textContent = newROAS.toFixed(1) + 'x';
+            }
+            if (document.getElementById('revenueIncrease')) {
+                const increase = ((projectedRevenue - currentRevenue) / currentRevenue * 100);
+                document.getElementById('revenueIncrease').textContent = '+' + increase.toFixed(0) + '% increase';
+            }
+            if (document.getElementById('profitMargin')) {
+                document.getElementById('profitMargin').textContent = roi.toFixed(0) + '% ROI';
+            }
+            if (document.getElementById('roasImprovement')) {
+                const improvement = ((ugcImprovementFactor - 1) * 100);
+                document.getElementById('roasImprovement').textContent = '+' + improvement.toFixed(0) + '% better';
+            }
+
+            // Update insights
+            updateInsights(ugcBudget, timeframe);
+        }
+
+        function formatIndianCurrency(amount) {
+            // Convert to Indian format (Lakhs/Crores)
+            if (amount >= 10000000) {
+                return (amount / 10000000).toFixed(1) + 'Cr';
+            } else if (amount >= 100000) {
+                return (amount / 100000).toFixed(1) + 'L';
+            } else {
+                return amount.toLocaleString('en-IN');
+            }
+        }
+
+        function updateInsights(budget, timeframe) {
+            const insights = document.getElementById('insights');
+            if (!insights) return;
+
+            insights.innerHTML = `
+                <li>With ₹${formatIndianCurrency(budget)} invested in UGC content creation</li>
+                <li>Improved authenticity can boost conversion rates by 2.3x</li>
+                <li>UGC performs 5x better than brand-created content</li>
+                <li>Expected payback period: ${Math.max(2, Math.ceil(timeframe/3))}-${Math.ceil(timeframe/2)} months</li>
+            `;
+        }
+
+        // Event listeners for calculator inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = ['currentSpend', 'currentROAS', 'timeframe', 'ugcBudget'];
+            inputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', updateROICalculator);
+                    element.addEventListener('change', updateROICalculator);
+                }
+            });
+            
+            // Initial calculation
+            setTimeout(updateROICalculator, 100);
+        });
+
+        // Resource form submission
+        document.getElementById('resourceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const company = this.querySelector('input[type="text"]').value;
+            
+            // Here you would normally send to your backend
+            alert('Thank you! Check your email for the UGC Strategy Template.');
+            this.reset();
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

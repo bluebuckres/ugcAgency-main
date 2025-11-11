@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | MakeUGC</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/makeugclogo-01.svg">
+    <link rel="apple-touch-icon" href="/assets/images/makeugclogo-01.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#9CAF88',
+                        'warm-stone': '#E6DDD4',
+                        charcoal: '#3A3A3A',
+                        'soft-clay': '#D4C4B0',
+                        moss: '#7A8471',
+                        cream: '#F5F1EB'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #F5F1EB 0%, #E6DDD4 100%);
+        }
+        h1, h2 { font-family: 'Crimson Text', serif; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-3xl w-full text-center">
+        <!-- Animated Icon -->
+        <div class="mb-8 float-animation">
+            <div class="inline-flex items-center justify-center w-32 h-32 bg-sage/10 rounded-full">
+                <i data-lucide="search-x" class="w-16 h-16 text-sage"></i>
+            </div>
+        </div>
+        
+        <!-- Error Message -->
+        <h1 class="text-8xl md:text-9xl font-bold text-charcoal mb-4">404</h1>
+        <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Page Not Found</h2>
+        <p class="text-xl text-charcoal/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Oops! The page you're looking for doesn't exist or has been moved. 
+            Don't worry, let's get you back on track.
+        </p>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-sage text-white px-8 py-4 rounded-xl font-semibold hover:bg-moss transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                Back to Home
+            </a>
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 bg-white text-charcoal px-8 py-4 rounded-xl font-semibold border-2 border-sage/20 hover:border-sage transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+                Contact Us
+            </a>
+        </div>
+        
+        <!-- Popular Pages -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h3 class="font-crimson text-2xl font-bold text-charcoal mb-6">Popular Pages</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="creator-application.html" class="flex items-center gap-3 p-4 bg-sage/5 rounded-xl hover:bg-sage/10 transition-all group">
+                    <div class="flex-shrink-0 w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center group-hover:bg-sage/30 transition-all">
+                        <i data-lucide="user-plus" class="w-6 h-6 text-sage"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-semibold text-charcoal">Become a Creator</div>
+                        <div class="text-sm text-charcoal/60">Earn ₹2k-10k per video</div>
+                    </div>
+                </a>
+                
+                <a href="services.html" class="flex items-center gap-3 p-4 bg-sage/5 rounded-xl hover:bg-sage/10 transition-all group">
+                    <div class="flex-shrink-0 w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center group-hover:bg-sage/30 transition-all">
+                        <i data-lucide="briefcase" class="w-6 h-6 text-sage"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-semibold text-charcoal">Our Services</div>
+                        <div class="text-sm text-charcoal/60">UGC solutions for brands</div>
+                    </div>
+                </a>
+                
+                <a href="blog.html" class="flex items-center gap-3 p-4 bg-sage/5 rounded-xl hover:bg-sage/10 transition-all group">
+                    <div class="flex-shrink-0 w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center group-hover:bg-sage/30 transition-all">
+                        <i data-lucide="book-open" class="w-6 h-6 text-sage"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-semibold text-charcoal">Blog & Resources</div>
+                        <div class="text-sm text-charcoal/60">UGC insights & strategies</div>
+                    </div>
+                </a>
+                
+                <a href="about.html" class="flex items-center gap-3 p-4 bg-sage/5 rounded-xl hover:bg-sage/10 transition-all group">
+                    <div class="flex-shrink-0 w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center group-hover:bg-sage/30 transition-all">
+                        <i data-lucide="users" class="w-6 h-6 text-sage"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-semibold text-charcoal">About Us</div>
+                        <div class="text-sm text-charcoal/60">Our story & mission</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="mt-8 pt-8 border-t border-charcoal/10">
+            <p class="text-sm text-charcoal/60 mb-4">Need help? We're here for you!</p>
+            <div class="flex flex-wrap gap-4 justify-center text-sm">
+                <a href="https://wa.me/919239161632" target="_blank" class="text-sage hover:underline inline-flex items-center gap-1">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    WhatsApp Chat
+                </a>
+                <span class="text-charcoal/30">•</span>
+                <a href="mailto:contact@makeugc.in" class="text-sage hover:underline inline-flex items-center gap-1">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    Email Us
+                </a>
+                <span class="text-charcoal/30">•</span>
+                <a href="tel:+919239161632" class="text-sage hover:underline inline-flex items-center gap-1">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    Call Us
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+        
+        // Track 404 errors (if analytics is present)
+        if (window.umami) {
+            umami.track('404-error', { path: window.location.pathname });
+        }
+    </script>
+</body>
+</html>

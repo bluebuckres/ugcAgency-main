@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free UGC Strategy Guide | The UGC Agency</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">The UGC Agency</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../services.html">Services</a></li>
+                <li><a href="../creators.html">Creators</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html" class="btn btn-primary">Contact</a></li>
+            </ul>
+            <button class="mobile-nav-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="resource-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>The Complete UGC Strategy Guide</h1>
+                <p class="lead">Everything you need to build a profitable UGC program from scratch. Used by 100+ D2C brands to increase ROAS by 300%+.</p>
+                
+                <div class="guide-preview">
+                    <div class="preview-card">
+                        <img src="resources/service-ugc.jpg" alt="UGC Strategy Guide Preview" class="guide-image">
+                        <div class="guide-details">
+                            <h3>What's Inside:</h3>
+                            <ul>
+                                <li>📋 Complete UGC campaign setup checklist</li>
+                                <li>🎯 Creator sourcing and vetting framework</li>
+                                <li>📝 Proven brief templates that get results</li>
+                                <li>📊 Performance tracking spreadsheet</li>
+                                <li>🚀 Scaling strategies for 6-7 figure brands</li>
+                            </ul>
+                            
+                            <div class="guide-stats">
+                                <div class="stat">
+                                    <strong>47 Pages</strong>
+                                    <span>Of actionable content</span>
+                                </div>
+                                <div class="stat">
+                                    <strong>12 Templates</strong>
+                                    <span>Ready to use</span>
+                                </div>
+                                <div class="stat">
+                                    <strong>₹0</strong>
+                                    <span>Completely free</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Form -->
+    <section class="download-section">
+        <div class="container">
+            <div class="download-form-wrapper">
+                <h2>Get Your Free UGC Strategy Guide</h2>
+                <p>Join 2,000+ D2C founders who've used this guide to build profitable UGC programs</p>
+                
+                <form class="download-form" id="guideDownloadForm">
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name*</label>
+                        <input type="text" id="company" name="company" required placeholder="Your Company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Your Role</label>
+                        <select id="role" name="role">
+                            <option value="">Select your role</option>
+                            <option value="founder">Founder/CEO</option>
+                            <option value="marketing-director">Marketing Director</option>
+                            <option value="marketing-manager">Marketing Manager</option>
+                            <option value="social-media">Social Media Manager</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="monthly-ad-spend">Monthly Ad Spend</label>
+                        <select id="monthly-ad-spend" name="monthly_ad_spend">
+                            <option value="">Select range</option>
+                            <option value="0-25k">₹0 - ₹25,000</option>
+                            <option value="25k-75k">₹25,000 - ₹75,000</option>
+                            <option value="75k-2l">₹75,000 - ₹2,00,000</option>
+                            <option value="2l+">₹2,00,000+</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i data-lucide="download"></i>
+                        Download Free Guide
+                    </button>
+                    
+                    <p class="form-note">
+                        <i data-lucide="shield-check"></i>
+                        We respect your privacy. No spam, ever. Unsubscribe anytime.
+                    </p>
+                </form>
+                
+                <div class="success-message" id="successMessage" style="display: none;">
+                    <div class="success-content">
+                        <i data-lucide="check-circle"></i>
+                        <h3>Success! Check Your Email</h3>
+                        <p>We've sent the UGC Strategy Guide to your inbox. It should arrive within the next few minutes.</p>
+                        <div class="next-steps">
+                            <h4>What's Next?</h4>
+                            <ul>
+                                <li>📧 Check your email for the download link</li>
+                                <li>📝 Review the strategy guide</li>
+                                <li>🚀 Implement the frameworks</li>
+                                <li>📞 Book a free strategy call if you need help</li>
+                            </ul>
+                            <a href="contact.html?source=ugc-guide" class="btn btn-secondary">Book Free Strategy Call</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Chapters -->
+    <section class="guide-chapters">
+        <div class="container">
+            <h2>What You'll Learn</h2>
+            <div class="chapters-grid">
+                <div class="chapter-card">
+                    <div class="chapter-number">01</div>
+                    <h3>UGC Fundamentals</h3>
+                    <p>Understanding the psychology behind why UGC converts better than traditional advertising and how to leverage it.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">02</div>
+                    <h3>Creator Sourcing</h3>
+                    <p>Our proven 5-step process to find, vet, and onboard creators who align with your brand values.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">03</div>
+                    <h3>Campaign Planning</h3>
+                    <p>Strategic framework for planning UGC campaigns that drive measurable business results.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">04</div>
+                    <h3>Content Briefs</h3>
+                    <p>Templates and examples of briefs that get creators excited and produce scroll-stopping content.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">05</div>
+                    <h3>Performance Tracking</h3>
+                    <p>KPIs that matter, tracking spreadsheets, and how to optimize campaigns based on data.</p>
+                </div>
+                
+                <div class="chapter-card">
+                    <div class="chapter-number">06</div>
+                    <h3>Scaling Strategies</h3>
+                    <p>Advanced tactics used by 7-figure brands to scale UGC programs profitably.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Trusted by Leading D2C Brands</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"This guide helped us structure our entire UGC program. We went from random creator partnerships to a systematic approach that's driving real ROI."</p>
+                    <div class="testimonial-author">
+                        <strong>Priya Sharma</strong>
+                        <span>Marketing Director, Beauty Brand</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"The creator sourcing framework alone saved us 10+ hours per week. Our content quality improved dramatically."</p>
+                    <div class="testimonial-author">
+                        <strong>Rahul Mehta</strong>
+                        <span>Founder, Fashion Startup</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"We implemented the strategies from this guide and saw 340% increase in our ROAS within 60 days. Game changer."</p>
+                    <div class="testimonial-author">
+                        <strong>Anjali Gupta</strong>
+                        <span>CMO, Health & Wellness</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('guideDownloadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const formData = new FormData(this);
+            const email = formData.get('email');
+            const company = formData.get('company');
+            
+            // Hide form and show success message
+            this.style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // In a real implementation, this would submit to your backend
+            console.log('Form submitted:', Object.fromEntries(formData));
+            
+            // Track the download event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download', {
+                    event_category: 'Resource',
+                    event_label: 'UGC Strategy Guide',
+                    value: 1
+                });
+            }
+        });
+
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

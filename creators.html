@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Creator Community | MakeUGC</title>
+    <meta name="description" content="Get paid to create content for top D2C brands. Join our community of trained UGC creators. No follower count required. Flexible schedule, work from anywhere.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    
+    <!-- Lucide Icons with fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Fallback loading for Lucide
+        if (typeof lucide === 'undefined') {
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.js';
+            document.head.appendChild(fallbackScript);
+        }
+    </script>
+    
+    <style>
+        /* Import base styles */
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-charcoal);
+            background-color: var(--color-warm-stone);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Premium Minimal Icon System */
+        .icon-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        
+        .icon-wrapper.size-hero { width: 72px; height: 72px; }
+        .icon-wrapper.size-feature { width: 48px; height: 48px; }
+        .icon-wrapper.size-sm { width: 32px; height: 32px; }
+        .icon-wrapper.size-xs { width: 24px; height: 24px; }
+        
+        .icon-wrapper.primary i { color: #0066FF; stroke-width: 2; }
+        .icon-wrapper.success i { color: #10B981; stroke-width: 2; }
+        .icon-wrapper.neutral i { color: #64748B; stroke-width: 2; }
+        
+        .icon-wrapper.size-hero i { width: 40px; height: 40px; }
+        .icon-wrapper.size-feature i { width: 28px; height: 28px; }
+        .icon-wrapper.size-sm i { width: 20px; height: 20px; }
+        .icon-wrapper.size-xs i { width: 16px; height: 16px; }
+        
+        .icon-wrapper:hover { transform: scale(1.05); }
+        .icon-wrapper.primary:hover { filter: drop-shadow(0 4px 12px rgba(0, 102, 255, 0.25)); }
+        .icon-wrapper.success:hover { filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.25)); }
+        .icon-wrapper.neutral:hover { filter: drop-shadow(0 4px 12px rgba(100, 116, 139, 0.25)); }
+        
+        .icon-wrapper.pulse { animation: subtlePulse 3s ease-in-out infinite; }
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.9; }
+        }
+        
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--color-cream);
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-charcoal);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-weight: 500;
+            transition: var(--transition-gentle);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-sage);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sage);
+            transition: var(--transition-gentle);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Special styling for navbar contact button */
+        .nav-links .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            color: var(--color-sage);
+            border: 1.5px solid var(--color-sage);
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white;
+            border-color: var(--color-sage);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+        }
+
+        .nav-links .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .nav-links .btn-primary::after {
+            display: none;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-charcoal);
+            min-height: 44px;
+            min-width: 44px;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Navigation */
+        .nav-links.mobile-open {
+            display: flex;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1.5rem;
+            z-index: 999;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+        }
+        
+        /* Hero Section */
+        .creators-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-warm-stone) 0%, var(--color-cream) 100%);
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1rem;
+            color: var(--color-charcoal);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        /* Value Proposition */
+        .value-proposition {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 4rem 0;
+        }
+        
+        .value-content h2 {
+            color: var(--color-charcoal);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .benefits-list li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .benefits-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='8' cy='8' r='6'/><path d='m18.09 10.37 2.21 1.24a1 1 0 0 1 0 1.76l-2.21 1.24a1 1 0 0 1-.96 0l-2.21-1.24a1 1 0 0 1 0-1.76l2.21-1.24a1 1 0 0 1 .96 0z'/><path d='M12 5v14'/></svg>") no-repeat center center;
+            background-size: contain;
+        }
+        
+        .value-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+            transition: var(--transition-gentle);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        .benefit-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .benefit-card h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-card p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        
+        /* Why Our Creators Stand Out - Modern Design */
+        .differentiators-section {
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, #1a1a1a 100%);
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .differentiators-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%238B9A7A' fill-opacity='0.03'><path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/></g></g></svg>") repeat;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .differentiators-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .differentiators-section h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, #ffffff 0%, var(--color-sage) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .differentiators-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .differentiators-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .differentiator-card.horizontal {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 3rem;
+            align-items: center;
+            text-align: left;
+            padding: 3rem 4rem;
+        }
+        
+        .differentiator-card.horizontal .differentiator-icon-wrapper {
+            margin: 0;
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+        }
+        
+        .differentiator-card.horizontal .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .differentiator-card.horizontal h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+        }
+        
+        .differentiator-card.horizontal > p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+        
+        .differentiator-card.horizontal .differentiator-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 0;
+        }
+        
+        .differentiator-card.horizontal .differentiator-features li {
+            padding: 0.5rem 0 0.5rem 2.5rem;
+            border-bottom: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+        }
+        
+        .differentiator-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .differentiator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .differentiator-card:hover::before {
+            left: 100%;
+        }
+        
+        .differentiator-card:hover {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(139, 154, 122, 0.3);
+        }
+        
+        .differentiator-icon-wrapper {
+            position: relative;
+            margin: 0 auto 2rem;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #7A8A6A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(139, 154, 122, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .differentiator-card:hover .differentiator-icon-wrapper {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 40px rgba(139, 154, 122, 0.4);
+        }
+        
+        .differentiator-card h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .differentiator-card > p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .differentiator-features {
+            list-style: none;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .differentiator-features li {
+            position: relative;
+            padding: 0.75rem 0 0.75rem 2.5rem;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .differentiator-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .differentiator-features li:hover {
+            color: white;
+            padding-left: 3rem;
+        }
+        
+        .differentiator-features li::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #10B981 100%);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(139, 154, 122, 0.3);
+        }
+        
+        .differentiator-features li::after {
+            content: '✓';
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .differentiators-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .differentiator-card.horizontal {
+                grid-template-columns: auto 1fr;
+                gap: 2rem;
+                padding: 3rem 2.5rem;
+            }
+            
+            .differentiator-card.horizontal .differentiator-features {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .differentiators-section {
+                padding: 4rem 0;
+            }
+            
+            .differentiators-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .differentiator-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .differentiator-card.horizontal {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .differentiator-card.horizontal .differentiator-icon-wrapper {
+                margin: 0 auto;
+            }
+            
+            .differentiator-card.horizontal .differentiator-features {
+                display: block;
+                text-align: left;
+            }
+            
+            .differentiator-icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        /* Training Program */
+        .training-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-cream) 100%);
+        }
+        
+        .training-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 3rem 0;
+        }
+        
+        /* SVG Connection Lines */
+        .connection-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .connection-lines path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 2s ease-out forwards;
+        }
+        
+        .connection-lines circle {
+            opacity: 0;
+            animation: fadeInCircle 0.5s ease-out 2s forwards;
+        }
+        
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes fadeInCircle {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .training-content {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .training-text {
+                flex: 1;
+                max-width: 600px;
+            }
+            
+            .connection-lines {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .training-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .training-text {
+                padding: 2rem;
+            }
+
+            .training-section {
+                padding: 3rem 0;
+            }
+
+            .phase-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .phase-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .phase-skills {
+                text-align: left;
+                font-size: 0.9rem;
+            }
+
+            .phase-skills li {
+                margin-bottom: 0.5rem;
+                line-height: 1.4;
+            }
+        }
+        
+        .training-text {
+            flex: 0 0 400px;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--color-sage);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .training-text h2 {
+            color: var(--color-charcoal);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .training-phases {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .phase-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--color-sage);
+            position: relative;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .phase-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 32px rgba(139, 161, 137, 0.2);
+            border-left-width: 6px;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .phase-number {
+            background: var(--color-sage);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .phase-title {
+            color: var(--color-charcoal);
+            font-weight: 600;
+        }
+        
+        .phase-duration {
+            color: var(--color-sage);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .phase-skills {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .phase-skills li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+        }
+        
+        .phase-skills li::before {
+            content: '•';
+            color: var(--color-sage);
+            font-weight: bold;
+        }
+        
+        /* Trust & Ethics */
+        .trust-section {
+            background: var(--color-cream);
+            padding: 5rem 0;
+        }
+        
+        .trust-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .trust-content h2 {
+            color: var(--color-charcoal);
+            margin-bottom: 2rem;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .principle-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-align: left;
+        }
+        
+        .principle-icon {
+            color: var(--color-sage);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .principle-text {
+            color: var(--color-charcoal);
+        }
+        
+        .guarantee-box {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            margin-top: 3rem;
+            border-left: 4px solid var(--color-sage);
+        }
+        
+        .guarantee-box h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .guarantee-box p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        /* Application Process */
+        .application-section {
+            background: var(--color-sage);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .application-section h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
+        
+        .process-step {
+            background: white;
+            color: var(--color-sage);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition-gentle);
+            cursor: pointer;
+        }
+        
+        .process-step:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .step-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .process-details {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .process-details p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-charcoal);
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-soft);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--color-cream);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-gentle);
+        }
+        
+        .faq-question:hover {
+            background: var(--color-warm-stone);
+        }
+        
+        .faq-question h4 {
+            margin: 0;
+            color: var(--color-charcoal);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--color-sage);
+            transition: var(--transition-gentle);
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-gentle);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+        
+        .faq-answer p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-paths {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .cta-path {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: var(--radius-softer);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-path h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-path p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--color-sage);
+            color: white;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .btn-primary:hover {
+            background: #7A8A6A;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-sage);
+            border: 2px solid var(--color-sage);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-sage);
+            color: white;
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-gentle);
+        }
+        
+        .animate-on-scroll.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .value-proposition {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .value-visual {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .process-timeline::before {
+                display: none;
+            }
+            
+            .cta-paths {
+                grid-template-columns: 1fr;
+            }
+            
+            .creators-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .filter-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+        }
+        
+        /* Form Styles */
+        .field-error {
+            color: var(--color-soft-terracotta);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        input.error, select.error, textarea.error {
+            border-color: var(--color-soft-terracotta);
+        }
+        
+        .form-success {
+            background: var(--color-sage);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-soft);
+            margin-top: 1rem;
+            text-align: center;
+        }
+        /* Footer styles consistent with home page */
+        .footer { background: var(--color-charcoal); color: white; padding: 3rem 0 1rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h4 { color: white; margin-bottom: 1rem; }
+        .footer-section p, .footer-section a { color: rgba(255, 255, 255, 0.8); text-decoration: none; line-height: 1.6; }
+        .footer-section a:hover { color: var(--color-sage); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); opacity: 0; z-index: 1500; transition: opacity 0.3s ease; }
+        .mobile-nav-overlay.active { display: block; opacity: 1; }
+
+        /* Mobile menu styles (match home page) */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: min(85vw, 360px); height: 100vh; background: #fff; z-index: 2000; transition: var(--transition-gentle); box-shadow: -4px 0 20px rgba(0,0,0,0.1); }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-header { padding: 1.5rem; background: var(--color-sage); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .mobile-menu-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu-nav { padding: 1.5rem; }
+        .mobile-menu-nav ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-menu-nav li { margin-bottom: 1rem; }
+        .mobile-menu-nav a { display: block; padding: 0.75rem 1rem; color: var(--color-charcoal); text-decoration: none; border-radius: 8px; font-weight: 500; }
+        .mobile-menu-nav a:hover, .mobile-menu-nav a.active { background: var(--color-sage); color: white; }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover;">
+                <span>MakeUGC</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="creators.html">Creators</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
+            </ul>
+            <button class="mobile-nav-toggle">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="creators-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Join Our Creator Community</h1>
+                <p>Get paid to create content for top D2C brands. Flexible schedule, work from anywhere, keep all products you review.</p>
+                <a href="creator-application.html" class="btn btn-primary">Apply to Become a Creator →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Value Proposition -->
+    <section class="section">
+        <div class="container">
+            <div class="value-proposition">
+                <div class="value-content animate-on-scroll">
+                    <h2>Why Join Our Community?</h2>
+                    <p>We're not just another agency. We're a community of authentic creators who believe in genuine storytelling over scripted content.</p>
+                    
+                    <ul class="benefits-list">
+                        <li>Earn ₹2k-₹10k per video</li>
+                        <li>Flexible schedule, work from anywhere</li>
+                        <li>Keep all products you review</li>
+                        <li>Build your portfolio with paid work</li>
+                        <li>No follower count required</li>
+                        <li>Professional training and support</li>
+                    </ul>
+                    
+                    <a href="creator-application.html" class="btn btn-secondary">Start Your Application →</a>
+                </div>
+                
+                <div class="value-visual animate-on-scroll">
+                    <div class="benefit-card">
+                        <div class="icon-wrapper size-feature primary pulse">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <h4>For You</h4>
+                        <p>Get paid to create authentic content for brands you actually love and use.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-wrapper size-feature primary pulse">
+                            <i data-lucide="rocket"></i>
+                        </div>
+                        <h4>For Brands</h4>
+                        <p>Access to trained, conversion-focused creators who deliver real results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Why Our Creators Stand Out -->
+    <section class="differentiators-section">
+        <div class="container">
+            <h2 class="animate-on-scroll">Why Our Creators Stand Out</h2>
+            <p class="differentiators-subtitle animate-on-scroll">We don't just find creators—we develop conversion-focused storytellers who understand your business goals.</p>
+            
+            <div class="differentiators-grid">
+                <div class="differentiator-card animate-on-scroll">
+                    <div class="differentiator-icon-wrapper">
+                        <i data-lucide="target" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3>Trained for Performance</h3>
+                    <p>Every creator goes through our comprehensive training program focused on conversion-focused content creation.</p>
+                    
+                    <ul class="differentiator-features">
+                        <li>Professional coaching in hook creation</li>
+                        <li>Storytelling frameworks that convert</li>
+                        <li>Platform-specific optimization training</li>
+                        <li>Continuous feedback and improvement</li>
+                        <li>Data-driven content strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="differentiator-card animate-on-scroll">
+                    <div class="differentiator-icon-wrapper">
+                        <i data-lucide="sparkles" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3>Authentic & Relatable</h3>
+                    <p>We celebrate real people with real experiences. No fake personas or over-the-top personalities.</p>
+                    
+                    <ul class="differentiator-features">
+                        <li>Everyday people your customers relate to</li>
+                        <li>No celebrity egos or inflated rates</li>
+                        <li>Real voices, real experiences</li>
+                        <li>Genuine product enthusiasm</li>
+                        <li>Natural on-camera presence</li>
+                    </ul>
+                </div>
+                
+                <div class="differentiator-card animate-on-scroll">
+                    <div class="differentiator-icon-wrapper">
+                        <i data-lucide="users" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3>Diverse & Versatile</h3>
+                    <p>Our community represents the real world—different ages, backgrounds, and perspectives across every niche.</p>
+                    
+                    <ul class="differentiator-features">
+                        <li>Talent across every niche: fitness, tech, beauty, lifestyle</li>
+                        <li>Different ages, backgrounds, and perspectives</li>
+                        <li>Multi-lingual capabilities</li>
+                        <li>Pan-India representation</li>
+                        <li>One mission: great content that converts</li>
+                    </ul>
+                </div>
+                
+                <div class="differentiator-card horizontal animate-on-scroll">
+                    <div class="differentiator-icon-wrapper">
+                        <i data-lucide="message-circle" style="font-size: 2.5rem; color: white;"></i>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3>Natural Storytellers</h3>
+                        <p>Masters of authentic communication who can make any product feel like a natural part of their life. Our creators excel at seamlessly integrating products into compelling narratives.</p>
+                    </div>
+                    
+                    <ul class="differentiator-features">
+                        <li>Masters of 15-second hooks to 3-minute reviews</li>
+                        <li>Engaging without being salesy</li>
+                        <li>Comfortable improvising and scripting</li>
+                        <li>Make brands look good naturally</li>
+                        <li>Build trust through authentic communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Training Program -->
+    <section class="training-section">
+        <div class="container">
+            <div class="training-content">
+                <!-- SVG for curved connecting lines -->
+                <svg class="connection-lines" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Line to Phase 1 -->
+                    <path d="M 250 150 Q 350 100, 450 100" stroke="#8BA17A" stroke-width="3" fill="none" opacity="0.4"/>
+                    <circle cx="250" cy="150" r="8" fill="#8BA17A"/>
+                    <circle cx="450" cy="100" r="8" fill="#8BA17A"/>
+                    
+                    <!-- Line to Phase 2 -->
+                    <path d="M 250 300 Q 350 300, 450 300" stroke="#8BA17A" stroke-width="3" fill="none" opacity="0.4"/>
+                    <circle cx="250" cy="300" r="8" fill="#8BA17A"/>
+                    <circle cx="450" cy="300" r="8" fill="#8BA17A"/>
+                    
+                    <!-- Line to Phase 3 -->
+                    <path d="M 250 450 Q 350 500, 450 500" stroke="#8BA17A" stroke-width="3" fill="none" opacity="0.4"/>
+                    <circle cx="250" cy="450" r="8" fill="#8BA17A"/>
+                    <circle cx="450" cy="500" r="8" fill="#8BA17A"/>
+                </svg>
+                
+                <div class="training-text animate-on-scroll">
+                    <h2>How We Train Our Creators</h2>
+                    <p>Our comprehensive 3-phase training program ensures every creator is equipped with the skills needed to produce high-converting UGC content.</p>
+                    
+                    <button class="btn btn-primary" onclick="showTrainingDetails()">Join Next Training Cohort →</button>
+                </div>
+                
+                <div class="training-phases animate-on-scroll">
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">1</div>
+                            <div>
+                                <div class="phase-title">Foundations</div>
+                                <div class="phase-duration">Week 1</div>
+                            </div>
+                        </div>
+                        <ul class="phase-skills">
+                            <li>Platform algorithms and best practices</li>
+                            <li>Hook formulas and attention retention</li>
+                            <li>Basic video editing and composition</li>
+                            <li>Product analysis and review frameworks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">2</div>
+                            <div>
+                                <div class="phase-title">Performance</div>
+                                <div class="phase-duration">Week 2-3</div>
+                            </div>
+                        </div>
+                        <ul class="phase-skills">
+                            <li>Conversion-focused messaging</li>
+                            <li>A/B testing principles</li>
+                            <li>Brand voice matching</li>
+                            <li>Call-to-action integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">3</div>
+                            <div>
+                                <div class="phase-title">Mastery</div>
+                                <div class="phase-duration">Ongoing</div>
+                            </div>
+                        </div>
+                        <ul class="phase-skills">
+                            <li>Advanced storytelling techniques</li>
+                            <li>Niche-specific strategies</li>
+                            <li>Analytics interpretation</li>
+                            <li>Community feedback sessions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Trust & Ethics -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-content animate-on-scroll">
+                <h2>Built on Trust, Not Scripts</h2>
+                <p>We believe in transparent partnerships and ethical content creation. Our community thrives because we prioritize authenticity over everything else.</p>
+                
+                <div class="principles-grid">
+                    <div class="principle-item">
+                        <div class="icon-wrapper size-xs success">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <div class="principle-text">
+                            <strong>Only work with ethical brands and quality products</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="icon-wrapper size-xs success">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <div class="principle-text">
+                            <strong>Creators genuinely use and test what they promote</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="icon-wrapper size-xs success">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <div class="principle-text">
+                            <strong>No fake testimonials or over-the-top claims</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="icon-wrapper size-xs success">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <div class="principle-text">
+                            <strong>Honest feedback even if it means turning down work</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="icon-wrapper size-xs success">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <div class="principle-text">
+                            <strong>Transparent partnerships with clear guidelines</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="icon-wrapper size-xs success">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <div class="principle-text">
+                            <strong>Respect for audience intelligence</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="guarantee-box">
+                    <h4>Brand Safety Guarantee</h4>
+                    <p>Every creator signs an NDA and brand guidelines agreement. Your products and brand reputation are protected throughout our partnership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Application Process -->
+    <section class="application-section" id="application">
+        <div class="container">
+            <h2>Creator Application Process</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">Simple steps to join our community of authentic creators</p>
+            
+            <div class="process-timeline">
+                <div class="process-step" onclick="showProcessDetail(1)">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Apply<br>(5 min)</div>
+                </div>
+                
+                <div class="process-step" onclick="showProcessDetail(2)">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Review<br>(48 hrs)</div>
+                </div>
+                
+                <div class="process-step" onclick="showProcessDetail(3)">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Interview<br>(15 min)</div>
+                </div>
+                
+                <div class="process-step" onclick="showProcessDetail(4)">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Training<br>(2-3 wks)</div>
+                </div>
+                
+                <div class="process-step" onclick="showProcessDetail(5)">
+                    <div class="step-number">5</div>
+                    <div class="step-label">First Project<br>(1 wk)</div>
+                </div>
+                
+                <div class="process-step" onclick="showProcessDetail(6)">
+                    <div class="step-number">6</div>
+                    <div class="step-label">Ongoing<br>Work</div>
+                </div>
+            </div>
+            
+            <div class="process-details">
+                <p id="processDescription">Click on any step above to learn more about the application process.</p>
+                <a href="creator-application.html" class="btn btn-primary">Start Your Application →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Common Questions for Creators</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>Do I need a large following to apply?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No! We care about content quality and authenticity, not follower count. Many of our most successful creators started with under 1,000 followers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>How much can I earn?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>₹2K-₹10K per video depending on complexity and brand requirements. Top creators earn ₹25K-₹75K per month with consistent work.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>What equipment do I need?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A smartphone with a good camera and basic lighting setup. We provide guidance on affordable equipment upgrades as you grow.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>How often will I get projects?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Depends on your performance and availability. Active creators typically get 5-10 projects per month. The better your content performs, the more work you'll receive.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>Can I work with other agencies?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our partnerships are non-exclusive. We just ask for scheduling transparency so we can match you with the right opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Ready to Turn Your Creativity Into Income?</h2>
+            <p>Join hundreds of creators who are already earning from their authentic content.</p>
+            
+            <div class="cta-paths">
+                <div class="cta-path">
+                    <h3>For Creators</h3>
+                    <p>Start your journey to becoming a paid UGC creator. No experience required - just authenticity and creativity.</p>
+                    <a href="creator-application.html" class="btn btn-primary">Apply Now →</a>
+                </div>
+                
+                <div class="cta-path">
+                    <h3>For Brands</h3>
+                    <p>Browse our creator network and find the perfect match for your brand's next campaign.</p>
+                    <button class="btn btn-secondary" onclick="browseCreators()">Browse Our Creators →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Process detail descriptions
+        const processDetails = {
+            1: "Submit your application with a sample video or portfolio. Takes just 5 minutes to complete.",
+            2: "Our team reviews your application and content within 48 hours to assess fit and potential.",
+            3: "Quick 15-minute video call to discuss expectations, answer questions, and ensure mutual fit.",
+            4: "Complete our comprehensive 2-3 week training program covering all aspects of UGC creation.",
+            5: "Get matched with your first brand partnership and start creating content within 1 week of training completion.",
+            6: "Consistent projects based on performance, availability, and brand needs. Build long-term relationships with brands."
+        };
+        
+        function showProcessDetail(stepNumber) {
+            document.getElementById('processDescription').textContent = processDetails[stepNumber];
+        }
+        
+        // Creator application now handled by dedicated page
+        
+        function browseCreators() {
+            alert('This would open a brand portal to browse and filter creators by:\n\n• Niche/Category\n• Location\n• Performance metrics\n• Content style\n\nBrands could view creator profiles, sample content, and request collaborations.');
+        }
+        
+        function showTrainingDetails() {
+            alert('This would provide more details about the training program including:\n\n• Curriculum overview\n• Training schedule\n• Success stories\n• Certification process\n\nAnd allow creators to register for the next cohort.');
+        }
+        
+        // FAQ toggle functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+        
+        // Scroll to section utility
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;">
+                        <h4 style="margin: 0;">MakeUGC</h4>
+                    </div>
+                    <p>MakeUGC.in<br>
+                    4G KrishtiKunja, Airport, Kolkata, India</p>
+                    <p>contact@makeugc.in<br>
+                    Mobile: +91 9239161632</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a><br>
+                    <a href="services.html">Services</a><br>
+                    <a href="creators.html">Creators</a><br>
+                    <a href="blog.html">Blog</a><br>
+                    <a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <p><a href="ugc-strategy-guide.html">UGC Strategy Guide</a><br>
+                    <a href="blog-creator-brief-template.html">Creator Brief Template</a><br>
+                    <a href="roi-calculator.html">ROI Calculator</a><br>
+                    <a href="blog.html?category=case-studies">Case Studies</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Trust Signals</h4>
+                    <p>Trusted by 50+ D2C Brands<br>
+                    Meta Business Partner<br>
+                    <div class="icon-wrapper size-xs success" style="display: inline-flex; margin-right: 0.5rem; vertical-align: middle;"><i data-lucide="shield-check"></i></div>Your Data is Secure</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MakeUGC • All rights reserved • <a href="public/legal/privacy-policy.html" style="color: inherit;">Privacy Policy</a> • <a href="public/legal/terms-conditions.html" style="color: inherit;">Terms of Service</a> • <a href="public/legal/refund-policy.html" style="color: inherit;">Refund Policy</a> • <a href="public/legal/security.html" style="color: inherit;">Security</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Initialize Lucide Icons and Animations -->
+    <script>
+        // Initialize Lucide icons with retry mechanism
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+                console.log('Lucide icons initialized successfully');
+            } else {
+                console.warn('Lucide not loaded, retrying...');
+                setTimeout(initializeLucideIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLucideIcons();
+            
+            // Initialize scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animate-on-scroll elements
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('mobile-open');
+                    this.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+                });
+                
+                // Close mobile menu when clicking on links
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('mobile-open');
+                        mobileToggle.textContent = '☰';
+                    });
+                });
+            }
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security - UGC Agency</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-warm-stone);
+            color: var(--color-charcoal);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: var(--color-cream);
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--color-sage);
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            color: rgba(44, 44, 44, 0.7);
+            font-size: 16px;
+        }
+
+        .content {
+            background: var(--color-cream);
+            padding: 40px;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-sage);
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(139, 154, 122, 0.2);
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            color: var(--color-muted-teal);
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .security-feature {
+            background: rgba(139, 154, 122, 0.1);
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            border-left: 4px solid var(--color-sage);
+            margin: 20px 0;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .security-card {
+            background: var(--color-warm-stone);
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            border: 2px solid rgba(139, 154, 122, 0.2);
+        }
+
+        .security-card h4 {
+            color: var(--color-sage);
+            margin-bottom: 10px;
+            font-family: var(--font-serif);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-sage);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .contact-info {
+            background: var(--color-warm-stone);
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            margin: 20px 0;
+        }
+
+        .security-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>🔒 Security</h1>
+            <p>Protecting your data and privacy is our top priority</p>
+        </div>
+
+        <div class="content">
+            <div class="security-feature">
+                <p><strong>At UGC Agency (BlueBuck Research Media LLP)</strong>, we implement enterprise-grade security measures to protect your business data, creative assets, and personal information. Your trust is paramount to our success.</p>
+            </div>
+
+            <h2>🛡️ Data Protection Overview</h2>
+            <p>We employ multiple layers of security to ensure your information remains safe and confidential. Our security infrastructure is designed to protect against both external threats and internal vulnerabilities.</p>
+
+            <div class="security-grid">
+                <div class="security-card">
+                    <h4>🔐 Encryption</h4>
+                    <p>All data transmission uses TLS 1.3 encryption. Sensitive data is encrypted at rest using AES-256 encryption standards.</p>
+                </div>
+                <div class="security-card">
+                    <h4>🔑 Access Control</h4>
+                    <p>Multi-factor authentication and role-based access controls ensure only authorized users can access your account.</p>
+                </div>
+                <div class="security-card">
+                    <h4>📊 Regular Audits</h4>
+                    <p>We conduct regular security audits and vulnerability assessments to identify and address potential risks.</p>
+                </div>
+                <div class="security-card">
+                    <h4>💾 Secure Backups</h4>
+                    <p>Automated encrypted backups ensure your data is protected and recoverable in case of any incidents.</p>
+                </div>
+            </div>
+
+            <h2>🔒 Technical Security Measures</h2>
+            
+            <h3>Infrastructure Security</h3>
+            <ul>
+                <li><strong>Cloud Security:</strong> Hosted on secure cloud infrastructure with enterprise-grade protection</li>
+                <li><strong>Network Security:</strong> Firewalls, intrusion detection, and DDoS protection</li>
+                <li><strong>Server Security:</strong> Regular security updates and hardened server configurations</li>
+                <li><strong>Database Security:</strong> Encrypted databases with restricted access and query monitoring</li>
+            </ul>
+
+            <h3>Application Security</h3>
+            <ul>
+                <li><strong>Secure Coding:</strong> Following OWASP security guidelines in all development</li>
+                <li><strong>Input Validation:</strong> Comprehensive validation to prevent injection attacks</li>
+                <li><strong>Session Management:</strong> Secure session handling with automatic timeouts</li>
+                <li><strong>API Security:</strong> Rate limiting, authentication tokens, and request validation</li>
+            </ul>
+
+            <h2>🔐 Account Security</h2>
+            
+            <h3>Authentication</h3>
+            <ul>
+                <li>Strong password requirements (minimum 6 characters with complexity)</li>
+                <li>Session timeout after 24 hours of inactivity</li>
+                <li>Login attempt monitoring and temporary account locking</li>
+                <li>Secure password reset procedures with email verification</li>
+            </ul>
+
+            <h3>User Responsibilities</h3>
+            <ul>
+                <li>Use strong, unique passwords for your account</li>
+                <li>Keep your login credentials confidential</li>
+                <li>Report suspicious activity immediately</li>
+                <li>Log out when using shared or public computers</li>
+                <li>Keep your contact information up to date</li>
+            </ul>
+
+            <h2>📱 Data Handling</h2>
+            
+            <h3>Content Security</h3>
+            <ul>
+                <li><strong>UGC Assets:</strong> Creator content is stored securely with access controls</li>
+                <li><strong>Client Data:</strong> Campaign data is encrypted and isolated per client</li>
+                <li><strong>Analytics Data:</strong> Performance metrics are anonymized where possible</li>
+                <li><strong>Backups:</strong> Regular encrypted backups with geographic redundancy</li>
+            </ul>
+
+            <h3>Data Retention</h3>
+            <ul>
+                <li>Active project data is retained for the duration of our service relationship</li>
+                <li>Completed project archives are retained for 12 months unless requested otherwise</li>
+                <li>Analytics and performance data may be retained longer for service improvement</li>
+                <li>Account data is purged within 30 days of confirmed account deletion</li>
+            </ul>
+
+            <h2>🚨 Incident Response</h2>
+            
+            <h3>Monitoring</h3>
+            <ul>
+                <li>24/7 automated monitoring of our systems and networks</li>
+                <li>Real-time alerts for suspicious activities or security events</li>
+                <li>Regular log analysis and threat intelligence integration</li>
+                <li>Performance monitoring to detect potential service disruptions</li>
+            </ul>
+
+            <h3>Response Procedures</h3>
+            <ul>
+                <li>Documented incident response procedures for various threat scenarios</li>
+                <li>Immediate containment and mitigation of identified threats</li>
+                <li>Customer notification within 72 hours of confirmed security incidents</li>
+                <li>Post-incident analysis and security improvements</li>
+            </ul>
+
+            <h2>🏢 Compliance & Standards</h2>
+            
+            <h3>Regulatory Compliance</h3>
+            <ul>
+                <li><strong>Indian IT Act 2000:</strong> Compliance with Indian information technology laws</li>
+                <li><strong>Data Protection:</strong> Adherence to applicable data protection regulations</li>
+                <li><strong>Industry Standards:</strong> Following recognized security frameworks and best practices</li>
+            </ul>
+
+            <h3>Business Practices</h3>
+            <ul>
+                <li>Employee security training and awareness programs</li>
+                <li>Confidentiality agreements with all team members and contractors</li>
+                <li>Limited access principles - employees only access data necessary for their role</li>
+                <li>Regular security policy reviews and updates</li>
+            </ul>
+
+            <h2>🔍 Privacy Protection</h2>
+            
+            <h3>Data Minimization</h3>
+            <ul>
+                <li>We collect only the data necessary to provide our services</li>
+                <li>Personal information is used solely for stated business purposes</li>
+                <li>Third-party sharing is limited to essential service providers</li>
+                <li>Regular review and deletion of unnecessary data</li>
+            </ul>
+
+            <h3>Transparency</h3>
+            <ul>
+                <li>Clear privacy policies explaining our data practices</li>
+                <li>User control over personal data and account settings</li>
+                <li>Regular updates on any changes to our security or privacy practices</li>
+                <li>Open communication about security measures and improvements</li>
+            </ul>
+
+            <h2>⚠️ Reporting Security Issues</h2>
+            <p>We take security vulnerabilities seriously. If you discover a potential security issue, please report it to us immediately:</p>
+
+            <div class="contact-info">
+                <h3>Security Contact</h3>
+                <ul>
+                    <li><strong>Security Email:</strong> security@makeugc.in</li>
+                    <li><strong>Company:</strong> MakeUGC.in</li>
+                    <li><strong>Address:</strong> 4G KrishtiKunja, Airport, Kolkata, India</li>
+                    <li><strong>Mobile:</strong> +91 9239161632</li>
+                    <li><strong>Response Time:</strong> Within 24 hours for critical issues</li>
+                    <li><strong>PGP Key Available:</strong> For encrypted communications</li>
+                </ul>
+                
+                <h4>What to Include:</h4>
+                <ul>
+                    <li>Detailed description of the vulnerability</li>
+                    <li>Steps to reproduce the issue</li>
+                    <li>Potential impact assessment</li>
+                    <li>Your contact information for follow-up</li>
+                </ul>
+            </div>
+
+            <h2>🔄 Continuous Improvement</h2>
+            <p>Security is an ongoing process. We continuously evaluate and improve our security measures through:</p>
+            <ul>
+                <li>Regular security assessments and penetration testing</li>
+                <li>Implementation of emerging security technologies</li>
+                <li>Staff training on latest security threats and best practices</li>
+                <li>Industry collaboration and threat intelligence sharing</li>
+                <li>Customer feedback and security requirement analysis</li>
+            </ul>
+
+            <div class="security-feature">
+                <p><strong>Questions About Security?</strong> We're transparent about our security practices. Contact our team at security@ugcagency.com for more information about how we protect your data.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

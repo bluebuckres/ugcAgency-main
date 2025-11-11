@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Tracking Spreadsheet - UGC Performance Analytics</title>
+    
+    <!-- Authentication Protection -->
+    <script src="../assets/js/auth-protection.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-warm-stone);
+            padding: 20px;
+            min-height: 100vh;
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--color-cream);
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-lift);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--color-sage);
+            color: var(--color-cream);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .controls {
+            padding: 30px 40px;
+            background: var(--color-warm-stone);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--color-sage);
+            color: var(--color-cream);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .btn-secondary {
+            background: var(--color-cream);
+            border: 2px solid var(--color-sage);
+            color: var(--color-sage);
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid rgba(139, 154, 122, 0.1);
+            border-radius: var(--radius-soft);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-sage);
+            font-family: var(--font-serif);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: rgba(44, 44, 44, 0.6);
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .tracking-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--radius-soft);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 30px;
+        }
+
+        .tracking-table th {
+            background: var(--color-sage);
+            color: var(--color-cream);
+            padding: 16px 12px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .tracking-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.1);
+            font-size: 13px;
+        }
+
+        .tracking-table input, .tracking-table select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid rgba(139, 154, 122, 0.2);
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .editable-cell {
+            background: var(--color-cream);
+            cursor: text;
+        }
+
+        .calculated-cell {
+            background: rgba(139, 154, 122, 0.05);
+            font-weight: 600;
+            color: var(--color-sage);
+        }
+
+        .add-row-btn {
+            margin: 20px 0;
+            width: 100%;
+            padding: 16px;
+            background: var(--color-cream);
+            border: 2px dashed rgba(139, 154, 122, 0.3);
+            border-radius: var(--radius-soft);
+            color: var(--color-sage);
+            cursor: pointer;
+            transition: var(--transition-gentle);
+        }
+
+        .add-row-btn:hover {
+            border-color: var(--color-sage);
+            background: rgba(139, 154, 122, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+            
+            .tracking-table {
+                font-size: 11px;
+            }
+            
+            .tracking-table th,
+            .tracking-table td {
+                padding: 8px 6px;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div id="user-info"></div>
+            <h1>📊 ROI Tracking Spreadsheet</h1>
+            <p>Track conversions, ROAS, and key UGC performance metrics</p>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-secondary" onclick="addSampleData()">📝 Fill Sample Data</button>
+            <button class="btn btn-secondary" onclick="exportToCSV()">📊 Export CSV</button>
+            <button class="btn btn-primary" onclick="window.print()">📥 Download PDF</button>
+        </div>
+
+        <div class="main-content">
+            <!-- Stats Overview -->
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalSpend">₹0</div>
+                    <div class="stat-label">Total Ad Spend</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalRevenue">₹0</div>
+                    <div class="stat-label">Total Revenue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="averageROAS">0x</div>
+                    <div class="stat-label">Average ROAS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalConversions">0</div>
+                    <div class="stat-label">Total Conversions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgCPA">₹0</div>
+                    <div class="stat-label">Avg Cost Per Acquisition</div>
+                </div>
+            </div>
+
+            <!-- Tracking Table -->
+            <table class="tracking-table" id="trackingTable">
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Creator</th>
+                        <th>Platform</th>
+                        <th>Content Type</th>
+                        <th>Launch Date</th>
+                        <th>Ad Spend (₹)</th>
+                        <th>Impressions</th>
+                        <th>Clicks</th>
+                        <th>CTR %</th>
+                        <th>Conversions</th>
+                        <th>Revenue (₹)</th>
+                        <th>ROAS</th>
+                        <th>CPA (₹)</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="trackingBody">
+                    <!-- Rows will be added dynamically -->
+                </tbody>
+            </table>
+
+            <button class="add-row-btn" onclick="addNewRow()">+ Add New Campaign</button>
+        </div>
+    </div>
+
+    <script>
+        let campaignData = [];
+        let nextId = 1;
+
+        function addNewRow(data = {}) {
+            const row = {
+                id: nextId++,
+                campaign: data.campaign || '',
+                creator: data.creator || '',
+                platform: data.platform || 'TikTok',
+                contentType: data.contentType || 'Testimonial',
+                launchDate: data.launchDate || new Date().toISOString().split('T')[0],
+                adSpend: data.adSpend || 0,
+                impressions: data.impressions || 0,
+                clicks: data.clicks || 0,
+                conversions: data.conversions || 0,
+                revenue: data.revenue || 0,
+                status: data.status || 'Active'
+            };
+
+            campaignData.push(row);
+            renderTable();
+            updateStats();
+        }
+
+        function deleteRow(id) {
+            campaignData = campaignData.filter(row => row.id !== id);
+            renderTable();
+            updateStats();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('trackingBody');
+            tbody.innerHTML = '';
+
+            campaignData.forEach(row => {
+                const ctr = row.impressions > 0 ? ((row.clicks / row.impressions) * 100).toFixed(2) : '0.00';
+                const roas = row.adSpend > 0 ? (row.revenue / row.adSpend).toFixed(2) : '0.00';
+                const cpa = row.conversions > 0 ? (row.adSpend / row.conversions).toFixed(0) : '0';
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><input type="text" class="editable-cell" value="${row.campaign}" onchange="updateField(${row.id}, 'campaign', this.value)"></td>
+                    <td><input type="text" class="editable-cell" value="${row.creator}" onchange="updateField(${row.id}, 'creator', this.value)"></td>
+                    <td>
+                        <select class="editable-cell" onchange="updateField(${row.id}, 'platform', this.value)">
+                            <option value="TikTok" ${row.platform === 'TikTok' ? 'selected' : ''}>TikTok</option>
+                            <option value="Instagram Reels" ${row.platform === 'Instagram Reels' ? 'selected' : ''}>Instagram Reels</option>
+                            <option value="YouTube Shorts" ${row.platform === 'YouTube Shorts' ? 'selected' : ''}>YouTube Shorts</option>
+                            <option value="Meta Ads" ${row.platform === 'Meta Ads' ? 'selected' : ''}>Meta Ads</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="editable-cell" onchange="updateField(${row.id}, 'contentType', this.value)">
+                            <option value="Testimonial" ${row.contentType === 'Testimonial' ? 'selected' : ''}>Testimonial</option>
+                            <option value="Demo" ${row.contentType === 'Demo' ? 'selected' : ''}>Demo</option>
+                            <option value="Unboxing" ${row.contentType === 'Unboxing' ? 'selected' : ''}>Unboxing</option>
+                            <option value="Tutorial" ${row.contentType === 'Tutorial' ? 'selected' : ''}>Tutorial</option>
+                            <option value="Lifestyle" ${row.contentType === 'Lifestyle' ? 'selected' : ''}>Lifestyle</option>
+                        </select>
+                    </td>
+                    <td><input type="date" class="editable-cell" value="${row.launchDate}" onchange="updateField(${row.id}, 'launchDate', this.value)"></td>
+                    <td><input type="number" class="editable-cell" value="${row.adSpend}" onchange="updateField(${row.id}, 'adSpend', parseFloat(this.value) || 0)"></td>
+                    <td><input type="number" class="editable-cell" value="${row.impressions}" onchange="updateField(${row.id}, 'impressions', parseFloat(this.value) || 0)"></td>
+                    <td><input type="number" class="editable-cell" value="${row.clicks}" onchange="updateField(${row.id}, 'clicks', parseFloat(this.value) || 0)"></td>
+                    <td class="calculated-cell">${ctr}%</td>
+                    <td><input type="number" class="editable-cell" value="${row.conversions}" onchange="updateField(${row.id}, 'conversions', parseFloat(this.value) || 0)"></td>
+                    <td><input type="number" class="editable-cell" value="${row.revenue}" onchange="updateField(${row.id}, 'revenue', parseFloat(this.value) || 0)"></td>
+                    <td class="calculated-cell">${roas}x</td>
+                    <td class="calculated-cell">₹${cpa}</td>
+                    <td>
+                        <select class="editable-cell" onchange="updateField(${row.id}, 'status', this.value)">
+                            <option value="Active" ${row.status === 'Active' ? 'selected' : ''}>Active</option>
+                            <option value="Paused" ${row.status === 'Paused' ? 'selected' : ''}>Paused</option>
+                            <option value="Completed" ${row.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                        </select>
+                    </td>
+                    <td><button onclick="deleteRow(${row.id})" style="background:var(--color-soft-terracotta);color:white;border:none;padding:4px 8px;border-radius:4px;cursor:pointer;">Delete</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function updateField(id, field, value) {
+            const row = campaignData.find(r => r.id === id);
+            if (row) {
+                row[field] = value;
+                renderTable();
+                updateStats();
+                saveData();
+            }
+        }
+
+        function updateStats() {
+            const totalSpend = campaignData.reduce((sum, row) => sum + (parseFloat(row.adSpend) || 0), 0);
+            const totalRevenue = campaignData.reduce((sum, row) => sum + (parseFloat(row.revenue) || 0), 0);
+            const totalConversions = campaignData.reduce((sum, row) => sum + (parseFloat(row.conversions) || 0), 0);
+            const averageROAS = totalSpend > 0 ? (totalRevenue / totalSpend).toFixed(2) : '0.00';
+            const avgCPA = totalConversions > 0 ? (totalSpend / totalConversions).toFixed(0) : '0';
+
+            document.getElementById('totalSpend').textContent = `₹${totalSpend.toLocaleString('en-IN')}`;
+            document.getElementById('totalRevenue').textContent = `₹${totalRevenue.toLocaleString('en-IN')}`;
+            document.getElementById('averageROAS').textContent = `${averageROAS}x`;
+            document.getElementById('totalConversions').textContent = totalConversions;
+            document.getElementById('avgCPA').textContent = `₹${avgCPA}`;
+        }
+
+        function addSampleData() {
+            const sampleCampaigns = [
+                {
+                    campaign: 'FitLife Pro Summer Launch',
+                    creator: '@sarahfit',
+                    platform: 'TikTok',
+                    contentType: 'Testimonial',
+                    launchDate: '2025-01-10',
+                    adSpend: 5000,
+                    impressions: 250000,
+                    clicks: 7500,
+                    conversions: 75,
+                    revenue: 22500,
+                    status: 'Active'
+                },
+                {
+                    campaign: 'SkinCare Routine Demo',
+                    creator: '@glowqueen',
+                    platform: 'Instagram Reels',
+                    contentType: 'Demo',
+                    launchDate: '2025-01-08',
+                    adSpend: 3500,
+                    impressions: 180000,
+                    clicks: 5400,
+                    conversions: 54,
+                    revenue: 16200,
+                    status: 'Active'
+                },
+                {
+                    campaign: 'Tech Gadget Unboxing',
+                    creator: '@techreviewer',
+                    platform: 'YouTube Shorts',
+                    contentType: 'Unboxing',
+                    launchDate: '2025-01-05',
+                    adSpend: 8000,
+                    impressions: 500000,
+                    clicks: 15000,
+                    conversions: 120,
+                    revenue: 48000,
+                    status: 'Completed'
+                }
+            ];
+
+            campaignData = [];
+            nextId = 1;
+            sampleCampaigns.forEach(campaign => addNewRow(campaign));
+            alert('✅ Sample ROI tracking data loaded!');
+        }
+
+        function exportToCSV() {
+            const headers = ['Campaign', 'Creator', 'Platform', 'Content Type', 'Launch Date', 'Ad Spend', 'Impressions', 'Clicks', 'CTR %', 'Conversions', 'Revenue', 'ROAS', 'CPA', 'Status'];
+            const rows = [headers];
+
+            campaignData.forEach(row => {
+                const ctr = row.impressions > 0 ? ((row.clicks / row.impressions) * 100).toFixed(2) : '0.00';
+                const roas = row.adSpend > 0 ? (row.revenue / row.adSpend).toFixed(2) : '0.00';
+                const cpa = row.conversions > 0 ? (row.adSpend / row.conversions).toFixed(0) : '0';
+
+                rows.push([
+                    row.campaign,
+                    row.creator,
+                    row.platform,
+                    row.contentType,
+                    row.launchDate,
+                    row.adSpend,
+                    row.impressions,
+                    row.clicks,
+                    ctr + '%',
+                    row.conversions,
+                    row.revenue,
+                    roas + 'x',
+                    '₹' + cpa,
+                    row.status
+                ]);
+            });
+
+            const csvContent = rows.map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `UGC-ROI-Tracking-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function saveData() {
+            localStorage.setItem('ugcROIData', JSON.stringify(campaignData));
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem('ugcROIData');
+            if (saved) {
+                campaignData = JSON.parse(saved);
+                if (campaignData.length > 0) {
+                    nextId = Math.max(...campaignData.map(r => r.id)) + 1;
+                }
+                renderTable();
+                updateStats();
+            }
+        }
+
+        // Initialize
+        loadData();
+        if (campaignData.length === 0) {
+            addNewRow(); // Add one empty row to start
+        }
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

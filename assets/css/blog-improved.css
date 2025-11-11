@@ -1,0 +1,107 @@
+/* ===============================================
+   Blog Section - Improved UI/UX Design
+   Modern, Clean, Professional Layout
+   =============================================== */
+
+/* Blog Grid Layout - Compatible with existing structure */
+.blog-grid-improved {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Responsive Grid */
+@media (min-width: 640px) {
+    .blog-grid-improved {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-grid-improved {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* Blog Card - Enhanced Design (works with existing Tailwind classes) */
+.blog-card-standard {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.blog-card-standard:nth-child(1) { animation-delay: 0.1s; }
+.blog-card-standard:nth-child(2) { animation-delay: 0.2s; }
+.blog-card-standard:nth-child(3) { animation-delay: 0.3s; }
+.blog-card-standard:nth-child(4) { animation-delay: 0.4s; }
+.blog-card-standard:nth-child(5) { animation-delay: 0.5s; }
+.blog-card-standard:nth-child(6) { animation-delay: 0.6s; }
+
+/* Enhanced hover effect for blog cards */
+.blog-card-standard:hover .blog-card {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(156, 175, 136, 0.2);
+}
+
+/* Image zoom on hover */
+.blog-card-standard:hover img {
+    transform: scale(1.05);
+}
+
+/* Smooth image transition */
+.blog-card img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Title color change on hover */
+.blog-card-standard:hover h3 {
+    color: #9CAF88 !important;
+    transition: color 0.3s ease;
+}
+
+/* Sidebar sticky positioning */
+.lg\:col-span-1 {
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive - unstick sidebar on mobile */
+@media (max-width: 1023px) {
+    .lg\:col-span-1 {
+        position: static;
+    }
+}
+
+/* Accessibility - Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .blog-card-standard,
+    .blog-card img,
+    .blog-card h3 {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .blog-card-standard {
+        opacity: 1 !important;
+    }
+}

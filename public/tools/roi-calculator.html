@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGC Marketing ROI Calculator | The UGC Agency</title>
+    <meta name="description" content="Calculate your UGC marketing ROI in Indian Rupees. See potential returns from user-generated content campaigns with our free calculator.">
+    <meta name="keywords" content="UGC ROI calculator, marketing ROI India, user generated content calculator, ROAS calculator INR">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ugcagency.com/roi-calculator.html">
+    <meta property="og:title" content="UGC Marketing ROI Calculator | The UGC Agency">
+    <meta property="og:description" content="Calculate your UGC marketing ROI in Indian Rupees. See potential returns from user-generated content campaigns.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ugcagency.com/roi-calculator.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Wabi-Sabi CSS Variables */
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-charcoal);
+            background-color: var(--color-warm-stone);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Layout Components */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-charcoal);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-weight: 500;
+            transition: var(--transition-gentle);
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-sage);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--color-sage);
+            color: white;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .btn-primary:hover {
+            background: #7A8A6A;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-sage);
+            border: 2px solid var(--color-sage);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-sage);
+            color: white;
+        }
+        
+        /* Calculator Styles */
+        .calculator-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-warm-stone) 0%, var(--color-cream) 100%);
+            padding-top: 6rem;
+            text-align: center;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: var(--radius-softer);
+            padding: 3rem;
+            box-shadow: var(--shadow-subtle);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            font-size: 0.9rem;
+        }
+        
+        .slider-container {
+            position: relative;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--color-warm-stone);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-sage);
+            cursor: pointer;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .slider-value {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            font-weight: 600;
+            color: var(--color-sage);
+            font-size: 0.9rem;
+        }
+        
+        select {
+            padding: 0.75rem;
+            border: 2px solid var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+            font-family: var(--font-sans);
+            background: white;
+            transition: var(--transition-gentle);
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--color-sage);
+        }
+        
+        /* Calculator Results */
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .result-card {
+            background: var(--color-warm-stone);
+            padding: 1.5rem;
+            border-radius: var(--radius-soft);
+            text-align: center;
+            transition: var(--transition-gentle);
+        }
+        
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .result-card h4 {
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-sage);
+            font-family: var(--font-serif);
+            margin-bottom: 0.25rem;
+        }
+        
+        .result-change {
+            font-size: 0.9rem;
+            color: var(--color-sage);
+            font-weight: 600;
+        }
+        
+        /* Chart */
+        .calculator-chart {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: var(--radius-soft);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        #roiChartCanvas {
+            width: 100%;
+            height: 300px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        /* Insights */
+        .calculator-insights {
+            background: var(--color-warm-stone);
+            padding: 1.5rem;
+            border-radius: var(--radius-soft);
+            margin: 2rem 0;
+        }
+        
+        .calculator-insights h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+        
+        .calculator-insights ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .calculator-insights li {
+            padding: 0.5rem 0;
+            color: var(--color-charcoal);
+            border-bottom: 1px solid rgba(139, 154, 122, 0.1);
+        }
+        
+        .calculator-insights li:last-child {
+            border-bottom: none;
+        }
+        
+        /* CTA */
+        .calculator-cta {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+        }
+        
+        /* Icon wrapper */
+        .icon-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        
+        .icon-wrapper.size-hero {
+            width: 72px;
+            height: 72px;
+        }
+        
+        .icon-wrapper.size-sm {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .icon-wrapper.primary i {
+            color: #0066FF;
+            stroke-width: 2;
+        }
+        
+        .icon-wrapper.success i {
+            color: #10B981;
+            stroke-width: 2;
+        }
+        
+        .icon-wrapper.neutral i {
+            color: #64748B;
+            stroke-width: 2;
+        }
+        
+        .icon-wrapper.size-hero i {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .icon-wrapper.size-sm i {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .icon-wrapper.pulse {
+            animation: subtlePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtlePulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+        
+        /* Educational Content Improvements */
+        .roi-education {
+            background: var(--color-cream);
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-radius: var(--radius-softer);
+        }
+        
+        .roi-education section {
+            margin-bottom: 6rem;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(139, 154, 122, 0.1);
+        }
+        
+        .roi-education section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .roi-education h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: var(--color-charcoal);
+            font-family: var(--font-serif);
+        }
+        
+        .roi-education h3 {
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            color: var(--color-charcoal);
+        }
+        
+        .roi-education p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-charcoal);
+        }
+        
+        .flex.items-center {
+            display: flex;
+            align-items: center;
+        }
+        
+        .space-y-8 > * + * {
+            margin-top: 2rem;
+        }
+        
+        .space-y-2 > * + * {
+            margin-top: 0.5rem;
+        }
+        
+        .grid.md\:grid-cols-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .icon-wrapper.size-xs {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .icon-wrapper.size-xs i {
+            width: 14px;
+            height: 14px;
+        }
+        
+        /* Formula cards styling */
+        .formula-card {
+            background: var(--color-cream);
+            border: 2px solid var(--color-sage);
+            border-radius: var(--radius-softer);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition-gentle);
+        }
+        
+        .formula-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        .formula-example {
+            background: white;
+            border-radius: var(--radius-soft);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--color-sage);
+        }
+        
+        /* Use case cards */
+        .use-case-card {
+            background: white;
+            border: 2px solid var(--color-warm-stone);
+            border-radius: var(--radius-softer);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            transition: var(--transition-gentle);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lift);
+            border-color: var(--color-sage);
+        }
+        
+        /* Benefits grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .benefit-card {
+            background: white;
+            border: 2px solid var(--color-warm-stone);
+            border-radius: var(--radius-softer);
+            padding: 2rem;
+            transition: var(--transition-gentle);
+            height: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+            border-color: var(--color-sage);
+        }
+        
+        /* Alert/Info boxes */
+        .info-box {
+            background: var(--color-warm-stone);
+            border-left: 4px solid var(--color-soft-terracotta);
+            border-radius: var(--radius-soft);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box {
+            background: var(--color-cream);
+            border: 2px solid var(--color-sage);
+            border-radius: var(--radius-softer);
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        /* Section dividers */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-sage), transparent);
+            margin: 4rem 0;
+            opacity: 0.3;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calculator-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .roi-education {
+                padding: 2rem 1rem;
+                margin-top: 2rem;
+            }
+            
+            .roi-education section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 3rem;
+            }
+            
+            .use-case-card {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .formula-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">The UGC Agency</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../services.html">Services</a></li>
+                <li><a href="../creators.html">Creators</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Calculator Hero -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="icon-wrapper size-hero primary pulse" style="margin-bottom: 1.5rem;">
+                <i data-lucide="calculator"></i>
+            </div>
+            <h1>UGC Marketing ROI Calculator</h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Calculate your potential returns from user-generated content marketing campaigns. Get personalized projections in Indian Rupees based on your current marketing spend and goals.</p>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="section">
+        <div class="container">
+            <div class="calculator-card">
+                <div class="calculator-header">
+                    <h3>Calculate Your UGC Investment Returns</h3>
+                    <p>Enter your current marketing details to see how UGC can improve your ROI</p>
+                </div>
+                
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="currentSpend">Current Monthly Marketing Spend (₹)</label>
+                        <div class="slider-container">
+                            <input type="range" id="currentSpend" min="50000" max="1000000" value="200000" step="10000">
+                            <div class="slider-value">₹<span id="currentSpendValue">2,00,000</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="currentROAS">Current ROAS (Return on Ad Spend)</label>
+                        <div class="slider-container">
+                            <input type="range" id="currentROAS" min="1" max="8" value="2.5" step="0.1">
+                            <div class="slider-value"><span id="currentROASValue">2.5</span>x</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="timeframe">Investment Timeframe</label>
+                        <select id="timeframe">
+                            <option value="3">3 Months</option>
+                            <option value="6" selected>6 Months</option>
+                            <option value="12">12 Months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="ugcBudget">UGC Investment Budget (₹)</label>
+                        <div class="slider-container">
+                            <input type="range" id="ugcBudget" min="100000" max="500000" value="250000" step="10000">
+                            <div class="slider-value">₹<span id="ugcBudgetValue">2,50,000</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card improved-revenue">
+                        <div class="icon-wrapper size-sm success">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h4>Projected Revenue</h4>
+                        <div class="result-value" id="projectedRevenue">₹12,00,000</div>
+                        <div class="result-change" id="revenueIncrease">+67% increase</div>
+                    </div>
+                    
+                    <div class="result-card net-profit">
+                        <div class="icon-wrapper size-sm primary">
+                            <i data-lucide="dollar-sign"></i>
+                        </div>
+                        <h4>Net Profit Gain</h4>
+                        <div class="result-value" id="netProfit">₹4,80,000</div>
+                        <div class="result-change" id="profitMargin">192% ROI</div>
+                    </div>
+                    
+                    <div class="result-card improved-roas">
+                        <div class="icon-wrapper size-sm neutral">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <h4>New ROAS</h4>
+                        <div class="result-value" id="newROAS">4.8x</div>
+                        <div class="result-change" id="roasImprovement">+92% better</div>
+                    </div>
+                </div>
+                
+                <div class="calculator-chart">
+                    <canvas id="roiChartCanvas"></canvas>
+                </div>
+                
+                <div class="calculator-insights">
+                    <h4>Your Investment Breakdown</h4>
+                    <ul id="insights">
+                        <li>With ₹2,50,000 invested in UGC content creation</li>
+                        <li>Improved authenticity can boost conversion rates by 2.3x</li>
+                        <li>UGC performs 5x better than brand-created content</li>
+                        <li>Expected payback period: 4-6 months</li>
+                    </ul>
+                </div>
+                
+                <div class="calculator-cta">
+                    <h4>Ready to achieve these results?</h4>
+                    <p>Book a free strategy call to discuss your specific goals and see how our UGC approach can transform your marketing ROI.</p>
+                    <a href="https://wa.me/919239161632?text=Hi,%20I%27d%20like%20to%20discuss%20UGC%20strategy%20based%20on%20my%20ROI%20calculation" class="btn btn-primary" target="_blank">Chat on WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- Educational Content -->
+            <div class="roi-education">
+                <!-- What is ROI Section -->
+                <section>
+                    <div class="flex items-center mb-6">
+                        <div class="icon-wrapper size-sm primary">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <h2 style="margin-left: 1rem;">What is ROI?</h2>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0;">
+                            ROI stands for Return on Investment, which is a financial metric used to measure the profitability or effectiveness of an investment. In simple terms, it tells you how much profit or value you gained or lost relative to the amount of money you initially invested.
+                        </p>
+                    </div>
+                    
+                    <p>
+                        You can calculate ROI using the simple formula: <strong>ROI = (Net Profit / Cost of Investment) × 100</strong>. If you are investing in property, then the return on investment will show you how profitable that investment is. If you are investing in the stock market, the ROI tells you how much you are gaining or losing on your portfolio.
+                    </p>
+                    
+                    <p>
+                        ROI is one of the most versatile and widely used financial metrics because it provides a clear picture of investment performance across different asset classes, time periods, and investment strategies. Whether you are a business owner evaluating marketing campaigns, an investor comparing stocks and bonds, or a real estate investor analyzing property deals, ROI gives you a standardized way to measure success.
+                    </p>
+                </section>
+                
+                <div class="section-divider"></div>
+
+                <!-- What is ROI Calculator Section -->
+                <section>
+                    <div class="flex items-center mb-6">
+                        <div class="icon-wrapper size-sm primary">
+                            <i data-lucide="calculator"></i>
+                        </div>
+                        <h2 style="margin-left: 1rem;">What is an ROI Calculator?</h2>
+                    </div>
+                    
+                    <p>
+                        An ROI Calculator is a powerful digital tool that helps you quickly determine the profitability of any investment or business decision. Instead of manually crunching numbers with complex formulas, you simply input your costs and expected or actual returns, and the calculator instantly shows you the percentage or monetary value of your profit.
+                    </p>
+                    
+                    <p>
+                        This tool is invaluable for comparing multiple investment opportunities, understanding which projects deserve your resources, and making data-driven decisions. Whether you are considering a marketing campaign, equipment purchase, stock investment, or business expansion, an ROI calculator removes the guesswork and provides objective financial insights in seconds.
+                    </p>
+                </section>
+                
+                <div class="section-divider"></div>
+
+                <!-- How to Calculate ROI Section -->
+                <section>
+                    <div class="flex items-center mb-6">
+                        <div class="icon-wrapper size-sm success">
+                            <i data-lucide="lightbulb"></i>
+                        </div>
+                        <h2 style="margin-left: 1rem;">How to Calculate ROI</h2>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="formula-card">
+                            <h3 style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <div class="icon-wrapper size-xs success" style="margin-right: 0.5rem;">
+                                    <i data-lucide="check-circle"></i>
+                                </div>
+                                Absolute ROI Formula
+                            </h3>
+                            
+                            <div class="formula-example">
+                                <p style="font-family: monospace; text-align: center; font-weight: 600; margin-bottom: 0;">
+                                    Absolute ROI = (Net Profit / Initial Investment) × 100
+                                </p>
+                            </div>
+                            
+                            <p style="margin-bottom: 1.5rem;">
+                                Absolute ROI shows you the total return on your investment over the entire holding period, without accounting for time. Perfect for comparing investments held for similar durations.
+                            </p>
+                            
+                            <div class="formula-example">
+                                <p style="font-weight: 600; margin-bottom: 1rem;">📊 Example:</p>
+                                <p style="margin-bottom: 0; line-height: 1.6;">
+                                    <strong>Investment:</strong> ₹30,000<br/>
+                                    <strong>Final Value:</strong> ₹60,000<br/>
+                                    <strong>Net Profit:</strong> ₹30,000<br/>
+                                    <strong>ROI:</strong> (30,000 ÷ 30,000) × 100 = <span style="color: var(--color-sage); font-weight: 700;">100%</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="formula-card">
+                            <h3 style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <div class="icon-wrapper size-xs neutral" style="margin-right: 0.5rem;">
+                                    <i data-lucide="clock"></i>
+                                </div>
+                                Annualized ROI Formula
+                            </h3>
+                            
+                            <div class="formula-example">
+                                <p style="font-family: monospace; text-align: center; font-weight: 600; margin-bottom: 0;">
+                                    Annualized ROI = [(Final ÷ Initial)^(1/Years)] - 1
+                                </p>
+                            </div>
+                            
+                            <p style="margin-bottom: 1.5rem;">
+                                Annualized ROI converts returns into an annual percentage, accounting for compounding. Crucial for comparing investments held for different time periods.
+                            </p>
+                            
+                            <div class="formula-example">
+                                <p style="font-weight: 600; margin-bottom: 1rem;">📊 Example:</p>
+                                <p style="margin-bottom: 0; line-height: 1.6;">
+                                    <strong>Investment:</strong> ₹30,000<br/>
+                                    <strong>Final Value:</strong> ₹60,000<br/>
+                                    <strong>Duration:</strong> 5 years<br/>
+                                    <strong>Annualized ROI:</strong> [(2)^(1/5)] - 1 = <span style="color: var(--color-sage); font-weight: 700;">14.87%</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div style="display: flex; align-items: flex-start;">
+                            <div class="icon-wrapper size-xs neutral" style="margin-right: 1rem; margin-top: 0.25rem;">
+                                <i data-lucide="alert-circle"></i>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; margin-bottom: 0.5rem;">⚡ Key Difference:</p>
+                                <p style="margin-bottom: 0;">
+                                    Use <strong>Absolute ROI</strong> for short-term investments (less than 1 year) or similar durations. Use <strong>Annualized ROI</strong> for different time periods to get apples-to-apples yearly performance comparison.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="section-divider"></div>
+
+                <!-- Real-World Use Cases Section -->
+                <section>
+                    <div class="flex items-center mb-6">
+                        <div class="icon-wrapper size-sm primary">
+                            <i data-lucide="pie-chart"></i>
+                        </div>
+                        <h2 style="margin-left: 1rem;">Real-World Use Cases for ROI Calculation</h2>
+                    </div>
+
+                    <div>
+                        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-warm-stone);">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">1. Real Estate Investments</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Real estate investments are one of the most common applications of ROI calculations. When comparing properties, ROI helps you see beyond absolute profit to understand which investment delivers better returns relative to capital invested.
+                            </p>
+                            <div class="bg-gray-50 rounded-lg p-5" style="background: var(--color-warm-stone);">
+                                <p class="font-semibold text-gray-800 mb-3">Example Scenario:</p>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="bg-blue-50 border-2 border-blue-300 rounded-lg p-4" style="background: var(--color-cream); border-color: var(--color-sage);">
+                                        <p class="font-bold mb-2" style="color: var(--color-charcoal);">Property A (Commercial)</p>
+                                        <p class="text-sm text-gray-700">
+                                            Cost: ₹1 Crore<br/>
+                                            Expected Value: ₹2 Crore<br/>
+                                            Profit: ₹1 Crore<br/>
+                                            ROI: 100%
+                                        </p>
+                                        <p class="text-xs text-gray-600 mt-2">High-demand commercial district, established area</p>
+                                    </div>
+                                    <div class="bg-green-50 border-2 border-green-300 rounded-lg p-4" style="background: var(--color-cream); border-color: var(--color-muted-teal);">
+                                        <p class="font-bold mb-2" style="color: var(--color-charcoal);">Property B (Emerging)</p>
+                                        <p class="text-sm text-gray-700">
+                                            Cost: ₹50 Lakh<br/>
+                                            Expected Value: ₹1.2 Crore<br/>
+                                            Profit: ₹70 Lakh<br/>
+                                            ROI: 140%
+                                        </p>
+                                        <p class="text-xs text-gray-600 mt-2">Growing neighborhood, higher risk but better ROI</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm mt-4 italic">
+                                    While Property A gives higher absolute profit, Property B delivers better ROI. Your choice depends on risk tolerance and available capital.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-warm-stone);">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">2. Marketing Campaigns and Business Initiatives</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Businesses use ROI extensively to evaluate marketing campaigns, advertising spend, and strategic initiatives. A positive marketing ROI means your campaigns generate more revenue than they cost, justifying continued investment.
+                            </p>
+                            <div class="bg-gray-50 rounded-lg p-5" style="background: var(--color-warm-stone);">
+                                <p class="font-semibold text-gray-800 mb-3">Marketing ROI Example:</p>
+                                <p class="text-gray-700">
+                                    Campaign Spend: ₹2,00,000<br/>
+                                    Revenue Generated: ₹6,00,000<br/>
+                                    Net Profit: ₹4,00,000<br/>
+                                    Marketing ROI: 200%
+                                </p>
+                                <p class="text-gray-600 text-sm mt-3">
+                                    This means for every ₹1 spent on marketing, the business generated ₹3 in total revenue (or ₹2 in profit).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-warm-stone);">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">3. Stock Market and Equity Investments</h3>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                Stock investors use ROI to track portfolio performance and compare individual stock returns. ROI helps determine whether your investment strategy is outperforming market benchmarks like the Nifty 50 or Sensex.
+                            </p>
+                            <div class="bg-gray-50 rounded-lg p-5" style="background: var(--color-warm-stone);">
+                                <p class="text-gray-700 mb-2">
+                                    Historical Benchmarks:
+                                </p>
+                                <ul class="text-gray-600 space-y-2 ml-4">
+                                    <li>• Nifty 50 (India): Around 12-15% annual return over 10 years</li>
+                                    <li>• Sensex: Around 13% average annual return historically</li>
+                                    <li>• Individual stocks can range from -100% (total loss) to 1000%+ (multibaggers)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-warm-stone);">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">4. Business Equipment and Technology Upgrades</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Companies calculate ROI on equipment purchases, software implementations, and technology upgrades to ensure investments improve efficiency and profitability. ROI analysis helps justify capital expenditures to stakeholders and prioritize projects with the best returns.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- What is Good ROI Section -->
+                <section class="mb-16 bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-2xl" style="background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-warm-stone) 100%);">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">What is a Good ROI?</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        The definition of a good ROI varies significantly based on several critical factors. What is considered excellent in one context might be mediocre in another. Here is what you need to consider:
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white rounded-lg p-5 border-2" style="border-color: var(--color-sage);">
+                            <h3 class="font-bold text-gray-800 mb-3">Key Questions to Ask:</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <div class="icon-wrapper size-xs success" style="margin-right: 0.5rem; margin-top: 0.125rem;">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <span>How much risk can I afford to take?</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="icon-wrapper size-xs success" style="margin-right: 0.5rem; margin-top: 0.125rem;">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <span>What are my profit expectations from this investment?</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="icon-wrapper size-xs success" style="margin-right: 0.5rem; margin-top: 0.125rem;">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <span>Am I investing for long-term growth or short-term gains?</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="icon-wrapper size-xs success" style="margin-right: 0.5rem; margin-top: 0.125rem;">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <span>What is the opportunity cost of this investment?</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white rounded-lg p-5 border-2" style="border-color: var(--color-muted-teal);">
+                            <h3 class="font-bold text-gray-800 mb-3">Industry Benchmarks:</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Stock Market: 12-15% annually considered good in India</li>
+                                <li>• Real Estate: 10-15% annually for rental properties</li>
+                                <li>• Business Ventures: 20-30%+ expected for higher risk</li>
+                                <li>• Marketing ROI: 5:1 ratio (500%) considered strong</li>
+                                <li>• Fixed Deposits: 6-8% (safe but low returns)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-5 border-l-4" style="border-left-color: var(--color-sage);">
+                        <p class="text-gray-700 leading-relaxed">
+                            <strong>General Rule of Thumb:</strong> Most investors view an average annual ROI of 12-15% in the Indian stock market as good performance. This benchmark comes from historical market performance - the Nifty 50 has delivered approximately 12-15% annually over decades. However, your personal good ROI should align with your financial goals, timeline, and risk tolerance.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Benefits of Using ROI Calculator Section -->
+                <section class="mb-16">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Benefits of Using an ROI Calculator</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-sage);">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3" style="background: var(--color-sage); color: white;">
+                                    <div class="icon-wrapper size-xs" style="color: white;">
+                                        <i data-lucide="target"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Determine Profitability</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                ROI enables you to quickly gauge whether an investment aligns with your financial goals. It answers the fundamental question: Will this make me money? This clarity helps you avoid unprofitable ventures and focus resources on opportunities that truly move the needle.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-muted-teal);">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-green-100 rounded-full p-2 mr-3" style="background: var(--color-muted-teal); color: white;">
+                                    <div class="icon-wrapper size-xs" style="color: white;">
+                                        <i data-lucide="bar-chart-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Quantify and Compare Returns</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Using ROI as a standardized metric allows you to compare completely different investment types on an equal footing. Compare real estate vs stocks vs business investments objectively, prioritizing opportunities with the best risk-adjusted returns.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-clay);">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-purple-100 rounded-full p-2 mr-3" style="background: var(--color-clay); color: white;">
+                                    <div class="icon-wrapper size-xs" style="color: white;">
+                                        <i data-lucide="alert-circle"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Account for Risk</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                While ROI shows potential returns, it must be evaluated alongside risk. A 50% ROI in volatile crypto might be riskier than 15% in stable bonds. Considering your risk tolerance with ROI helps you evaluate investments that match your comfort level and financial situation.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow" style="border-color: var(--color-soft-terracotta);">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-yellow-100 rounded-full p-2 mr-3" style="background: var(--color-soft-terracotta); color: white;">
+                                    <div class="icon-wrapper size-xs" style="color: white;">
+                                        <i data-lucide="trending-up"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Support Long-Term Goals</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                ROI calculation is particularly valuable for long-term financial planning. It helps identify investments with compounding potential that can help you achieve retirement goals, wealth building, or financial independence over time.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Final CTA Section -->
+                <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-8 text-center" style="background: var(--color-charcoal); color: white;">
+                    <h2 class="text-3xl font-bold mb-4" style="color: white;">Start Calculating Your Returns Today</h2>
+                    <p class="text-lg mb-6" style="color: rgba(255, 255, 255, 0.9);">
+                        Use our ROI calculator to make informed investment decisions and maximize your returns. Whether you are investing in stocks, real estate, or business ventures, understanding your ROI is the first step to financial success.
+                    </p>
+                    <p class="text-sm" style="color: rgba(255, 255, 255, 0.7);">
+                        Remember: Past performance does not guarantee future results. Always consider your risk tolerance and consult with financial advisors for personalized investment advice.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize calculator on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // Initialize calculator
+            initializeUGCCalculator();
+        });
+
+        function initializeUGCCalculator() {
+            // Initialize sliders and calculator functionality
+            const currentSpendSlider = document.getElementById('currentSpend');
+            const currentROASSlider = document.getElementById('currentROAS');
+            const ugcBudgetSlider = document.getElementById('ugcBudget');
+            const timeframeSelect = document.getElementById('timeframe');
+            
+            // Initial calculation
+            calculateUGCROI();
+            
+            // Bind events
+            currentSpendSlider.addEventListener('input', updateSpendValue);
+            currentROASSlider.addEventListener('input', updateROASValue);
+            ugcBudgetSlider.addEventListener('input', updateBudgetValue);
+            timeframeSelect.addEventListener('change', calculateUGCROI);
+            
+            // Add change events to trigger calculations
+            currentSpendSlider.addEventListener('input', calculateUGCROI);
+            currentROASSlider.addEventListener('input', calculateUGCROI);
+            ugcBudgetSlider.addEventListener('input', calculateUGCROI);
+        }
+
+        function updateSpendValue() {
+            const slider = document.getElementById('currentSpend');
+            const valueSpan = document.getElementById('currentSpendValue');
+            if (slider && valueSpan) {
+                valueSpan.textContent = formatINR(parseInt(slider.value));
+            }
+        }
+
+        function updateROASValue() {
+            const slider = document.getElementById('currentROAS');
+            const valueSpan = document.getElementById('currentROASValue');
+            if (slider && valueSpan) {
+                valueSpan.textContent = parseFloat(slider.value).toFixed(1);
+            }
+        }
+
+        function updateBudgetValue() {
+            const slider = document.getElementById('ugcBudget');
+            const valueSpan = document.getElementById('ugcBudgetValue');
+            if (slider && valueSpan) {
+                valueSpan.textContent = formatINR(parseInt(slider.value));
+            }
+        }
+
+        function calculateUGCROI() {
+            const currentSpend = parseInt(document.getElementById('currentSpend')?.value || 200000);
+            const currentROAS = parseFloat(document.getElementById('currentROAS')?.value || 2.5);
+            const ugcBudget = parseInt(document.getElementById('ugcBudget')?.value || 250000);
+            const timeframe = parseInt(document.getElementById('timeframe')?.value || 6);
+            
+            // Current performance
+            const currentRevenue = currentSpend * currentROAS * timeframe;
+            
+            // UGC improvements (based on industry benchmarks)
+            const ugcROASImprovement = 1.92; // 92% better ROAS on average
+            const newROAS = currentROAS * ugcROASImprovement;
+            
+            // Total investment includes current spend + UGC investment
+            const totalInvestment = currentSpend * timeframe + ugcBudget;
+            const projectedRevenue = currentSpend * newROAS * timeframe + (ugcBudget * 0.5); // UGC budget has 50% return
+            
+            const netProfit = projectedRevenue - totalInvestment;
+            const roi = (netProfit / ugcBudget) * 100;
+            const revenueIncrease = ((projectedRevenue / currentRevenue) - 1) * 100;
+            
+            // Update UI with animations
+            animateValue('projectedRevenue', projectedRevenue, true);
+            animateValue('netProfit', netProfit, true);
+            animateValue('newROAS', newROAS, false, 'x');
+            
+            // Update change indicators
+            document.getElementById('revenueIncrease').textContent = `+${Math.round(revenueIncrease)}% increase`;
+            document.getElementById('profitMargin').textContent = `${Math.round(roi)}% ROI`;
+            document.getElementById('roasImprovement').textContent = `+${Math.round((ugcROASImprovement - 1) * 100)}% better`;
+            
+            // Update insights
+            updateInsights({
+                investment: ugcBudget,
+                timeframe: timeframe,
+                roiPercent: Math.round(roi),
+                revenueIncrease: Math.round(revenueIncrease)
+            });
+            
+            // Update chart
+            updateROIChart(currentRevenue, projectedRevenue);
+        }
+
+        function animateValue(elementId, finalValue, isCurrency = false, suffix = '') {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const startValue = 0;
+            const duration = 1000;
+            const startTime = performance.now();
+            
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentValue = startValue + (finalValue - startValue) * easeOutQuart;
+                
+                if (isCurrency) {
+                    element.textContent = formatCurrencyINR(currentValue);
+                } else {
+                    element.textContent = currentValue.toFixed(1) + suffix;
+                }
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        function updateInsights(data) {
+            const insights = document.getElementById('insights');
+            if (!insights) return;
+            
+            const insightsList = [
+                `With ₹${formatINR(data.investment)} invested in UGC content creation`,
+                `Improved authenticity can boost conversion rates by 2.3x`,
+                `UGC performs 5x better than brand-created content`,
+                `Expected payback period: ${Math.max(1, Math.round(12 / (data.roiPercent / 100 * 12)))}-${Math.max(2, Math.round(18 / (data.roiPercent / 100 * 12)))} months`
+            ];
+            
+            insights.innerHTML = insightsList.map(insight => `<li>${insight}</li>`).join('');
+        }
+
+        function updateROIChart(currentRevenue, projectedRevenue) {
+            const canvas = document.getElementById('roiChartCanvas');
+            if (!canvas) return;
+            
+            // Use ECharts for better visualization
+            if (typeof echarts !== 'undefined') {
+                const chart = echarts.init(canvas);
+                
+                const option = {
+                    title: {
+                        text: 'Revenue Comparison',
+                        left: 'center',
+                        textStyle: {
+                            color: '#2C2C2C',
+                            fontSize: 16,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: function (params) {
+                            return `${params[0].name}: ${formatCurrencyINR(params[0].value)}`;
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: ['Current Performance', 'With UGC Strategy'],
+                        axisLine: {
+                            lineStyle: { color: '#8B9A7A' }
+                        },
+                        axisLabel: {
+                            color: '#2C2C2C',
+                            fontSize: 12
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: { color: '#8B9A7A' }
+                        },
+                        axisLabel: {
+                            color: '#2C2C2C',
+                            formatter: function (value) {
+                                return formatCurrencyINR(value);
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: 'rgba(139, 154, 122, 0.2)'
+                            }
+                        }
+                    },
+                    series: [{
+                        data: [currentRevenue, projectedRevenue],
+                        type: 'bar',
+                        itemStyle: {
+                            color: function(params) {
+                                return params.dataIndex === 0 ? '#C4A484' : '#8B9A7A';
+                            }
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowColor: 'rgba(0, 0, 0, 0.3)'
+                            }
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: function(params) {
+                                return formatCurrencyINR(params.value);
+                            },
+                            color: '#2C2C2C',
+                            fontSize: 12,
+                            fontWeight: 'bold'
+                        }
+                    }]
+                };
+                
+                chart.setOption(option);
+            }
+        }
+
+        function formatINR(num) {
+            // Indian number formatting with commas
+            return num.toLocaleString('en-IN');
+        }
+
+        function formatCurrencyINR(num) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(num);
+        }
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

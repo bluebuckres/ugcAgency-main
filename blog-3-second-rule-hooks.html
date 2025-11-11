@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 3-Second Rule: Why Your Hook Makes or Breaks Conversions | MakeUGC Blog</title>
+    <meta name="description" content="Master the psychology of UGC hooks. Learn the 10 proven frameworks that stop the scroll and drive 3.9x better conversion rates in just 3 seconds.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#9CAF88',
+                        'warm-stone': '#E6DDD4',
+                        charcoal: '#3A3A3A',
+                        'soft-clay': '#D4C4B0',
+                        moss: '#7A8471',
+                        cream: '#F5F1EB',
+                        rust: '#B85450',
+                        'dust-blue': '#8B9DC3'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(156, 175, 136, 0.1) 0%, rgba(230, 221, 212, 0.3) 100%);
+        }
+        
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+        }
+        
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #9CAF88, #7A8471);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+        
+        /* Navbar contact button styling */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            color: #8B9A7A;
+            border: 1.5px solid #8B9A7A;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #8B9A7A, #7A9B9B);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+        
+        .btn-primary:hover {
+            color: white;
+            border-color: #8B9A7A;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+        }
+        
+        .btn-primary:hover::before {
+            left: 0;
+        }
+        
+        .prose h2 {
+            color: #3A3A3A;
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .prose h3 {
+            color: #7A8471;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .prose h4 {
+            color: #9CAF88;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal font-inter">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" class="h-12 w-12 rounded-full object-cover">
+                <span class="font-crimson text-xl font-bold">MakeUGC</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="blog.html" class="text-charcoal/70 hover:text-sage">← Back to Blog</a>
+                <a href="contact.html" class="btn-primary text-white px-6 py-2 rounded-full font-medium">Get Started</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-sage/20 px-4 py-2 rounded-full text-sm font-medium text-sage mb-6">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+                UGC Strategy
+            </div>
+            <h1 class="font-crimson text-5xl md:text-6xl font-bold text-charcoal mb-6 leading-tight">
+                The 3-Second Rule: Why Your Hook Makes or Breaks Conversions
+            </h1>
+            <p class="text-xl text-charcoal/80 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Master the psychology of UGC hooks with proven frameworks that stop the scroll and drive 3.9x better conversion rates in just 3 seconds.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-charcoal/60">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    January 20, 2025
+                </span>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    9 min read
+                </span>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                    Ryan Mitchell
+                </span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <article class="max-w-4xl mx-auto px-6 py-16">
+        <!-- Key Stats -->
+        <div class="bg-white rounded-2xl p-8 border border-sage/20 mb-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">3</div>
+                    <div class="text-sm text-charcoal/60">Seconds to Hook</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">3.9x</div>
+                    <div class="text-sm text-charcoal/60">Better Conversions</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">65%</div>
+                    <div class="text-sm text-charcoal/60">Scroll by 3 Seconds</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">10</div>
+                    <div class="text-sm text-charcoal/60">Hook Frameworks</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hook Example -->
+        <div class="bg-gradient-to-r from-sage/10 to-dust-blue/5 p-8 rounded-xl mb-12">
+            <h4 class="font-bold text-lg mb-4">The Power of the Right Hook</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-rust pl-6">
+                    <h5 class="font-semibold text-rust mb-2">Celebrity Campaign (₹8 Lakhs)</h5>
+                    <p class="text-sm text-charcoal/70 mb-2">Average watch time: <strong>2.4 seconds</strong></p>
+                    <p class="text-xs text-charcoal/60">87% scrolled past before seeing product</p>
+                </div>
+                <div class="border-l-4 border-sage pl-6">
+                    <h5 class="font-semibold text-sage mb-2">Micro-Creator Hook</h5>
+                    <p class="text-sm text-charcoal/70 mb-1">"I wore this ₹899 kurti to my office and my CEO asked where I bought it."</p>
+                    <p class="text-sm text-charcoal/70 mb-2">Watch time: <strong>47 seconds</strong> | Conversion: <strong>8.2%</strong></p>
+                    <p class="text-xs text-charcoal/60"><strong>4x better conversion</strong> than professional content</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Sections -->
+        <div class="prose prose-lg max-w-none">
+            <p class="text-lg leading-relaxed mb-6 text-charcoal/80">
+                A Mumbai-based fashion brand spent ₹8 lakhs on a professionally produced campaign featuring a Bollywood celebrity. Average watch time? <strong>2.4 seconds</strong>. 87% of viewers scrolled past before seeing the product.
+            </p>
+            
+            <p class="text-lg leading-relaxed mb-8 text-charcoal/80">
+                The same month, a micro-creator with 15,000 followers posted a raw, unscripted video with the hook: <em>"I wore this ₹899 kurti to my office and my CEO asked where I bought it."</em> Watch time? <strong>47 seconds</strong>. Conversion rate? <strong>8.2%</strong>—nearly 4x the brand's professionally produced content.
+            </p>
+            
+            <div class="bg-sage/20 p-6 rounded-xl mb-8">
+                <h4 class="font-bold text-sage mb-3">The Critical Truth</h4>
+                <p class="text-charcoal/80">In India's hyper-competitive social media landscape—where users scroll through over 300 pieces of content daily—you don't have 10 seconds to make an impression. You don't even have 5. <strong>You have 3 seconds to hook attention, or you've lost the sale.</strong></p>
+            </div>
+            
+            <h2>The Science Behind The 3-Second Rule</h2>
+            
+            <h3>The Neuroscience of Attention</h3>
+            
+            <p>Human brains are wired for efficiency. When scrolling social media, our brains operate in what neuroscientists call "low-attention mode"—constantly scanning for threats, opportunities, or novelty.</p>
+            
+            <div class="bg-white p-6 rounded-xl border border-sage/20 mb-8">
+                <h4 class="font-bold text-lg mb-4">Research Shows:</h4>
+                <ul class="space-y-2 text-charcoal/80">
+                    <li>• <strong>The human attention span has dropped to 8.25 seconds</strong> (down from 12 seconds in 2000)</li>
+                    <li>• <strong>On mobile devices, users decide within 0.05 seconds</strong> whether to continue watching</li>
+                    <li>• <strong>By the 3-second mark, 65% of viewers have already scrolled</strong> past content that didn't immediately grab them</li>
+                </ul>
+                <p class="text-sm text-charcoal/60 mt-4">In India, where <strong>78% of social media consumption happens on mobile</strong> devices during commutes, lunch breaks, and stolen moments between tasks, attention is even more fragmented.</p>
+            </div>
+            
+            <h3>The Psychology of the Scroll</h3>
+            
+            <p>When Indians scroll Instagram Reels or YouTube Shorts, they're in what psychologists call "scanning mode"—not watching, just scanning for something worth their time.</p>
+            
+            <div class="bg-gradient-to-r from-sage/10 to-dust-blue/10 p-6 rounded-xl mb-8">
+                <h4 class="font-bold text-lg mb-4">Your hook must trigger one of these psychological responses in 3 seconds:</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-sage rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">1</div>
+                            <div>
+                                <p class="font-semibold text-sage">Curiosity gap</p>
+                                <p class="text-sm text-charcoal/70">"Wait, what happens next?"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-dust-blue rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">2</div>
+                            <div>
+                                <p class="font-semibold text-dust-blue">Personal relevance</p>
+                                <p class="text-sm text-charcoal/70">"This is exactly my problem!"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-rust rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">3</div>
+                            <div>
+                                <p class="font-semibold text-rust">Emotional resonance</p>
+                                <p class="text-sm text-charcoal/70">"I FEEL this"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-moss rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">4</div>
+                            <div>
+                                <p class="font-semibold text-moss">Social proof</p>
+                                <p class="text-sm text-charcoal/70">"Everyone's talking about this"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-sage rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">5</div>
+                            <div>
+                                <p class="font-semibold text-sage">Novelty</p>
+                                <p class="text-sm text-charcoal/70">"I've never seen this before"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-rust rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">6</div>
+                            <div>
+                                <p class="font-semibold text-rust">Controversy</p>
+                                <p class="text-sm text-charcoal/70">"Wait, did they just say that?"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-charcoal/80 mt-4 font-medium">Miss all six triggers? You've lost them.</p>
+            </div>
+            
+            <h3>The Data Doesn't Lie</h3>
+            
+            <p>Analysis of <strong>10 million Instagram Reels and YouTube Shorts</strong> from Indian creators reveals stark patterns:</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-sage/10 p-6 rounded-xl">
+                    <h4 class="font-bold text-sage text-lg mb-4">Videos with Strong Hooks (first 3 seconds):</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Average completion rate:</span>
+                            <span class="font-bold text-sage">68%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Average engagement rate:</span>
+                            <span class="font-bold text-sage">7.8%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Share rate:</span>
+                            <span class="font-bold text-sage">12.3%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Conversion rate:</span>
+                            <span class="font-bold text-sage">4.7%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-rust/10 p-6 rounded-xl">
+                    <h4 class="font-bold text-rust text-lg mb-4">Videos with Weak Hooks:</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Average completion rate:</span>
+                            <span class="font-bold text-rust">23%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Average engagement rate:</span>
+                            <span class="font-bold text-rust">2.1%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Share rate:</span>
+                            <span class="font-bold text-rust">3.4%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Conversion rate:</span>
+                            <span class="font-bold text-rust">1.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-sage/20 p-6 rounded-xl mb-8 text-center">
+                <h4 class="font-bold text-sage text-xl mb-2">A strong hook delivers 3.9x better conversion rates than weak hooks</h4>
+                <p class="text-charcoal/80">The single highest-leverage element in short-form video</p>
+            </div>
+            
+            <p class="text-lg leading-relaxed mb-6 text-charcoal/80">
+                The same month, a micro-creator with 15,000 followers posted a raw, unscripted video with the hook: "I wore this ₹899 kurti to my office and my CEO asked where I bought it." Watch time? <strong>47 seconds</strong>. Conversion rate? <strong>8.2%</strong>—nearly 4x the brand's professionally produced content.
+            </p>
+
+            <div class="bg-gradient-to-r from-sage/10 to-dust-blue/5 p-6 rounded-xl mb-8">
+                <h4 class="font-bold text-lg mb-3">The Critical Insight</h4>
+                <p class="text-charcoal/80 mb-3">In India's hyper-competitive social media landscape—where users scroll through over 300 pieces of content daily—you don't have 10 seconds to make an impression. You don't even have 5.</p>
+                <p class="text-charcoal/80"><strong>You have 3 seconds to hook attention, or you've lost the sale.</strong></p>
+            </div>
+            
+            <h2 class="font-crimson text-3xl font-bold text-charcoal mb-6">The Science Behind The 3-Second Rule</h2>
+            
+            <h3 class="font-crimson text-2xl font-bold text-charcoal mb-4">The Neuroscience of Attention</h3>
+            
+            <p class="text-lg leading-relaxed mb-6 text-charcoal/80">
+                Human brains are wired for efficiency. When scrolling social media, our brains operate in what neuroscientists call "low-attention mode"—constantly scanning for threats, opportunities, or novelty.
+            </p>
+            
+            <div class="bg-white p-6 rounded-xl border border-sage/20 mb-8">
+                <h4 class="font-bold text-lg mb-4">Research Findings</h4>
+                <ul class="space-y-2 text-charcoal/80">
+                    <li>• <strong>The human attention span has dropped to 8.25 seconds</strong> (down from 12 seconds in 2000)</li>
+                    <li>• <strong>On mobile devices, users decide within 0.05 seconds</strong> whether to continue watching</li>
+                    <li>• <strong>By the 3-second mark, 65% of viewers have already scrolled</strong> past content that didn't immediately grab them</li>
+                    <li>• In India, where <strong>78% of social media consumption happens on mobile</strong> devices during commutes, lunch breaks, and stolen moments between tasks, attention is even more fragmented</li>
+                </ul>
+            </div>
+
+            <h3 class="font-crimson text-2xl font-bold text-charcoal mb-4">The Psychology of the Scroll</h3>
+            
+            <p class="text-lg leading-relaxed mb-6 text-charcoal/80">
+                When Indians scroll Instagram Reels or YouTube Shorts, they're in what psychologists call "scanning mode"—not watching, just scanning for something worth their time.
+            </p>
+
+            <div class="bg-sage/10 border-l-4 border-sage p-6 rounded-r-lg mb-8">
+                <p class="font-semibold text-sage mb-2">💡 Key Insight</p>
+                <p class="text-charcoal/80">Your hook must trigger one of these psychological responses in 3 seconds:</p>
+                <ul class="mt-3 space-y-1 text-charcoal/80">
+                    <li>1. <strong>Curiosity gap:</strong> "Wait, what happens next?"</li>
+                    <li>2. <strong>Personal relevance:</strong> "This is exactly my problem!"</li>
+                    <li>3. <strong>Emotional resonance:</strong> "I FEEL this"</li>
+                    <li>4. <strong>Social proof:</strong> "Everyone's talking about this"</li>
+                    <li>5. <strong>Novelty:</strong> "I've never seen this before"</li>
+                    <li>6. <strong>Controversy:</strong> "Wait, did they just say that?"</li>
+                </ul>
+            </div>
+
+            <h3 class="font-crimson text-2xl font-bold text-charcoal mb-4">The Data Doesn't Lie</h3>
+            
+            <p class="text-lg leading-relaxed mb-6 text-charcoal/80">
+                Analysis of <strong>10 million Instagram Reels and YouTube Shorts</strong> from Indian creators reveals stark patterns:
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl border border-sage/20">
+                    <h4 class="font-bold text-lg mb-3 text-sage">Strong Hooks (First 3 Seconds)</h4>
+                    <ul class="space-y-2 text-charcoal/70">
+                        <li>• Average completion rate: <strong>68%</strong></li>
+                        <li>• Average engagement rate: <strong>7.8%</strong></li>
+                        <li>• Share rate: <strong>12.3%</strong></li>
+                        <li>• Conversion rate: <strong>4.7%</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl border border-sage/20">
+                    <h4 class="font-bold text-lg mb-3 text-rust">Weak Hooks</h4>
+                    <ul class="space-y-2 text-charcoal/70">
+                        <li>• Average completion rate: <strong>23%</strong></li>
+                        <li>• Average engagement rate: <strong>2.1%</strong></li>
+                        <li>• Share rate: <strong>3.4%</strong></li>
+                        <li>• Conversion rate: <strong>1.2%</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-sage/10 to-dust-blue/10 p-8 rounded-2xl mb-8">
+                <h4 class="font-bold text-xl mb-4 text-charcoal">🏆 The Bottom Line</h4>
+                <p class="text-lg text-charcoal/80">
+                    A strong hook delivers <strong>3.9x better conversion rates</strong> than weak hooks—the single highest-leverage element in short-form video.
+                </p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="bg-gradient-to-r from-sage to-moss p-8 rounded-2xl text-white text-center mb-12">
+                <h3 class="font-crimson text-2xl font-bold mb-4">Ready to Master Hook Psychology?</h3>
+                <p class="text-lg mb-6 opacity-90">Get our complete hook framework guide and start creating content that stops the scroll.</p>
+                <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-charcoal px-8 py-3 rounded-full font-semibold hover:bg-warm-stone transition-colors">
+                    <span>Get Started Now</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </article>
+    
+    <!-- Related Posts -->
+    <section class="max-w-7xl mx-auto px-6 py-16 border-t border-sage/20">
+        <h3 class="font-crimson text-3xl font-bold text-center mb-12">Related Articles</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+            <article class="bg-white rounded-2xl p-6 border border-sage/20 hover:shadow-lg transition-shadow">
+                <div class="text-sage text-sm font-medium mb-3">Strategy</div>
+                <h4 class="font-crimson text-xl font-bold mb-3">The 3-Part UGC Hook Formula</h4>
+                <p class="text-charcoal/70 mb-4">Master the art of stopping the scroll with our proven hook framework.</p>
+                <a href="blog-ugc-hook-formula-3-part.html" class="text-sage font-medium flex items-center gap-2">
+                    Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </article>
+            
+            <article class="bg-white rounded-2xl p-6 border border-sage/20 hover:shadow-lg transition-shadow">
+                <div class="text-sage text-sm font-medium mb-3">Case Study</div>
+                <h4 class="font-crimson text-xl font-bold mb-3">A/B Testing UGC: What Actually Works</h4>
+                <p class="text-charcoal/70 mb-4">Data-driven insights from 500+ campaigns that drive 3.4x better performance.</p>
+                <a href="blog-ab-testing-ugc-analytics.html" class="text-sage font-medium flex items-center gap-2">
+                    Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </article>
+            
+            <article class="bg-white rounded-2xl p-6 border border-sage/20 hover:shadow-lg transition-shadow">
+                <div class="text-sage text-sm font-medium mb-3">Insights</div>
+                <h4 class="font-crimson text-xl font-bold mb-3">From 0 to 1M Views: Creator Journey</h4>
+                <p class="text-charcoal/70 mb-4">Behind-the-scenes look at how we scaled a creator from zero to viral success.</p>
+                <a href="blog-creator-journey-0-to-1m.html" class="text-sage font-medium flex items-center gap-2">
+                    Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </article>
+        </div>
+    </section>
+    
+    <script>
+        // Reading progress bar
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+        
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

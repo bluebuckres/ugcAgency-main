@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Exclude development and internal files
+Disallow: /docs/
+Disallow: /*.workspace
+
+# Important pages for crawlers
+Sitemap: https://makeugc.in/sitemap.xml
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Popular search engines - specific instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2

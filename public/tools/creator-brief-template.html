@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Creator Brief Template - UGC Agency</title>
+    
+    <!-- Authentication Protection -->
+    <script src="../assets/js/auth-protection.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-warm-stone);
+            padding: 20px;
+            min-height: 100vh;
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--color-cream);
+            border-radius: var(--radius-softer);
+            box-shadow: var(--shadow-lift);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--color-sage);
+            color: var(--color-cream);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .controls {
+            padding: 30px 40px;
+            background: var(--color-warm-stone);
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .controls input, .controls select {
+            padding: 12px 16px;
+            border: 2px solid rgba(139, 154, 122, 0.3);
+            border-radius: var(--radius-soft);
+            font-size: 14px;
+            background: var(--color-cream);
+            transition: var(--transition-gentle);
+            color: var(--color-charcoal);
+        }
+
+        .controls input:focus, .controls select:focus {
+            outline: none;
+            border-color: var(--color-sage);
+            box-shadow: 0 0 0 3px rgba(139, 154, 122, 0.1);
+        }
+
+        .brand-input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--color-sage);
+            color: var(--color-cream);
+            border: 2px solid var(--color-sage);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+            background: var(--color-muted-teal);
+            border-color: var(--color-muted-teal);
+        }
+
+        .btn-secondary {
+            background: var(--color-cream);
+            border: 2px solid var(--color-sage);
+            color: var(--color-sage);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-sage);
+            color: var(--color-cream);
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .brief-form {
+            display: grid;
+            gap: 30px;
+        }
+
+        .section {
+            background: white;
+            border: 2px solid rgba(139, 154, 122, 0.1);
+            border-radius: var(--radius-soft);
+            padding: 24px;
+            transition: var(--transition-gentle);
+        }
+
+        .section:hover {
+            border-color: rgba(139, 154, 122, 0.2);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .section h2 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-sage);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            color: var(--color-charcoal);
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(139, 154, 122, 0.2);
+            border-radius: var(--radius-soft);
+            font-size: 14px;
+            transition: var(--transition-gentle);
+            background: var(--color-cream);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-sage);
+            box-shadow: 0 0 0 3px rgba(139, 154, 122, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+            font-family: var(--font-sans);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--color-cream);
+            border: 2px solid rgba(139, 154, 122, 0.2);
+            border-radius: var(--radius-soft);
+            cursor: pointer;
+            transition: var(--transition-gentle);
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--color-sage);
+            background: rgba(139, 154, 122, 0.05);
+        }
+
+        .checkbox-item input {
+            margin: 0;
+        }
+
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .dos, .donts {
+            padding: 20px;
+            border-radius: var(--radius-soft);
+        }
+
+        .dos {
+            background: rgba(139, 154, 122, 0.1);
+            border-left: 4px solid var(--color-sage);
+        }
+
+        .donts {
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 4px solid var(--color-soft-terracotta);
+        }
+
+        .dos h4, .donts h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .dos ul, .donts ul {
+            list-style: none;
+        }
+
+        .dos li, .donts li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .dos li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .donts li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+
+        .output-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--color-sage);
+            color: var(--color-cream);
+            border-radius: var(--radius-soft);
+        }
+
+        .output-section h2 {
+            color: var(--color-cream);
+            margin-bottom: 20px;
+        }
+
+        .brief-output {
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            padding: 30px;
+            border-radius: var(--radius-soft);
+            white-space: pre-line;
+            font-size: 14px;
+            line-height: 1.8;
+            min-height: 400px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(139, 154, 122, 0.15);
+            color: var(--color-sage);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row, .dos-donts {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 24px 20px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .controls, .btn {
+                display: none !important;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .brief-output {
+                max-height: none;
+                overflow: visible;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div id="user-info"></div>
+            <h1>🎬 Professional Creator Brief Template</h1>
+            <p>Align creators with your brand voice and conversion goals</p>
+        </div>
+
+        <div class="controls">
+            <input type="text" class="brand-input" id="brandName" placeholder="Enter Brand Name" value="">
+            <input type="text" class="brand-input" id="campaignName" placeholder="Campaign Name" value="">
+            <button class="btn btn-secondary" onclick="fillSampleData()">📝 Fill Sample Brief</button>
+            <button class="btn btn-primary" onclick="generateBrief()">🚀 Generate Brief</button>
+            <button class="btn btn-secondary" onclick="window.print()">📥 Download PDF</button>
+        </div>
+
+        <div class="main-content">
+            <form class="brief-form" id="briefForm">
+                
+                <!-- Campaign Overview -->
+                <div class="section">
+                    <h2>🎯 Campaign Overview</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Campaign Objective</label>
+                        <select class="form-control" id="objective">
+                            <option value="brand-awareness">Brand Awareness</option>
+                            <option value="product-launch">Product Launch</option>
+                            <option value="sales-conversion">Sales Conversion</option>
+                            <option value="app-downloads">App Downloads</option>
+                            <option value="lead-generation">Lead Generation</option>
+                            <option value="engagement">Community Engagement</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Target Audience</label>
+                            <input type="text" class="form-control" id="targetAudience" placeholder="e.g., Women 25-45, fitness enthusiasts">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Budget Range</label>
+                            <select class="form-control" id="budget">
+                                <option value="500-1000">₹500 - ₹1,000 per video</option>
+                                <option value="1000-2500">₹1,000 - ₹2,500 per video</option>
+                                <option value="2500-5000">₹2,500 - ₹5,000 per video</option>
+                                <option value="5000+">₹5,000+ per video</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Key Message / Hook</label>
+                        <textarea class="form-control" id="keyMessage" placeholder="What's the main message? What problem does your product solve?"></textarea>
+                    </div>
+                </div>
+
+                <!-- Content Specifications -->
+                <div class="section">
+                    <h2>📱 Content Specifications</h2>
+
+                    <h3>Platform Requirements</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="platforms" value="TikTok"> TikTok (9:16, 15-60s)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="platforms" value="Instagram Reels"> Instagram Reels (9:16, 15-90s)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="platforms" value="YouTube Shorts"> YouTube Shorts (9:16, up to 60s)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="platforms" value="Meta Ads"> Meta Ads (9:16, 15-30s)
+                        </label>
+                    </div>
+
+                    <h3>Content Type</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Testimonial"> Testimonial/Review
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Demo"> Product Demo
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Unboxing"> Unboxing Experience
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Tutorial"> How-to/Tutorial
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Lifestyle"> Lifestyle Integration
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Before/After"> Before/After Results
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Video Length</label>
+                            <select class="form-control" id="videoLength">
+                                <option value="15-30s">15-30 seconds (Meta Ads)</option>
+                                <option value="30-60s">30-60 seconds (TikTok/Reels)</option>
+                                <option value="60-90s">60-90 seconds (Long-form)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Delivery Timeline</label>
+                            <input type="text" class="form-control" id="timeline" placeholder="e.g., 5 business days">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Guidelines -->
+                <div class="section">
+                    <h2>🎨 Brand Guidelines</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Brand Voice & Tone</label>
+                        <textarea class="form-control" id="brandVoice" placeholder="Describe your brand personality (e.g., friendly, professional, playful, authentic)"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Key Product Benefits</label>
+                            <textarea class="form-control" id="productBenefits" placeholder="List 3-5 key benefits to highlight"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Call-to-Action</label>
+                            <input type="text" class="form-control" id="cta" placeholder="e.g., Shop now, Download app, Visit website">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Hashtags & Mentions</label>
+                        <input type="text" class="form-control" id="hashtags" placeholder="#brandname #productname @brandhandle">
+                    </div>
+                </div>
+
+                <!-- Technical Requirements -->
+                <div class="section">
+                    <h2>⚙️ Technical Requirements</h2>
+
+                    <div class="dos-donts">
+                        <div class="dos">
+                            <h4>✅ DO's</h4>
+                            <ul>
+                                <li>Film in vertical 9:16 format</li>
+                                <li>Use natural lighting when possible</li>
+                                <li>Include captions/text overlay</li>
+                                <li>Show product clearly in first 3 seconds</li>
+                                <li>Keep authentic, unpolished feel</li>
+                                <li>Include strong hook in opening</li>
+                                <li>End with clear call-to-action</li>
+                            </ul>
+                        </div>
+                        <div class="donts">
+                            <h4>❌ DON'Ts</h4>
+                            <ul>
+                                <li>No overly polished/commercial feel</li>
+                                <li>Avoid competitor mentions</li>
+                                <li>No copyrighted music</li>
+                                <li>Don't make claims we can't support</li>
+                                <li>Avoid controversial topics</li>
+                                <li>No negative competitor comparisons</li>
+                                <li>Don't use brand logo incorrectly</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Additional Technical Notes</label>
+                        <textarea class="form-control" id="techNotes" placeholder="Any specific technical requirements, filming angles, product usage instructions..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Usage Rights -->
+                <div class="section">
+                    <h2>📋 Usage Rights & Legal</h2>
+
+                    <h3>Content Usage Rights</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="usageRights" value="Organic"> Organic social media posting
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="usageRights" value="Paid Ads"> Paid advertising campaigns
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="usageRights" value="Website"> Website & landing pages
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="usageRights" value="Whitelisting"> Creator whitelisting/partnership
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Usage Duration</label>
+                            <select class="form-control" id="usageDuration">
+                                <option value="3-months">3 months</option>
+                                <option value="6-months">6 months</option>
+                                <option value="1-year">1 year</option>
+                                <option value="unlimited">Unlimited</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Geographic Rights</label>
+                            <select class="form-control" id="geographic">
+                                <option value="india">India only</option>
+                                <option value="apac">Asia Pacific</option>
+                                <option value="worldwide">Worldwide</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Generated Brief Output -->
+            <div class="output-section" id="outputSection" style="display: none;">
+                <h2>📄 Generated Creator Brief</h2>
+                <div class="brief-output" id="briefOutput">
+                    <!-- Generated content will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateBrief() {
+            const formData = collectFormData();
+            const briefText = createBriefTemplate(formData);
+            
+            document.getElementById('briefOutput').textContent = briefText;
+            document.getElementById('outputSection').style.display = 'block';
+            
+            // Scroll to output
+            document.getElementById('outputSection').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        function collectFormData() {
+            return {
+                brandName: document.getElementById('brandName').value || 'Your Brand',
+                campaignName: document.getElementById('campaignName').value || 'Campaign Name',
+                objective: document.getElementById('objective').value,
+                targetAudience: document.getElementById('targetAudience').value,
+                budget: document.getElementById('budget').value,
+                keyMessage: document.getElementById('keyMessage').value,
+                platforms: getCheckedValues('platforms'),
+                contentTypes: getCheckedValues('contentTypes'),
+                videoLength: document.getElementById('videoLength').value,
+                timeline: document.getElementById('timeline').value,
+                brandVoice: document.getElementById('brandVoice').value,
+                productBenefits: document.getElementById('productBenefits').value,
+                cta: document.getElementById('cta').value,
+                hashtags: document.getElementById('hashtags').value,
+                techNotes: document.getElementById('techNotes').value,
+                usageRights: getCheckedValues('usageRights'),
+                usageDuration: document.getElementById('usageDuration').value,
+                geographic: document.getElementById('geographic').value
+            };
+        }
+
+        function getCheckedValues(name) {
+            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+
+        function createBriefTemplate(data) {
+            return `🎬 CREATOR BRIEF: ${data.brandName.toUpperCase()}
+Campaign: ${data.campaignName}
+Date: ${new Date().toLocaleDateString('en-IN')}
+
+═══════════════════════════════════════════════════════════════
+
+📋 CAMPAIGN OVERVIEW
+═══════════════════════════════════════════════════════════════
+
+Campaign Objective: ${data.objective.replace('-', ' ').toUpperCase()}
+Target Audience: ${data.targetAudience || 'To be defined'}
+Budget: ${data.budget}
+Timeline: ${data.timeline || 'To be confirmed'}
+
+Key Message/Hook:
+${data.keyMessage || 'Please define the key message for this campaign'}
+
+═══════════════════════════════════════════════════════════════
+
+📱 CONTENT SPECIFICATIONS  
+═══════════════════════════════════════════════════════════════
+
+Platforms: ${data.platforms.join(', ') || 'Not specified'}
+Content Types: ${data.contentTypes.join(', ') || 'Not specified'}
+Video Length: ${data.videoLength}
+
+═══════════════════════════════════════════════════════════════
+
+🎨 BRAND GUIDELINES
+═══════════════════════════════════════════════════════════════
+
+Brand Voice & Tone:
+${data.brandVoice || 'Please define brand voice and tone'}
+
+Key Product Benefits to Highlight:
+${data.productBenefits || 'List key benefits here'}
+
+Call-to-Action: ${data.cta || 'Define CTA'}
+Hashtags & Mentions: ${data.hashtags || 'Add relevant hashtags'}
+
+═══════════════════════════════════════════════════════════════
+
+⚙️ TECHNICAL REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+
+✅ MUST DO:
+• Film in vertical 9:16 format
+• Use natural lighting when possible  
+• Include captions/text overlay
+• Show product clearly in first 3 seconds
+• Keep authentic, unpolished feel
+• Include strong hook in opening
+• End with clear call-to-action
+
+❌ AVOID:
+• Overly polished/commercial feel
+• Competitor mentions
+• Copyrighted music
+• Unsupported claims
+• Controversial topics
+• Negative competitor comparisons
+
+Additional Notes:
+${data.techNotes || 'No additional technical requirements specified'}
+
+═══════════════════════════════════════════════════════════════
+
+📋 USAGE RIGHTS & LEGAL
+═══════════════════════════════════════════════════════════════
+
+Approved Usage: ${data.usageRights.join(', ') || 'Not specified'}
+Usage Duration: ${data.usageDuration}
+Geographic Rights: ${data.geographic}
+
+═══════════════════════════════════════════════════════════════
+
+📞 CONTACT & SUBMISSION
+═══════════════════════════════════════════════════════════════
+
+Questions? Contact: team@ugcagency.com
+Submit content to: delivery@ugcagency.com
+Timeline: ${data.timeline || 'TBD'}
+
+By proceeding with this brief, you agree to our creator partnership terms and usage rights as specified above.
+
+Thank you for partnering with ${data.brandName}! 🚀`;
+        }
+
+        function fillSampleData() {
+            document.getElementById('brandName').value = 'FitLife Pro';
+            document.getElementById('campaignName').value = 'Summer Fitness Challenge 2025';
+            document.getElementById('targetAudience').value = 'Fitness enthusiasts, women 25-40, health-conscious professionals';
+            document.getElementById('keyMessage').value = 'Transform your fitness routine in just 30 days with our science-backed workout app. Real results, real people, real transformations.';
+            document.getElementById('brandVoice').value = 'Motivational yet authentic, supportive, science-backed, celebrating real progress over perfection';
+            document.getElementById('productBenefits').value = '✓ 30-day transformation program\n✓ AI-powered personal trainer\n✓ Nutrition tracking integrated\n✓ Real community support\n✓ Results in just 15 mins/day';
+            document.getElementById('cta').value = 'Download FitLife Pro - Link in bio!';
+            document.getElementById('hashtags').value = '#FitLifePro #30DayChallenge #FitnessTransformation #HealthyLifestyle @fitlifepro';
+            document.getElementById('timeline').value = '5 business days';
+            document.getElementById('techNotes').value = 'Please show the app interface clearly. Film workout in good lighting. Include before/after if possible (even same day). Show enthusiasm and energy!';
+            
+            // Check some checkboxes
+            document.querySelector('input[value="TikTok"]').checked = true;
+            document.querySelector('input[value="Instagram Reels"]').checked = true;
+            document.querySelector('input[value="Testimonial"]').checked = true;
+            document.querySelector('input[value="Demo"]').checked = true;
+            document.querySelector('input[value="Organic"]').checked = true;
+            document.querySelector('input[value="Paid Ads"]').checked = true;
+            
+            alert('✅ Sample creator brief data loaded!');
+        }
+
+        // Auto-update brand name in header
+        document.getElementById('brandName').addEventListener('input', (e) => {
+            const brandName = e.target.value;
+            if (brandName) {
+                document.querySelector('.header h1').textContent = `🎬 ${brandName} - Creator Brief Template`;
+            } else {
+                document.querySelector('.header h1').textContent = '🎬 Professional Creator Brief Template';
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'g') {
+                e.preventDefault();
+                generateBrief();
+            }
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

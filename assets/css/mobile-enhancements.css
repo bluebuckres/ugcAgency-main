@@ -1,0 +1,407 @@
+/* ===============================================
+   Mobile-First Responsive Enhancements
+   Advanced UX Patterns for Mobile Users
+   =============================================== */
+
+/* ============ MOBILE NAVIGATION ============ */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: var(--space-8);
+  transition: right var(--duration-base) var(--ease-out);
+  box-shadow: var(--shadow-xl);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--duration-base) var(--ease-out);
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.mobile-nav-link {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+  transition: var(--duration-base) var(--ease-out);
+}
+
+.mobile-nav-link:hover {
+  background: var(--primary-50);
+  color: var(--primary-700);
+}
+
+/* ============ TOUCH-FRIENDLY INTERACTIONS ============ */
+@media (max-width: 768px) {
+  /* Larger tap targets */
+  .btn {
+    min-height: 44px;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Better card spacing on mobile */
+  .card {
+    margin-bottom: var(--space-6);
+  }
+  
+  /* Improved form inputs */
+  .form-input {
+    min-height: 48px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Hero section mobile optimization */
+  .hero {
+    padding: var(--space-16) 0;
+  }
+  
+  .section {
+    padding: var(--space-12) 0;
+  }
+}
+
+/* ============ SWIPE GESTURES ============ */
+.swipe-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.swipe-container::-webkit-scrollbar {
+  display: none;
+}
+
+.swipe-indicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.swipe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neutral-300);
+  transition: var(--duration-base) var(--ease-out);
+  cursor: pointer;
+}
+
+.swipe-dot.active {
+  background: var(--primary-600);
+  transform: scale(1.2);
+}
+
+/* ============ MICRO-INTERACTIONS ============ */
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+  transition: var(--duration-base) var(--ease-out);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+/* Pulse animation for CTAs */
+@keyframes pulse-cta {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+}
+
+.btn-cta:not(:hover) {
+  animation: pulse-cta 2s infinite;
+}
+
+/* Shake animation for form validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+.form-input.error {
+  border-color: var(--accent-error);
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Success state animation */
+.form-input.success {
+  border-color: var(--accent-success);
+}
+
+.form-input.success::after {
+  content: '✓';
+  position: absolute;
+  right: var(--space-3);
+  color: var(--accent-success);
+}
+
+/* ============ LOADING STATES ============ */
+.skeleton {
+  background: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-100) 50%, var(--neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============ PROGRESSIVE WEB APP ============ */
+.install-prompt {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--neutral-900);
+  color: var(--neutral-0);
+  padding: var(--space-4);
+  transform: translateY(100%);
+  transition: transform var(--duration-base) var(--ease-out);
+  z-index: 1000;
+}
+
+.install-prompt.show {
+  transform: translateY(0);
+}
+
+.install-prompt-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-md);
+  margin: 0 auto;
+}
+
+.install-prompt-text {
+  flex: 1;
+  margin-right: var(--space-4);
+}
+
+.install-prompt-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* ============ ACCESSIBILITY ENHANCEMENTS ============ */
+/* Focus visible for keyboard navigation */
+.focus-visible:focus {
+  outline: 2px solid var(--primary-600);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid var(--neutral-0);
+  }
+  
+  .card {
+    border-width: 2px;
+    border-color: var(--neutral-800);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============ DARK MODE SUPPORT ============ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-primary: var(--neutral-900);
+    --background-secondary: var(--neutral-800);
+    --background-tertiary: var(--neutral-700);
+    --text-primary: var(--neutral-100);
+    --text-secondary: var(--neutral-300);
+    --text-tertiary: var(--neutral-400);
+    --border-light: var(--neutral-700);
+    --border-medium: var(--neutral-600);
+  }
+  
+  .hero {
+    background: linear-gradient(135deg, var(--neutral-800) 0%, var(--neutral-900) 100%);
+  }
+}
+
+/* ============ PERFORMANCE OPTIMIZATIONS ============ */
+/* Optimize image loading with intersection observer fallback */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* GPU acceleration for animations */
+.card,
+.btn,
+.stat-card {
+  will-change: transform;
+}
+
+/* Optimize repaints */
+.transition,
+.transition-all {
+  backface-visibility: hidden;
+}
+
+/* ============ CONVERSION OPTIMIZATIONS ============ */
+/* Urgency indicators */
+.urgency-badge {
+  background: linear-gradient(135deg, #ff4444, #ff6666);
+  color: white;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  animation: blink 1.5s infinite alternate;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Social proof animations */
+.social-proof {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--accent-success);
+  color: white;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Trust signals */
+.trust-signal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.trust-signal::before {
+  content: '🔒';
+  font-size: var(--text-base);
+}
+
+/* ============ STICKY ELEMENTS ============ */
+.sticky-cta {
+  position: sticky;
+  bottom: var(--space-4);
+  margin-top: var(--space-8);
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta {
+    position: fixed;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+    margin-top: 0;
+  }
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }

@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGC Services | MakeUGC</title>
+    <meta name="description" content="Comprehensive UGC services for D2C brands. From authentic content creation to full-scale production and growth marketing. Get your custom quote in 60 seconds.">
+    <meta name="keywords" content="UGC services, content creation services, influencer management, social media content, TikTok content, Instagram reels, video production">
+    <meta name="author" content="UGC Agency">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeugc.in/services">
+    <meta property="og:title" content="UGC Services | MakeUGC">
+    <meta property="og:description" content="Comprehensive UGC services for D2C brands. From authentic content creation to full-scale production and growth marketing.">
+    <meta property="og:image" content="https://makeugc.in/resources/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://makeugc.in/services">
+    <meta property="twitter:title" content="UGC Services | MakeUGC">
+    <meta property="twitter:description" content="Comprehensive UGC services for D2C brands.">
+    <meta property="twitter:image" content="https://makeugc.in/resources/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://makeugc.in/services">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    
+    <!-- Lucide Icons with fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Fallback loading for Lucide
+        if (typeof lucide === 'undefined') {
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.js';
+            document.head.appendChild(fallbackScript);
+        }
+    </script>
+    
+    <style>
+        /* Import base styles from index.html */
+        :root {
+            --color-warm-stone: #F5F1EB;
+            --color-sage: #8B9A7A;
+            --color-charcoal: #2C2C2C;
+            --color-clay: #C4A484;
+            --color-cream: #FAF8F5;
+            --color-muted-teal: #7A9B9B;
+            --color-soft-terracotta: #D4A574;
+            
+            --font-serif: 'Crimson Text', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+            --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+            
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-charcoal);
+            background-color: var(--color-warm-stone);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Premium Minimal Icon System */
+        .icon-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        
+        /* Visual Hierarchy - Icon Sizes */
+        .icon-wrapper.size-hero {
+            width: 72px;
+            height: 72px;
+        }
+        
+        .icon-wrapper.size-feature {
+            width: 48px;
+            height: 48px;
+        }
+        
+        .icon-wrapper.size-sm {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .icon-wrapper.size-xs {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Premium Color System */
+        .icon-wrapper.primary i {
+            color: #0066FF;
+            stroke-width: 2;
+        }
+        
+        .icon-wrapper.success i {
+            color: #10B981;
+            stroke-width: 2;
+        }
+        
+        .icon-wrapper.neutral i {
+            color: #64748B;
+            stroke-width: 2;
+        }
+        
+        /* Icon sizing based on wrapper */
+        .icon-wrapper.size-hero i {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .icon-wrapper.size-feature i {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .icon-wrapper.size-sm i {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .icon-wrapper.size-xs i {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Premium Hover Effects */
+        .icon-wrapper:hover {
+            transform: scale(1.05);
+        }
+        
+        .icon-wrapper.primary:hover {
+            filter: drop-shadow(0 4px 12px rgba(0, 102, 255, 0.25));
+        }
+        
+        .icon-wrapper.success:hover {
+            filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.25));
+        }
+        
+        .icon-wrapper.neutral:hover {
+            filter: drop-shadow(0 4px 12px rgba(100, 116, 139, 0.25));
+        }
+        
+        /* Subtle pulse for hero icons */
+        .icon-wrapper.pulse {
+            animation: subtlePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtlePulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+        
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--color-cream);
+        }
+        
+        /* Navigation (same as index) */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-charcoal);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-weight: 500;
+            transition: var(--transition-gentle);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-sage);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sage);
+            transition: var(--transition-gentle);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Special styling for navbar contact button */
+        .nav-links .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            color: var(--color-sage);
+            border: 1.5px solid var(--color-sage);
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white;
+            border-color: var(--color-sage);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+        }
+
+        .nav-links .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .nav-links .btn-primary::after {
+            display: none;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--color-charcoal);
+            padding: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-toggle:hover {
+            background: rgba(139, 154, 122, 0.1);
+        }
+        
+        /* Hero Section */
+        .services-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-warm-stone) 0%, var(--color-cream) 100%);
+            text-align: center;
+            position: relative;
+            padding-top: 100px; /* Account for fixed navbar */
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1rem;
+            color: var(--color-charcoal);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-teaser {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-sage);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-soft);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-gentle);
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-teaser:hover {
+            background: #7A8A6A;
+            transform: translateY(-2px);
+        }
+        
+        /* Quick Wins */
+        .quick-wins {
+            background: var(--color-sage);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .quick-wins h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+        
+        /* Enhanced Services Grid */
+        .enhanced-services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto) auto;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .enhanced-service-card.horizontal {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2.5rem;
+            align-items: start;
+            padding: 1.75rem 2.5rem;
+        }
+        
+        .enhanced-service-card.horizontal .service-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+        
+        .enhanced-service-card.horizontal .service-icon {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .enhanced-service-card.horizontal .content-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .enhanced-service-card.horizontal h3 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 0.25rem;
+        }
+        
+        .enhanced-service-card.horizontal .service-description {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .enhanced-service-card.horizontal .enhanced-features-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.25rem 1.5rem;
+            margin: 0;
+        }
+        
+        .enhanced-service-card.horizontal .enhanced-features-list li {
+            border-bottom: none;
+            padding: 0.25rem 0 0.25rem 1.25rem;
+            font-size: 0.85rem;
+        }
+        
+        .enhanced-service-card.horizontal .pricing-and-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-width: 260px;
+        }
+        
+        .enhanced-service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-soft);
+            padding: 2rem;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(139, 154, 122, 0.1);
+        }
+        
+        .enhanced-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 154, 122, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .enhanced-service-card:hover::before {
+            left: 100%;
+        }
+        
+        .enhanced-service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-sage);
+        }
+        
+        .service-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-01 { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); color: #2e7d32; }
+        .badge-02 { background: linear-gradient(135deg, #fff3e0, #ffe0b2); color: #e65100; }
+        .badge-03 { background: linear-gradient(135deg, #e3f2fd, #bbdefb); color: #1565c0; }
+        .badge-04 { background: linear-gradient(135deg, #fce4ec, #f8bbd9); color: #c2185b; }
+        .badge-05 { background: linear-gradient(135deg, #f3e5f5, #e1bee7); color: #6a1b9a; }
+        .badge-beta {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            color: #f57f17;
+            border: 2px solid #fbc02d;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #7A8A6A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 16px rgba(139, 154, 122, 0.3);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .enhanced-service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .enhanced-service-card h3 {
+            color: var(--color-charcoal);
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+        
+        .service-description {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .enhanced-features-list {
+            list-style: none;
+            margin: 0 0 2rem 0;
+            padding: 0;
+        }
+        
+        .enhanced-features-list li {
+            position: relative;
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            color: var(--color-charcoal);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .enhanced-features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .enhanced-features-list li:hover {
+            padding-left: 2.5rem;
+            color: var(--color-sage);
+        }
+        
+        .enhanced-features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #10B981 100%);
+            border-radius: 50%;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(139, 154, 122, 0.3);
+        }
+        
+        .enhanced-pricing-section {
+            background: var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        
+        .enhanced-pricing-section h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .pricing-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-item.special {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: none;
+            margin: 0.25rem 0;
+        }
+        
+        .price-label {
+            color: var(--color-charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .price-value {
+            color: var(--color-sage);
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .discount-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+        
+        .current-price {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .original-price-line {
+            font-size: 0.75rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.25rem;
+            text-decoration: line-through;
+        }
+        
+        .price-item.special {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .price-item.special .price-value {
+            width: 100%;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .pricing-note {
+            font-size: 0.8rem;
+            color: var(--color-charcoal);
+            opacity: 0.6;
+            text-align: center;
+            margin: 0.5rem 0;
+            font-style: italic;
+        }
+        
+        .perfect-for {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 1rem;
+            border-radius: var(--radius-soft);
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .perfect-for strong {
+            color: #2e7d32;
+        }
+        
+        .enhanced-cta-button {
+            display: inline-block;
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #7A8A6A 100%);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-soft);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(139, 154, 122, 0.3);
+        }
+        
+        .enhanced-cta-button:hover {
+            background: linear-gradient(135deg, #7A8A6A 0%, var(--color-sage) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139, 154, 122, 0.4);
+        }
+        
+        /* Beta Card Styles */
+        .beta-card {
+            background: linear-gradient(135deg, rgba(255, 248, 225, 0.95), rgba(255, 236, 179, 0.95));
+            border: 2px solid #fbc02d;
+        }
+        
+        .beta-info {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #fbc02d;
+            border-radius: var(--radius-soft);
+            padding: 1rem;
+            margin: 0;
+            position: relative;
+        }
+        
+        .beta-info::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #fbc02d, #f57f17, #fbc02d);
+            border-radius: var(--radius-soft);
+            z-index: -1;
+            animation: borderGlow 3s infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .beta-info h4 {
+            color: #f57f17;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .beta-benefits {
+            color: var(--color-charcoal);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        
+        .beta-slots {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+            color: #f57f17;
+            border: 1px solid #fbc02d;
+            font-size: 0.85rem;
+        }
+        
+        .beta-cta {
+            background: linear-gradient(135deg, #f57f17 0%, #fbc02d 100%) !important;
+        }
+        
+        .beta-cta:hover {
+            background: linear-gradient(135deg, #fbc02d 0%, #f57f17 100%) !important;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius-softer);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-gentle);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        /* Horizontal Service Card (Beta) - Compact */
+        .service-card-horizontal {
+            margin-top: 2rem;
+            background: linear-gradient(135deg, var(--color-cream), var(--color-warm-stone));
+            border: 2px solid var(--color-soft-terracotta);
+        }
+        
+        .service-horizontal-content {
+            padding: 2rem 2.5rem;
+        }
+        
+        .service-card-horizontal .service-tag {
+            background: var(--color-soft-terracotta);
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-card-horizontal h3 {
+            font-size: 1.6rem;
+            color: var(--color-charcoal);
+            margin-bottom: 0.25rem;
+        }
+        
+        .service-card-horizontal > .service-horizontal-content > .service-info > p {
+            font-size: 1.1rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Tight spacing for comparison section */
+        .comparison-section {
+            padding: 1.5rem 0;
+            margin-top: -2rem;
+        }
+        
+        .comparison-section h2 {
+            margin-bottom: 2rem !important;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 2.5rem;
+        }
+        
+        .service-tag {
+            display: inline-block;
+            background: var(--color-sage);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-soft);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .service-content h3 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+        
+        .service-content p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-charcoal);
+        }
+        
+        .service-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg>") no-repeat center center;
+            background-size: contain;
+        }
+        
+        .pricing-info {
+            background: var(--color-cream);
+            padding: 1.5rem;
+            border-radius: var(--radius-soft);
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-info h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .pricing-tiers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .pricing-tier {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.2);
+        }
+        
+        .pricing-tier:last-child {
+            border-bottom: none;
+        }
+        
+        .tier-name {
+            font-weight: 600;
+            color: var(--color-charcoal);
+        }
+        
+        .tier-price {
+            color: var(--color-sage);
+            font-weight: 700;
+        }
+        
+        /* Quote Calculator */
+        .quote-calculator-section {
+            background: var(--color-cream);
+            padding: 5rem 0;
+        }
+        
+        .quote-calculator {
+            background: white;
+            border-radius: var(--radius-softer);
+            padding: 3rem;
+            box-shadow: var(--shadow-subtle);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .calculator-header h3 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--color-warm-stone);
+            border-radius: 3px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+            border-radius: 3px;
+            transition: var(--transition-gentle);
+        }
+        
+        .step-indicator {
+            color: var(--color-charcoal);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .step-content h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .service-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .service-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            border: 2px solid var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+            cursor: pointer;
+            transition: var(--transition-gentle);
+        }
+        
+        .service-option:hover {
+            border-color: var(--color-sage);
+            background: var(--color-cream);
+        }
+        
+        .service-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--color-sage);
+        }
+        
+        .option-content {
+            flex: 1;
+        }
+        
+        .option-content h5 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-content p {
+            color: var(--color-charcoal);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .price {
+            color: var(--color-sage);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .requirement-group {
+            margin-bottom: 2rem;
+        }
+        
+        .requirement-group h5 {
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .contact-form .input-group:last-child {
+            grid-column: 1 / -1;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            font-size: 0.9rem;
+        }
+        
+        .input-group input, .input-group select, .input-group textarea {
+            padding: 0.75rem;
+            border: 2px solid var(--color-warm-stone);
+            border-radius: var(--radius-soft);
+            font-family: var(--font-sans);
+            background: white;
+            transition: var(--transition-gentle);
+        }
+        
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            outline: none;
+            border-color: var(--color-sage);
+        }
+        
+        .calculator-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-warm-stone);
+        }
+        
+        /* Service Comparison */
+        .comparison-section {
+            padding: 5rem 0;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: var(--radius-softer);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            margin: 3rem 0;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: var(--color-sage);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--color-warm-stone);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: var(--color-cream);
+        }
+        
+        .check-icon, .cross-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            background: var(--color-charcoal);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .benefits-section h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .benefit-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-soft);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--color-cream);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-gentle);
+        }
+        
+        .faq-question:hover {
+            background: var(--color-warm-stone);
+        }
+        
+        .faq-question h4 {
+            margin: 0;
+            color: var(--color-charcoal);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--color-sage);
+            transition: var(--transition-gentle);
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-gentle);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+        
+        .faq-answer p {
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        /* Buttons (same as index) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius-soft);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--color-sage);
+            color: white;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .btn-primary:hover {
+            background: #7A8A6A;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-sage);
+            border: 2px solid var(--color-sage);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-sage);
+            color: white;
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-gentle);
+        }
+        
+        .animate-on-scroll.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .enhanced-service-card.horizontal .enhanced-features-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.25rem 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(245, 241, 235, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                z-index: 999;
+                border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+            }
+
+            /* Better touch targets */
+            .btn-primary, .btn-secondary {
+                min-height: 44px;
+                padding: 0.875rem 1.75rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .enhanced-services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .enhanced-service-card {
+                padding: 1.75rem 1.25rem;
+            }
+            
+            .enhanced-service-card.horizontal {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .enhanced-service-card.horizontal .service-header {
+                text-align: center;
+            }
+            
+            .enhanced-service-card.horizontal .service-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto;
+            }
+            
+            .enhanced-service-card.horizontal .enhanced-features-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.25rem 1rem;
+            }
+            
+            .enhanced-service-card.horizontal {
+                gap: 2rem;
+            }
+            
+            .enhanced-service-card.horizontal h3 {
+                font-size: 1.8rem;
+                font-weight: 900;
+            }
+            
+            .enhanced-service-card.horizontal .pricing-and-cta {
+                min-width: auto;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .pricing-items {
+                gap: 0.5rem;
+            }
+            
+            .price-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .price-value {
+                justify-content: center;
+            }
+            
+            .enhanced-service-card h3 {
+                font-size: 1.6rem;
+                font-weight: 900;
+            }
+            
+            .service-description {
+                font-size: 0.95rem;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                overflow-x: auto;
+            }
+            
+            .comparison-table table {
+                min-width: 600px;
+            }
+            
+            /* Horizontal service card responsive */
+            .service-card-horizontal .service-horizontal-content {
+                padding: 1.5rem;
+            }
+            
+            .service-card-horizontal h3 {
+                font-size: 1.4rem;
+            }
+            
+            .service-card-horizontal > .service-horizontal-content > .service-info > div {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                margin: 0.75rem 0 !important;
+            }
+            
+            /* Tight spacing on mobile */
+            .comparison-section {
+                padding: 1rem 0;
+                margin-top: -1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .quote-calculator {
+                padding: 2rem;
+            }
+            
+            /* Further mobile optimizations for horizontal card */
+            .service-card-horizontal .service-horizontal-content {
+                padding: 1.5rem;
+            }
+            
+            .service-card-horizontal h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Form Styles */
+        .field-error {
+            color: var(--color-soft-terracotta);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        input.error, select.error, textarea.error {
+            border-color: var(--color-soft-terracotta);
+        }
+        
+        .form-success {
+            background: var(--color-sage);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-soft);
+            margin-top: 1rem;
+            text-align: center;
+        }
+        /* Footer styles consistent with home page */
+        .footer { background: var(--color-charcoal); color: white; padding: 3rem 0 1rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h4 { color: white; margin-bottom: 1rem; }
+        .footer-section p, .footer-section a { color: rgba(255, 255, 255, 0.8); text-decoration: none; line-height: 1.6; }
+        .footer-section a:hover { color: var(--color-sage); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); opacity: 0; z-index: 1500; transition: opacity 0.3s ease; }
+        .mobile-nav-overlay.active { display: block; opacity: 1; }
+
+        /* Mobile menu styles (match home page) */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: min(85vw, 360px); height: 100vh; background: #fff; z-index: 2000; transition: var(--transition-gentle); box-shadow: -4px 0 20px rgba(0,0,0,0.1); }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-header { padding: 1.5rem; background: var(--color-sage); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .mobile-menu-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu-nav { padding: 1.5rem; }
+        .mobile-menu-nav ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-menu-nav li { margin-bottom: 1rem; }
+        .mobile-menu-nav a { display: block; padding: 0.75rem 1rem; color: var(--color-charcoal); text-decoration: none; border-radius: 8px; font-weight: 500; }
+        .mobile-menu-nav a:hover, .mobile-menu-nav a.active { background: var(--color-sage); color: white; }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover;">
+                <span>MakeUGC</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="creators.html">Creators</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
+            </ul>
+            <button class="mobile-nav-toggle">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Services for D2C Brands That Value Results Over Vanity Metrics</h1>
+                <p>From UGC creators to full-scale production—everything you need to scale profitably.</p>
+                <a href="contact.html?service=quote&type=general" class="pricing-teaser">Get Instant Quote →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Wins -->
+    <section class="quick-wins">
+        <div class="container">
+            <h2>Get Results In Your First 30 Days or We Work For Free</h2>
+            <div class="guarantee-list">
+                <div class="guarantee-item">
+                    <div class="icon-wrapper size-xs success">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <span>Measurable improvement in key metrics</span>
+                </div>
+                <div class="guarantee-item">
+                    <div class="icon-wrapper size-xs success">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <span>Minimum 10 pieces of tested content</span>
+                </div>
+                <div class="guarantee-item">
+                    <div class="icon-wrapper size-xs success">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <span>Full strategy documentation</span>
+                </div>
+                <div class="guarantee-item">
+                    <div class="icon-wrapper size-xs success">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <span>Risk-free trial for qualified brands</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Overview -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Four Core Services - Pick What You Need, Scale As You Grow</h2>
+            <p style="text-align: center; color: var(--color-charcoal); opacity: 0.8; margin-bottom: 4rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Complete solutions for your brand's digital growth</p>
+            
+            <div class="enhanced-services-grid">
+                <!-- Service 01: UGC Creation -->
+                <div class="enhanced-service-card animate-on-scroll">
+                    <div class="service-badge badge-01">Service 01</div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i data-lucide="video" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <h3>UGC Creation</h3>
+                    </div>
+                    <p class="service-description">Your Main Hook - Authentic Content That Converts</p>
+                    
+                    <ul class="enhanced-features-list">
+                        <li>120+ vetted in-house trained creators</li>
+                        <li>Platform-optimized content (TikTok, Reels, YouTube Shorts)</li>
+                        <li>Multiple variants for A/B testing</li>
+                        <li>Product reviews, testimonials, unboxing, tutorials</li>
+                        <li>Hooks, B-rolls, and editing included</li>
+                        <li>48-72hr standard turnaround</li>
+                    </ul>
+                    
+                    <div class="enhanced-pricing-section">
+                        <h4>Pricing Tiers (Transparent)</h4>
+                        <div class="pricing-items">
+                            <div class="price-item">
+                                <span class="price-label">Starter</span>
+                                <span class="price-value">5 videos - ₹5,000</span>
+                            </div>
+                            <div class="price-item special">
+                                <span class="price-label">Growth</span>
+                                <span class="price-value">
+                                    <span class="current-price">5 videos - ₹12,000</span>
+                                    <span class="discount-badge">20% OFF - Diwali</span>
+                                </span>
+                                <div class="original-price-line">Regular: ₹15,000 for 5 videos</div>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Scale</span>
+                                <span class="price-value">10 videos - ₹30,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Custom</span>
+                                <span class="price-value">Custom pricing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="perfect-for">
+                        <strong>Perfect For:</strong> Brands spending ₹50K+/month on ads
+                    </div>
+                    
+                    <a href="contact.html?service=ugc&type=quote" class="enhanced-cta-button">Get Custom Quote →</a>
+                </div>
+
+                <!-- Service 02: Video & Photo Production -->
+                <div class="enhanced-service-card animate-on-scroll">
+                    <div class="service-badge badge-02">Service 02</div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i data-lucide="camera" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <h3>Video & Photo Production</h3>
+                    </div>
+                    <p class="service-description">Premium Visual Content - Professional Shoots That Feel Authentic</p>
+                    
+                    <ul class="enhanced-features-list">
+                        <li>Full production team (concept → shoot → edit)</li>
+                        <li>In-house models available</li>
+                        <li>Studio or on-location shoots</li>
+                        <li>Product-focused and explainer videos</li>
+                        <li>Testimonial & video production</li>
+                        <li>High-res photos for e-commerce listings</li>
+                    </ul>
+                    
+                    <div class="enhanced-pricing-section">
+                        <h4>Packages</h4>
+                        <div class="pricing-items">
+                            <div class="price-item">
+                                <span class="price-label">Half-Day Studio Shoot</span>
+                                <span class="price-value">Starting at ₹12,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Full-Day Production</span>
+                                <span class="price-value">Starting at ₹15,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Monthly Retainer</span>
+                                <span class="price-value">Custom pricing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="perfect-for">
+                        <strong>Perfect For:</strong> Brands needing premium product visuals
+                    </div>
+                    
+                    <a href="contact.html?service=production&type=consultation" class="enhanced-cta-button">Book Production Call →</a>
+                </div>
+
+                <!-- Service 03: E-commerce & Digital Build -->
+                <div class="enhanced-service-card animate-on-scroll">
+                    <div class="service-badge badge-03">Service 03</div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i data-lucide="shopping-cart" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <h3>E-commerce & Digital Build</h3>
+                    </div>
+                    <p class="service-description">Complete Digital Presence - Stores That Convert</p>
+                    
+                    <ul class="enhanced-features-list">
+                        <li>Shopify store development (end-to-end)</li>
+                        <li>Website redesign & optimization</li>
+                        <li>Conversion rate optimization (CRO)</li>
+                        <li>UGC video integration for product pages</li>
+                        <li>Mobile-first responsive design</li>
+                        <li>Speed optimization and SEO foundation</li>
+                    </ul>
+                    
+                    <div class="enhanced-pricing-section">
+                        <h4>Packages</h4>
+                        <div class="pricing-items">
+                            <div class="price-item">
+                                <span class="price-label">Shopify Launch</span>
+                                <span class="price-value">Starting at ₹50,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Website Redesign</span>
+                                <span class="price-value">Starting at ₹40,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">CRO Optimization</span>
+                                <span class="price-value">Starting at ₹25,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="perfect-for">
+                        <strong>Perfect For:</strong> Brands launching or scaling online
+                    </div>
+                    
+                    <a href="contact.html?service=digital&type=portfolio" class="enhanced-cta-button">See Portfolio Samples →</a>
+                </div>
+
+                <!-- Service 04: Creative Strategy & Meta Ads -->
+                <div class="enhanced-service-card animate-on-scroll">
+                    <div class="service-badge badge-04">Service 04</div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i data-lucide="palette" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <h3>Creative Strategy & Meta Ads</h3>
+                    </div>
+                    <p class="service-description">Performance-Driven Creatives - Strategy That Sells</p>
+                    
+                    <ul class="enhanced-features-list">
+                        <li>Performance marketers & creative strategists</li>
+                        <li>Static ad design (carousel, single image)</li>
+                        <li>Video ad editing for Meta platforms</li>
+                        <li>Hook testing & iteration</li>
+                        <li>Ad copy that converts</li>
+                        <li>Multiple variations for A/B testing</li>
+                    </ul>
+                    
+                    <div class="enhanced-pricing-section">
+                        <h4>Packages</h4>
+                        <div class="pricing-items">
+                            <div class="price-item">
+                                <span class="price-label">Static Ads Package</span>
+                                <span class="price-value">10 ads - ₹18,000-₹25,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Video Ads Package</span>
+                                <span class="price-value">5 videos - ₹25,000-₹35,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Mixed Creative Bundle</span>
+                                <span class="price-value">5 static + 3 videos - ₹35,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Monthly Retainer</span>
+                                <span class="price-value">Custom pricing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="perfect-for">
+                        <strong>Perfect For:</strong> Brands running Meta ads needing fresh creatives
+                    </div>
+                    
+                    <a href="contact.html?service=creative&type=strategy" class="enhanced-cta-button">Get Creative Strategy →</a>
+                </div>
+
+                <!-- Service 05: Growth & Ads Management (Beta) - Horizontal Layout -->
+                <div class="enhanced-service-card beta-card horizontal animate-on-scroll">
+                    <div class="service-header">
+                        <div class="service-badge badge-beta">Service 05 - BETA</div>
+                        <div class="service-icon">
+                            <i data-lucide="trending-up" style="font-size: 2rem;"></i>
+                        </div>
+                        <h3>Growth & Ads Management</h3>
+                    </div>
+                    
+                    <div class="content-section">
+                        <p class="service-description">Scale Your Impact - Performance Marketing Powered by UGC</p>
+                        
+                        <ul class="enhanced-features-list">
+                            <li>Meta ad campaigns optimized with UGC</li>
+                            <li>Full funnel strategy (awareness → conversion)</li>
+                            <li>Continuous testing and optimization</li>
+                            <li>Weekly performance calls</li>
+                            <li>Creative strategy and iteration</li>
+                            <li>Audience research and targeting</li>
+                        </ul>
+                        
+                        <div class="perfect-for">
+                            <strong>Perfect For:</strong> Brands ready to scale profitably with expert guidance
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-and-cta">
+                        <div class="beta-info">
+                            <div class="beta-slots">⚠️ Limited: 5 beta slots available</div>
+                            <h4>Beta Benefits:</h4>
+                            <div class="beta-benefits">
+                                • 30% discount on management fees<br>
+                                • Priority access to creative team<br>
+                                • Free monthly creative refresh<br>
+                                • Locked pricing for 6 months
+                            </div>
+                        </div>
+                        
+                        <div class="enhanced-pricing-section">
+                            <h4>Investment</h4>
+                            <div class="pricing-items">
+                                <div class="price-item">
+                                    <span class="price-label">Management Fee</span>
+                                    <span class="price-value">Custom (15-20% of ad spend)</span>
+                                </div>
+                                <div class="price-item">
+                                    <span class="price-label">Minimum Ad Spend</span>
+                                    <span class="price-value">₹1,00,000/month</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html?service=growth&type=beta" class="enhanced-cta-button beta-cta">Apply for Beta Access →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Not Sure Which Service You Need?</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>UGC Creation</th>
+                            <th>Production</th>
+                            <th>Digital Build</th>
+                            <th>Creative Strategy</th>
+                            <th>Growth & Ads</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Content Creation</strong></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strategy Included</strong></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ad Management</strong></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monthly Retainer</strong></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>One-Time Project</strong></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Platform Optimization</strong></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs neutral"><i data-lucide="x"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                            <td><div class="icon-wrapper size-xs success"><i data-lucide="check"></i></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="margin-bottom: 1rem;">Still confused? Take our 2-minute quiz to find the perfect service for your needs.</p>
+                <a href="service-quiz.html" class="btn btn-secondary">Take Service Quiz →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Three Key Benefits</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="icon-wrapper size-feature primary pulse">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Launch campaigns in days, not months. Our streamlined process means you get content when you need it, not when your agency feels like delivering.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll">
+                    <div class="icon-wrapper size-feature success pulse">
+                        <i data-lucide="gem"></i>
+                    </div>
+                    <h3>Premium Quality at GenZ Prices</h3>
+                    <p>Professional-grade content without the influencer markup. We train talented creators instead of paying celebrity premiums.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll">
+                    <div class="icon-wrapper size-feature primary pulse">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <h3>Results-Driven Everything</h3>
+                    <p>Content optimized for performance metrics that matter. Every piece is tested, measured, and improved based on real conversion data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Common Questions About Our Services</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>What's the minimum commitment?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our UGC Creation service requires a 3-month minimum commitment to see meaningful results. Other services can be project-based or monthly retainers depending on your needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>How quickly can we get started?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most clients start receiving content within 7-10 days of signing. We can move faster for urgent campaigns - just let us know your timeline.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>Do you work with our existing ad agency?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We often partner with existing agencies to provide the UGC content they need for their campaigns. We're happy to collaborate and complement your current strategy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>What if we don't like the content?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer unlimited revisions within reason. Our approval process ensures you're happy with the content before final delivery. Plus, our 30-day guarantee means we'll make it right.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>How do you measure success?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We track everything that matters: conversion rates, ROAS, engagement, and revenue attribution. You'll get weekly reports showing exactly how our content is performing for your brand.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h4>Can we choose our creators?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We'll present creator options that match your brand voice and target audience. You have final approval on all creator partnerships before content production begins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="section" style="background: var(--color-charcoal); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Scale Your Brand?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Let's create content that actually moves the needle for your business.</p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html?service=custom&type=quote" class="btn btn-primary">Get Custom Quote</a>
+                <a href="https://wa.me/919239161632?text=Hi,%20I%27d%20like%20to%20discuss%20your%20services" class="btn btn-secondary" target="_blank">Chat on WhatsApp</a>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                No long-term contracts • Cancel anytime • 30-day results guarantee
+            </p>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Service selection handler
+        function selectService(serviceType) {
+            // This would integrate with the quote calculator
+            console.log('Selected service:', serviceType);
+            scrollToSection('quoteCalculator');
+        }
+        
+        // FAQ toggle functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+        
+        // Service quiz handler
+        function startServiceQuiz() {
+            alert('This would open a 2-minute quiz to help determine the best service for your needs.');
+        }
+        
+        // Scroll to section utility
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;">
+                        <h4 style="margin: 0;">MakeUGC</h4>
+                    </div>
+                    <p>MakeUGC.in<br>
+                    4G KrishtiKunja, Airport, Kolkata, India</p>
+                    <p>contact@makeugc.in<br>
+                    Mobile: +91 9239161632</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a><br>
+                    <a href="services.html">Services</a><br>
+                    <a href="creators.html">Creators</a><br>
+                    <a href="blog.html">Blog</a><br>
+                    <a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <p><a href="ugc-strategy-guide.html">UGC Strategy Guide</a><br>
+                    <a href="blog-creator-brief-template.html">Creator Brief Template</a><br>
+                    <a href="roi-calculator.html">ROI Calculator</a><br>
+                    <a href="blog.html?category=case-studies">Case Studies</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Trust Signals</h4>
+                    <p>Trusted by 50+ D2C Brands<br>
+                    Meta Business Partner<br>
+                    <div class="icon-wrapper size-xs success" style="display: inline-flex; margin-right: 0.5rem; vertical-align: middle;"><i data-lucide="shield-check"></i></div>Your Data is Secure</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MakeUGC • All rights reserved • <a href="public/legal/privacy-policy.html" style="color: inherit;">Privacy Policy</a> • <a href="public/legal/terms-conditions.html" style="color: inherit;">Terms of Service</a> • <a href="public/legal/refund-policy.html" style="color: inherit;">Refund Policy</a> • <a href="public/legal/security.html" style="color: inherit;">Security</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Initialize Lucide Icons and Animations -->
+    <script>
+        // Initialize Lucide icons with retry mechanism
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+                console.log('Lucide icons initialized successfully');
+            } else {
+                console.warn('Lucide not loaded, retrying...');
+                setTimeout(initializeLucideIcons, 100);
+            }
+        }
+
+        // Initialize Lucide icons after DOM content is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLucideIcons();
+            
+            // Initialize scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animate-on-scroll elements
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('mobile-open');
+                    this.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+                });
+                
+                // Close mobile menu when clicking on links
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('mobile-open');
+                        mobileToggle.textContent = '☰';
+                    });
+                });
+            }
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

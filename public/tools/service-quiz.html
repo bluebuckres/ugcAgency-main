@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Quiz - Find Your Perfect UGC Solution</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --color-cream: #faf8f5;
+            --color-warm-stone: #f5f2ee;
+            --color-sage: #8b9a7a;
+            --color-charcoal: #2c2f33;
+            --color-soft-terracotta: #d4a574;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --radius-soft: 12px;
+            --radius-softer: 16px;
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lift: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-warm-stone) 100%);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 4rem;
+        }
+
+        .quiz-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .quiz-header p {
+            font-size: 1.2rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-soft);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .progress-bar {
+            background: rgba(139, 154, 122, 0.2);
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--color-sage), var(--color-soft-terracotta));
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+            opacity: 0.7;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-softer);
+            padding: 3rem;
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideIn 0.6s ease forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .question-number {
+            color: var(--color-sage);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .question-title {
+            font-size: 1.5rem;
+            color: var(--color-charcoal);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(139, 154, 122, 0.2);
+            border-radius: var(--radius-soft);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-gentle);
+            position: relative;
+        }
+
+        .option-card:hover {
+            border-color: var(--color-sage);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .option-card.selected {
+            border-color: var(--color-sage);
+            background: rgba(139, 154, 122, 0.1);
+        }
+
+        .option-card h4 {
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .option-card p {
+            color: var(--color-charcoal);
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius-soft);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition-gentle);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-sage) 0%, #7A8A6A 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-charcoal);
+            border: 2px solid rgba(139, 154, 122, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-sage);
+            background: rgba(139, 154, 122, 0.1);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results-card {
+            background: linear-gradient(135deg, rgba(139, 154, 122, 0.1), rgba(212, 165, 116, 0.1));
+            border: 2px solid var(--color-sage);
+            border-radius: var(--radius-softer);
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-sage), var(--color-soft-terracotta));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+        }
+
+        .results-title {
+            font-size: 2rem;
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .results-description {
+            font-size: 1.1rem;
+            color: var(--color-charcoal);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-soft);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .service-features h4 {
+            color: var(--color-sage);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .service-features ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-charcoal);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-sage);
+            font-weight: bold;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        
+        .quiz-card.visible {
+            display: block;
+            animation: slideIn 0.6s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .quiz-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .quiz-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-header">
+            <h1>Find Your Perfect UGC Solution</h1>
+            <p>Answer 4 quick questions to discover which of our services will drive the best results for your brand.</p>
+        </div>
+
+        <div class="quiz-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <div class="progress-text" id="progressText">Question 1 of 4</div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-card" id="question1">
+            <div class="question-number">Question 1</div>
+            <h2 class="question-title">What's your primary goal right now?</h2>
+            
+            <div class="options-grid">
+                <div class="option-card" data-answer="content" onclick="selectOption(this, 'content')">
+                    <h4>🎥 Create engaging content</h4>
+                    <p>I need authentic videos and photos to showcase my products</p>
+                </div>
+                <div class="option-card" data-answer="website" onclick="selectOption(this, 'website')">
+                    <h4>🛒 Build/improve my website</h4>
+                    <p>I need a professional online store or website redesign</p>
+                </div>
+                <div class="option-card" data-answer="ads" onclick="selectOption(this, 'ads')">
+                    <h4>📈 Scale my advertising</h4>
+                    <p>I want to improve my ad performance and ROI</p>
+                </div>
+                <div class="option-card" data-answer="creative" onclick="selectOption(this, 'creative')">
+                    <h4>🎨 Design ad creatives</h4>
+                    <p>I need fresh, high-converting ad designs and copy</p>
+                </div>
+            </div>
+
+            <div class="quiz-buttons">
+                <a href="../services.html" class="btn btn-secondary">← Back to Services</a>
+                <button class="btn btn-primary" id="next1" onclick="nextQuestion(1)" disabled>
+                    Next Question →
+                </button>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-card hidden" id="question2">
+            <div class="question-number">Question 2</div>
+            <h2 class="question-title">What's your monthly marketing budget?</h2>
+            
+            <div class="options-grid">
+                <div class="option-card" data-answer="small" onclick="selectOption(this, 'small')">
+                    <h4>₹5K - ₹25K</h4>
+                    <p>Just starting out or testing the waters</p>
+                </div>
+                <div class="option-card" data-answer="medium" onclick="selectOption(this, 'medium')">
+                    <h4>₹25K - ₹75K</h4>
+                    <p>Growing business ready to invest in content</p>
+                </div>
+                <div class="option-card" data-answer="large" onclick="selectOption(this, 'large')">
+                    <h4>₹75K - ₹2L</h4>
+                    <p>Established brand looking to scale</p>
+                </div>
+                <div class="option-card" data-answer="enterprise" onclick="selectOption(this, 'enterprise')">
+                    <h4>₹2L+</h4>
+                    <p>Ready for full-service marketing partnership</p>
+                </div>
+            </div>
+
+            <div class="quiz-buttons">
+                <button class="btn btn-secondary" onclick="previousQuestion(2)">← Previous</button>
+                <button class="btn btn-primary" id="next2" onclick="nextQuestion(2)" disabled>
+                    Next Question →
+                </button>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-card hidden" id="question3">
+            <div class="question-number">Question 3</div>
+            <h2 class="question-title">How urgent is your timeline?</h2>
+            
+            <div class="options-grid">
+                <div class="option-card" data-answer="asap" onclick="selectOption(this, 'asap')">
+                    <h4>⚡ ASAP (Within 1 week)</h4>
+                    <p>I need results fast - time is critical</p>
+                </div>
+                <div class="option-card" data-answer="soon" onclick="selectOption(this, 'soon')">
+                    <h4>🚀 Soon (2-4 weeks)</h4>
+                    <p>I have some flexibility but want to move quickly</p>
+                </div>
+                <div class="option-card" data-answer="planned" onclick="selectOption(this, 'planned')">
+                    <h4>📅 Planned (1-2 months)</h4>
+                    <p>I'm planning ahead and want quality results</p>
+                </div>
+                <div class="option-card" data-answer="flexible" onclick="selectOption(this, 'flexible')">
+                    <h4>🎯 Flexible (3+ months)</h4>
+                    <p>I want the best possible outcome, timeline is flexible</p>
+                </div>
+            </div>
+
+            <div class="quiz-buttons">
+                <button class="btn btn-secondary" onclick="previousQuestion(3)">← Previous</button>
+                <button class="btn btn-primary" id="next3" onclick="nextQuestion(3)" disabled>
+                    Next Question →
+                </button>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-card hidden" id="question4">
+            <div class="question-number">Question 4</div>
+            <h2 class="question-title">What level of support do you need?</h2>
+            
+            <div class="options-grid">
+                <div class="option-card" data-answer="diy" onclick="selectOption(this, 'diy')">
+                    <h4>🛠️ DIY Friendly</h4>
+                    <p>Just give me the assets, I'll handle the rest</p>
+                </div>
+                <div class="option-card" data-answer="guided" onclick="selectOption(this, 'guided')">
+                    <h4>🤝 Guided Support</h4>
+                    <p>I want some guidance and strategic input</p>
+                </div>
+                <div class="option-card" data-answer="managed" onclick="selectOption(this, 'managed')">
+                    <h4>🎯 Fully Managed</h4>
+                    <p>I want you to handle everything from strategy to execution</p>
+                </div>
+            </div>
+
+            <div class="quiz-buttons">
+                <button class="btn btn-secondary" onclick="previousQuestion(4)">← Previous</button>
+                <button class="btn btn-primary" id="next4" onclick="showResults()" disabled>
+                    Show My Results →
+                </button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="quiz-card hidden" id="results">
+            <div class="results-card">
+                <div class="results-icon" id="resultsIcon">
+                    <i data-lucide="target" style="font-size: 2rem;"></i>
+                </div>
+                <h2 class="results-title" id="resultsTitle">Perfect Match Found!</h2>
+                <p class="results-description" id="resultsDescription"></p>
+                
+                <div class="service-features" id="serviceFeatures">
+                    <h4>What's included:</h4>
+                    <ul id="featuresList"></ul>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="../contact.html" class="btn btn-primary" id="contactBtn">Get Started →</a>
+                    <button class="btn btn-secondary" onclick="restartQuiz()">Retake Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let answers = {};
+
+        function selectOption(element, value) {
+            // Remove selected class from all options in current question
+            const currentOptions = document.querySelectorAll(`#question${currentQuestion} .option-card`);
+            currentOptions.forEach(option => option.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Store the answer
+            answers[`q${currentQuestion}`] = value;
+            
+            console.log(`Selected answer for Q${currentQuestion}:`, value);
+            console.log('Current answers:', answers);
+            
+            // Enable next button
+            const nextBtn = document.getElementById(`next${currentQuestion}`);
+            if (nextBtn) {
+                nextBtn.disabled = false;
+            }
+        }
+
+        function nextQuestion(questionNum) {
+            // Hide current question
+            document.getElementById(`question${questionNum}`).classList.add('hidden');
+            
+            // Show next question
+            currentQuestion++;
+            const nextQuestionElement = document.getElementById(`question${currentQuestion}`);
+            if (nextQuestionElement) {
+                nextQuestionElement.classList.remove('hidden');
+                console.log('Showing question:', currentQuestion);
+            }
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function previousQuestion(questionNum) {
+            // Hide current question
+            document.getElementById(`question${questionNum}`).classList.add('hidden');
+            
+            // Show previous question
+            currentQuestion--;
+            document.getElementById(`question${currentQuestion}`).classList.remove('hidden');
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion - 1) / 4) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Question ${currentQuestion} of 4`;
+        }
+
+        function showResults() {
+            // Hide current question
+            const question4 = document.getElementById('question4');
+            if (question4) {
+                question4.classList.add('hidden');
+            }
+            
+            // Show results first
+            const resultsElement = document.getElementById('results');
+            if (resultsElement) {
+                resultsElement.classList.remove('hidden');
+                console.log('Showing results');
+            }
+            
+            // Calculate and show results with delay to ensure DOM is ready
+            setTimeout(() => {
+                const recommendation = calculateRecommendation();
+                displayResults(recommendation);
+            }, 50);
+            
+            // Update progress to 100%
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressText').textContent = 'Quiz Complete!';
+        }
+
+        function calculateRecommendation() {
+            const { q1: goal, q2: budget, q3: timeline, q4: support } = answers;
+
+            // UGC Creation
+            if (goal === 'content' && (budget === 'small' || budget === 'medium')) {
+                return {
+                    service: 'UGC Creation',
+                    icon: 'video',
+                    title: 'UGC Creation Service',
+                    description: 'Perfect for brands looking to create authentic, engaging content that converts browsers into buyers.',
+                    features: [
+                        '120+ vetted in-house trained creators',
+                        'Platform-optimized content (TikTok, Reels, YouTube Shorts)',
+                        'Multiple variants for A/B testing',
+                        'Product reviews, testimonials, unboxing',
+                        '48-72hr standard turnaround'
+                    ],
+                    contactUrl: 'contact.html?service=ugc&type=quote'
+                };
+            }
+
+            // Video & Photo Production
+            if (goal === 'content' && (budget === 'large' || budget === 'enterprise') && support !== 'diy') {
+                return {
+                    service: 'Video & Photo Production',
+                    icon: 'camera',
+                    title: 'Professional Production Service',
+                    description: 'High-end visual content with professional quality that feels authentic and drives results.',
+                    features: [
+                        'Full production team (concept → shoot → edit)',
+                        'In-house models available',
+                        'Studio or on-location shoots',
+                        'Product-focused and explainer videos',
+                        'High-res photos for e-commerce'
+                    ],
+                    contactUrl: 'contact.html?service=production&type=consultation'
+                };
+            }
+
+            // Digital Build
+            if (goal === 'website') {
+                return {
+                    service: 'E-commerce & Digital Build',
+                    icon: 'shopping-cart',
+                    title: 'Digital Build Service',
+                    description: 'Complete digital presence that converts visitors into customers with optimized user experience.',
+                    features: [
+                        'Shopify store development (end-to-end)',
+                        'Website redesign & optimization',
+                        'Conversion rate optimization (CRO)',
+                        'UGC video integration for product pages',
+                        'Mobile-first responsive design'
+                    ],
+                    contactUrl: 'contact.html?service=digital&type=portfolio'
+                };
+            }
+
+            // Creative Strategy
+            if (goal === 'creative' || (goal === 'ads' && support === 'guided')) {
+                return {
+                    service: 'Creative Strategy & Meta Ads',
+                    icon: 'palette',
+                    title: 'Creative Strategy Service',
+                    description: 'Performance-driven creatives and strategy that increases your ad ROI and conversion rates.',
+                    features: [
+                        'Performance marketers & creative strategists',
+                        'Static ad design (carousel, single image)',
+                        'Video ad editing for Meta platforms',
+                        'Hook testing & iteration',
+                        'Multiple variations for A/B testing'
+                    ],
+                    contactUrl: 'contact.html?service=creative&type=strategy'
+                };
+            }
+
+            // Growth & Ads Management
+            if ((goal === 'ads' && support === 'managed') || budget === 'enterprise') {
+                return {
+                    service: 'Growth & Ads Management (Beta)',
+                    icon: 'trending-up',
+                    title: 'Growth & Ads Management',
+                    description: 'Complete performance marketing solution powered by UGC. Perfect for scaling profitably.',
+                    features: [
+                        'Meta ad campaigns optimized with UGC',
+                        'Full funnel strategy (awareness → conversion)',
+                        'Continuous testing and optimization',
+                        'Weekly performance calls',
+                        'Creative strategy and iteration'
+                    ],
+                    contactUrl: 'contact.html?service=growth&type=beta'
+                };
+            }
+
+            // Default to UGC Creation
+            return {
+                service: 'UGC Creation',
+                icon: 'video',
+                title: 'UGC Creation Service',
+                description: 'Based on your answers, authentic user-generated content is the perfect starting point for your brand.',
+                features: [
+                    '120+ vetted in-house trained creators',
+                    'Platform-optimized content',
+                    'Multiple variants for A/B testing',
+                    'Fast turnaround times',
+                    'Authentic, conversion-focused content'
+                ],
+                contactUrl: 'contact.html?service=ugc&type=quote'
+            };
+        }
+
+        function displayResults(recommendation) {
+            console.log('Displaying results for:', recommendation.service);
+            
+            const titleElement = document.getElementById('resultsTitle');
+            const descElement = document.getElementById('resultsDescription');
+            const contactBtn = document.getElementById('contactBtn');
+            
+            if (titleElement) titleElement.textContent = recommendation.title;
+            if (descElement) descElement.textContent = recommendation.description;
+            if (contactBtn) contactBtn.href = recommendation.contactUrl;
+            
+            // Update icon safely
+            const iconElement = document.querySelector('#resultsIcon i');
+            if (iconElement) {
+                iconElement.setAttribute('data-lucide', recommendation.icon);
+                console.log('Updated icon to:', recommendation.icon);
+            } else {
+                console.error('Icon element not found');
+            }
+            
+            // Update features list
+            const featuresList = document.getElementById('featuresList');
+            if (featuresList) {
+                featuresList.innerHTML = '';
+                recommendation.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+            }
+
+            // Re-initialize Lucide icons with delay
+            setTimeout(() => {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                    console.log('Lucide icons reinitialized');
+                } else {
+                    console.error('Lucide not available');
+                }
+            }, 100);
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            answers = {};
+            
+            // Hide results and show first question
+            document.getElementById('results').classList.add('hidden');
+            document.getElementById('question1').classList.remove('hidden');
+            
+            // Hide other questions
+            for (let i = 2; i <= 4; i++) {
+                document.getElementById(`question${i}`).classList.add('hidden');
+            }
+            
+            // Reset all selections
+            document.querySelectorAll('.option-card').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Disable all next buttons
+            for (let i = 1; i <= 4; i++) {
+                const nextBtn = document.getElementById(`next${i}`);
+                if (nextBtn) nextBtn.disabled = true;
+            }
+            
+            // Reset progress
+            updateProgress();
+        }
+
+        // Initialize Lucide icons and debug
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Debug - check if all questions exist
+            for (let i = 1; i <= 4; i++) {
+                const questionElement = document.getElementById(`question${i}`);
+                console.log(`Question ${i} exists:`, !!questionElement);
+            }
+            
+            const resultsElement = document.getElementById('results');
+            console.log('Results element exists:', !!resultsElement);
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

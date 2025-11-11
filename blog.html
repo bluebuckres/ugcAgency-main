@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeUGC Blog - Insights & Strategies for Creator Marketing</title>
+    <meta name="description" content="Expert insights on user-generated content strategy, creator economy trends, and UGC marketing tactics. Learn from our data-driven case studies and industry analysis.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MakeUGC Blog - Expert Creator Marketing Insights">
+    <meta property="og:description" content="Discover proven UGC strategies, case studies, and industry trends from the leading user-generated content agency.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeugc.in/blog">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Blog Improved Styles -->
+    <link rel="stylesheet" href="assets/css/blog-improved.css">
+    
+    <!-- Core Libraries - Only essential ones -->
+    <!-- Lucide Icons with fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Fallback loading for Lucide
+        if (typeof lucide === 'undefined') {
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.js';
+            document.head.appendChild(fallbackScript);
+        }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#9CAF88',
+                        'warm-stone': '#E6DDD4',
+                        charcoal: '#3A3A3A',
+                        'soft-clay': '#D4C4B0',
+                        moss: '#7A8471',
+                        cream: '#F5F1EB',
+                        rust: '#B85450',
+                        'dust-blue': '#8B9DC3'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(156, 175, 136, 0.1) 0%, rgba(230, 221, 212, 0.3) 100%);
+            position: relative;
+        }
+        
+        .blog-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: rgba(245, 241, 235, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(156, 175, 136, 0.15);
+        }
+        
+        .category-tag {
+            transition: all 0.3s ease;
+            background: rgba(156, 175, 136, 0.1);
+            border: 1px solid rgba(156, 175, 136, 0.3);
+        }
+        
+        .category-tag:hover {
+            background: rgba(156, 175, 136, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .category-tag.active {
+            background: rgba(156, 175, 136, 0.3);
+            border-color: rgba(156, 175, 136, 0.6);
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 50;
+            max-height: 300px;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .search-suggestions.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        
+        .reading-progress {
+            height: 4px;
+            background: rgba(156, 175, 136, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #9CAF88, #7A8471);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .trending-item {
+            transition: all 0.3s ease;
+        }
+        
+        .trending-item:hover {
+            background: rgba(156, 175, 136, 0.05);
+            padding-left: 8px;
+        }
+        
+        .newsletter-form {
+            background: linear-gradient(135deg, rgba(156, 175, 136, 0.1) 0%, rgba(212, 196, 176, 0.1) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(156, 175, 136, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #9CAF88, #7A8471);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(156, 175, 136, 0.3);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 2rem;
+            column-fill: balance;
+        }
+        
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+        
+        /* Navigation Styles */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3A3A3A;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #3A3A3A;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a:hover {
+            color: #9CAF88;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #9CAF88;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Special styling for navbar contact button */
+        .nav-links .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            color: #8B9A7A;
+            border: 1.5px solid #8B9A7A;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #8B9A7A, #7A9B9B);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-links .btn-primary:hover {
+            color: white;
+            border-color: #8B9A7A;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+        }
+
+        .nav-links .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .nav-links .btn-primary::after {
+            display: none;
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #3A3A3A;
+            padding: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-toggle:hover {
+            background: rgba(139, 154, 122, 0.1);
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #3A3A3A;
+            color: #F5F1EB;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #F5F1EB;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            color: rgba(245, 241, 235, 0.8);
+        }
+
+        .footer-section a {
+            color: rgba(245, 241, 235, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #9CAF88;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 241, 235, 0.2);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(245, 241, 235, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(245, 241, 235, 0.6);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #9CAF88;
+        }
+
+        /* Mobile Navigation */
+        .nav-links.mobile-open {
+            display: flex;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1.5rem;
+            z-index: 999;
+            border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+                min-height: 44px;
+                min-width: 44px;
+                padding: 0.5rem;
+            }
+
+            .btn-primary {
+                min-height: 44px;
+                padding: 0.875rem 1.75rem;
+            }
+        }
+
+        /* Newsletter CTA Styles */
+        .newsletter-cta {
+            background: linear-gradient(135deg, #9CAF88 0%, #7A8471 100%);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23ffffff' fill-opacity='0.05'><path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/></g></g></svg>") repeat;
+            animation: float 20s linear infinite;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-cta h2 {
+            color: white;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .newsletter-form-cta {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .newsletter-form-cta input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #3A3A3A;
+        }
+
+        .newsletter-form-cta input::placeholder {
+            color: rgba(58, 58, 58, 0.6);
+        }
+
+        .newsletter-form-cta button {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .newsletter-form-cta button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-disclaimer {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-form-cta {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+    <style>
+        /* Accessibility improvements */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #8B9A7A;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid #8B9A7A;
+            outline-offset: 2px;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body class="bg-cream text-charcoal font-inter">
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Screen reader announcements -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
+    <!-- Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover;">
+                <span>MakeUGC</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="creators.html">Creators</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
+            </ul>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-24 pb-16 relative" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h1 id="hero-heading" class="font-crimson text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-tight">
+                    <span class="typed-text"></span>
+                </h1>
+                <p class="text-xl md:text-2xl text-charcoal/80 max-w-3xl mx-auto leading-relaxed">
+                    Expert insights, data-driven strategies, and proven tactics from the forefront of user-generated content marketing
+                </p>
+            </div>
+            
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">500+</div>
+                    <div class="text-sm text-charcoal/70">Campaigns Analyzed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">89%</div>
+                    <div class="text-sm text-charcoal/70">Avg Engagement Lift</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">340%</div>
+                    <div class="text-sm text-charcoal/70">Max ROAS Achieved</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-sage mb-2">120+</div>
+                    <div class="text-sm text-charcoal/70">Creator Network</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="py-12 bg-warm-stone/30 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8 items-center justify-between">
+                <!-- Search -->
+                <div class="search-container flex-1 max-w-md">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="searchInput"
+                            placeholder="Search articles, topics, insights..."
+                            class="w-full px-6 py-4 bg-white rounded-full border border-sage/30 focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/20"
+                            aria-label="Search blog posts"
+                            role="searchbox"
+                            aria-controls="blogGrid"
+                        >
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-sage" aria-label="Search">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <!-- Dynamic suggestions will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-3">
+                    <button class="category-tag active px-4 py-2 rounded-full text-sm font-medium" data-category="all">
+                        All Posts
+                    </button>
+                    <button class="category-tag px-4 py-2 rounded-full text-sm font-medium" data-category="ugc-strategy">
+                        UGC Strategy
+                    </button>
+                    <button class="category-tag px-4 py-2 rounded-full text-sm font-medium" data-category="case-studies">
+                        Case Studies
+                    </button>
+                    <button class="category-tag px-4 py-2 rounded-full text-sm font-medium" data-category="platform-updates">
+                        Platform Updates
+                    </button>
+                    <button class="category-tag px-4 py-2 rounded-full text-sm font-medium" data-category="marketing-tactics">
+                        Marketing Tactics
+                    </button>
+                    <button class="category-tag px-4 py-2 rounded-full text-sm font-medium" data-category="analytics">
+                        Analytics
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section id="main-content" class="py-16 relative z-10" aria-labelledby="blog-posts-heading">
+        <h2 id="blog-posts-heading" class="sr-only">Blog Posts</h2>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                <!-- Blog Posts Grid -->
+                <div class="lg:col-span-3">
+                    <div class="blog-grid-improved" id="blogGrid">
+                        <!-- Static blog posts for SEO and fallback -->
+                        <article class="blog-card-standard fade-in-up">
+                            <a href="blog-creator-brief-template.html" class="blog-card block rounded-2xl overflow-hidden border border-sage/20 hover:shadow-xl transition-all">
+                                <div class="relative p-6" style="background: linear-gradient(135deg, #f5f1eb 0%, #e6ddd4 100%);">
+                                    <img src="assets/images/illustrations/creator-brief.svg" alt="Content creator illustration" class="w-full h-64 object-contain" loading="lazy">
+                                    <span class="absolute top-4 right-4 bg-rust text-white px-3 py-1 rounded-full text-xs font-semibold">🔥 Trending</span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-xs font-medium text-sage uppercase tracking-wide">marketing tactics</span>
+                                        <span class="text-xs text-charcoal/50">•</span>
+                                        <span class="text-xs text-charcoal/50">8 min read</span>
+                                    </div>
+                                    <h3 class="font-crimson text-xl font-bold text-charcoal mb-3 leading-tight hover:text-sage transition-colors">
+                                        The Creator Brief Template That Gets Results
+                                    </h3>
+                                    <p class="text-sm text-charcoal/70 mb-4 leading-relaxed">A great creator brief is the difference between mediocre UGC and content that drives sales. Here's the exact template our team uses to brief 120+ creators every month.</p>
+                                    <div class="flex items-center justify-between text-xs text-charcoal/60 pt-4 border-t border-sage/10">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">Emma Foster</span>
+                                            <span>•</span>
+                                            <span>December 20, 2024</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>18,250 views</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="blog-card-standard fade-in-up">
+                            <a href="blog-3-second-rule-hooks.html" class="blog-card block rounded-2xl overflow-hidden border border-sage/20 hover:shadow-xl transition-all">
+                                <div class="relative p-6" style="background: linear-gradient(135deg, #f5f1eb 0%, #e6ddd4 100%);">
+                                    <img src="assets/images/illustrations/hook-attention.svg" alt="Social media engagement illustration" class="w-full h-64 object-contain" loading="lazy">
+                                    <span class="absolute top-4 right-4 bg-rust text-white px-3 py-1 rounded-full text-xs font-semibold">🔥 Trending</span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-xs font-medium text-sage uppercase tracking-wide">ugc strategy</span>
+                                        <span class="text-xs text-charcoal/50">•</span>
+                                        <span class="text-xs text-charcoal/50">9 min read</span>
+                                    </div>
+                                    <h3 class="font-crimson text-xl font-bold text-charcoal mb-3 leading-tight hover:text-sage transition-colors">
+                                        The 3-Second Rule: Why Your Hook Makes or Breaks Conversions
+                                    </h3>
+                                    <p class="text-sm text-charcoal/70 mb-4 leading-relaxed">Master the psychology of UGC hooks. Learn the 10 proven frameworks that stop the scroll and drive 3.9x better conversion rates in just 3 seconds.</p>
+                                    <div class="flex items-center justify-between text-xs text-charcoal/60 pt-4 border-t border-sage/10">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">Ryan Mitchell</span>
+                                            <span>•</span>
+                                            <span>December 18, 2024</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>31,480 views</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="blog-card-standard fade-in-up">
+                            <a href="blog-ugc-hook-formula-3-part.html" class="blog-card block rounded-2xl overflow-hidden border border-sage/20 hover:shadow-xl transition-all">
+                                <div class="relative p-6" style="background: linear-gradient(135deg, #f5f1eb 0%, #e6ddd4 100%);">
+                                    <img src="assets/images/illustrations/creative-hook.svg" alt="Creative thinking illustration" class="w-full h-64 object-contain" loading="lazy">
+                                    <span class="absolute top-4 right-4 bg-rust text-white px-3 py-1 rounded-full text-xs font-semibold">🔥 Trending</span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-xs font-medium text-sage uppercase tracking-wide">ugc strategy</span>
+                                        <span class="text-xs text-charcoal/50">•</span>
+                                        <span class="text-xs text-charcoal/50">5 min read</span>
+                                    </div>
+                                    <h3 class="font-crimson text-xl font-bold text-charcoal mb-3 leading-tight hover:text-sage transition-colors">
+                                        The 3-Part UGC Hook Formula That Stops the Scroll
+                                    </h3>
+                                    <p class="text-sm text-charcoal/70 mb-4 leading-relaxed">Discover the psychology-backed formula that increased video completion rates by 340% and turned casual scrollers into engaged customers across 385M Indian Reels users.</p>
+                                    <div class="flex items-center justify-between text-xs text-charcoal/60 pt-4 border-t border-sage/10">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">Sarah Chen</span>
+                                            <span>•</span>
+                                            <span>December 15, 2024</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>24,500 views</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="blog-card-standard fade-in-up">
+                            <a href="blog-52x-roas-case-study.html" class="blog-card block rounded-2xl overflow-hidden border border-sage/20 hover:shadow-xl transition-all">
+                                <div class="relative p-6" style="background: linear-gradient(135deg, #f5f1eb 0%, #e6ddd4 100%);">
+                                    <img src="assets/images/illustrations/roas-growth.svg" alt="Data analytics illustration" class="w-full h-64 object-contain" loading="lazy">
+                                    <span class="absolute top-4 right-4 bg-rust text-white px-3 py-1 rounded-full text-xs font-semibold">🔥 Trending</span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-xs font-medium text-sage uppercase tracking-wide">case studies</span>
+                                        <span class="text-xs text-charcoal/50">•</span>
+                                        <span class="text-xs text-charcoal/50">8 min read</span>
+                                    </div>
+                                    <h3 class="font-crimson text-xl font-bold text-charcoal mb-3 leading-tight hover:text-sage transition-colors">
+                                        How We Generated 5.2x ROAS with UGC for an E-commerce Brand
+                                    </h3>
+                                    <p class="text-sm text-charcoal/70 mb-4 leading-relaxed">Complete case study revealing how a struggling skincare brand transformed from 1.8x to 5.2x ROAS using systematic UGC strategy. Real numbers, actionable frameworks.</p>
+                                    <div class="flex items-center justify-between text-xs text-charcoal/60 pt-4 border-t border-sage/10">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">Marcus Rodriguez</span>
+                                            <span>•</span>
+                                            <span>October 3, 2024</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>32,100 views</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="blog-card-standard fade-in-up">
+                            <a href="blog-ab-testing-ugc-analytics.html" class="blog-card block rounded-2xl overflow-hidden border border-sage/20 hover:shadow-xl transition-all">
+                                <div class="relative p-6" style="background: linear-gradient(135deg, #f5f1eb 0%, #e6ddd4 100%);">
+                                    <img src="assets/images/illustrations/ab-testing.svg" alt="A/B testing illustration" class="w-full h-64 object-contain" loading="lazy">
+                                    <span class="absolute top-4 right-4 bg-rust text-white px-3 py-1 rounded-full text-xs font-semibold">🔥 Trending</span>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-xs font-medium text-sage uppercase tracking-wide">analytics</span>
+                                        <span class="text-xs text-charcoal/50">•</span>
+                                        <span class="text-xs text-charcoal/50">10 min read</span>
+                                    </div>
+                                    <h3 class="font-crimson text-xl font-bold text-charcoal mb-3 leading-tight hover:text-sage transition-colors">
+                                        A/B Testing UGC: What Actually Works
+                                    </h3>
+                                    <p class="text-sm text-charcoal/70 mb-4 leading-relaxed">Complete framework for testing UGC campaigns with 102.4% conversion increases. Real case studies from Mumbai fashion brands and Bangalore beauty companies.</p>
+                                    <div class="flex items-center justify-between text-xs text-charcoal/60 pt-4 border-t border-sage/10">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">David Park</span>
+                                            <span>•</span>
+                                            <span>November 28, 2024</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>19,420 views</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="blog-card-standard fade-in-up">
+                            <a href="blog-creator-journey-0-to-1m.html" class="blog-card block rounded-2xl overflow-hidden border border-sage/20 hover:shadow-xl transition-all">
+                                <div class="relative p-6" style="background: linear-gradient(135deg, #f5f1eb 0%, #e6ddd4 100%);">
+                                    <img src="assets/images/illustrations/creator-journey.svg" alt="Success journey illustration" class="w-full h-64 object-contain" loading="lazy">
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-xs font-medium text-sage uppercase tracking-wide">creator stories</span>
+                                        <span class="text-xs text-charcoal/50">•</span>
+                                        <span class="text-xs text-charcoal/50">7 min read</span>
+                                    </div>
+                                    <h3 class="font-crimson text-xl font-bold text-charcoal mb-3 leading-tight hover:text-sage transition-colors">
+                                        From 0 to 1M Views: Our Creator's Journey
+                                    </h3>
+                                    <p class="text-sm text-charcoal/70 mb-4 leading-relaxed">Behind-the-scenes story of how we scaled a creator from zero followers to 1M+ views and ₹15L in brand partnerships within 6 months.</p>
+                                    <div class="flex items-center justify-between text-xs text-charcoal/60 pt-4 border-t border-sage/10">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-medium">Success Team</span>
+                                            <span>•</span>
+                                            <span>November 20, 2024</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span>28,900 views</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-12">
+                        <button id="loadMoreBtn" class="btn-primary text-white px-8 py-3 rounded-full font-medium" aria-label="Load more blog articles">
+                            Load More Articles
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Newsletter Signup -->
+                    <div class="newsletter-form p-6 mb-8" role="complementary" aria-labelledby="newsletter-heading">
+                        <h3 id="newsletter-heading" class="font-crimson text-xl font-bold mb-4">Stay Updated</h3>
+                        <p class="text-sm text-charcoal/70 mb-4">Get the latest UGC insights delivered to your inbox</p>
+                        <form class="space-y-4" aria-label="Newsletter subscription form">
+                            <input 
+                                type="email" 
+                                placeholder="Enter your email"
+                                class="w-full px-4 py-3 bg-white rounded-lg border border-sage/30 focus:border-sage focus:outline-none"
+                                required
+                                aria-label="Email address for newsletter"
+                            >
+                            <button type="submit" class="btn-primary w-full text-white py-3 rounded-lg font-medium">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="text-xs text-charcoal/50 mt-3">No spam, unsubscribe anytime</p>
+                    </div>
+                    
+                    <!-- Trending Posts -->
+                    <aside class="bg-white rounded-2xl p-6 border border-sage/20" role="complementary" aria-labelledby="trending-heading">
+                        <h3 id="trending-heading" class="font-crimson text-xl font-bold mb-6">Trending Now</h3>
+                        <div class="space-y-4" id="trendingPosts">
+                            <!-- Trending posts will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Analytics Dashboard - Enhanced -->
+                    <div class="bg-gradient-to-br from-white to-sage/5 rounded-2xl p-5 border border-sage/20 mt-6 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-crimson text-lg font-bold text-charcoal">Live Metrics</h3>
+                            <span class="flex items-center gap-1.5 text-xs font-semibold text-sage bg-sage/10 px-2.5 py-1 rounded-full">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-sage"></span>
+                                </span>
+                                LIVE
+                            </span>
+                        </div>
+                        
+                        <!-- Main Metrics -->
+                        <div class="space-y-3">
+                            <!-- Total Views -->
+                            <div class="bg-white rounded-lg p-3 border border-sage/10 hover:border-sage/30 transition-all">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <span class="text-xs text-charcoal/60 font-medium uppercase tracking-wide">Total Views</span>
+                                        <div class="flex items-baseline gap-2 mt-0.5">
+                                            <span class="font-bold text-xl text-charcoal" id="totalViews">1,847,293</span>
+                                            <span class="text-xs text-sage font-semibold">+2.3%</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-sage ml-2">
+                                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2 h-1 bg-sage/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-sage to-moss rounded-full transition-all duration-500" style="width: 73%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Engagement Rate -->
+                            <div class="bg-white rounded-lg p-3 border border-sage/10 hover:border-sage/30 transition-all">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <span class="text-xs text-charcoal/60 font-medium uppercase tracking-wide">Engagement Rate</span>
+                                        <div class="flex items-baseline gap-2 mt-0.5">
+                                            <span class="font-bold text-xl text-sage" id="engagementRate">12.7%</span>
+                                            <span class="text-xs text-sage font-semibold">+0.8%</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-sage ml-2">
+                                        <i data-lucide="target" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2 h-1 bg-sage/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-sage to-moss rounded-full transition-all duration-500" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Active Readers -->
+                            <div class="bg-white rounded-lg p-3 border border-sage/10 hover:border-sage/30 transition-all">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <span class="text-xs text-charcoal/60 font-medium uppercase tracking-wide">Active Readers</span>
+                                        <div class="flex items-baseline gap-2 mt-0.5">
+                                            <span class="font-bold text-xl text-rust" id="activeReaders">127</span>
+                                            <span class="text-xs text-charcoal/50 font-medium">right now</span>
+                                        </div>
+                                        <div class="mt-1 text-xs text-charcoal/50">
+                                            <span id="readerLocations">Mumbai, Delhi, Bangalore...</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-rust ml-2">
+                                        <i data-lucide="users" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mini Stats Grid -->
+                        <div class="mt-4 pt-4 border-t border-sage/10">
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div class="bg-gradient-to-br from-sage/10 to-sage/5 rounded-lg p-3 border border-sage/20">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <i data-lucide="trending-up" class="w-3.5 h-3.5 text-sage"></i>
+                                        <div class="text-xs text-charcoal/60 font-medium">This Week</div>
+                                    </div>
+                                    <div class="font-bold text-lg text-sage" id="weeklyGrowth">+18.4%</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-rust/10 to-rust/5 rounded-lg p-3 border border-rust/20">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <i data-lucide="clock" class="w-3.5 h-3.5 text-rust"></i>
+                                        <div class="text-xs text-charcoal/60 font-medium">Avg. Time</div>
+                                    </div>
+                                    <div class="font-bold text-lg text-rust" id="avgTime">6m 47s</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Stats -->
+                        <div class="mt-2.5 grid grid-cols-2 gap-2.5">
+                            <div class="bg-white rounded-lg p-2.5 border border-sage/10">
+                                <div class="flex items-center gap-1.5 mb-0.5">
+                                    <i data-lucide="arrow-left-right" class="w-3 h-3 text-charcoal/60"></i>
+                                    <div class="text-xs text-charcoal/60">Bounce Rate</div>
+                                </div>
+                                <div class="font-bold text-sm text-charcoal" id="bounceRate">31.2%</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-2.5 border border-sage/10">
+                                <div class="flex items-center gap-1.5 mb-0.5">
+                                    <i data-lucide="file-text" class="w-3 h-3 text-charcoal/60"></i>
+                                    <div class="text-xs text-charcoal/60">Page Views</div>
+                                </div>
+                                <div class="font-bold text-sm text-charcoal" id="pageViews">3.8</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Never Miss a UGC Insight</h2>
+                <p>Get our latest strategies and case studies delivered to your inbox weekly</p>
+                
+                <form class="newsletter-form-cta" onsubmit="handleNewsletterSignup(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                
+                <p class="newsletter-disclaimer">
+                    Join 15,000+ marketers getting UGC insights weekly. No spam, unsubscribe anytime.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;">
+                        <h4 style="margin: 0;">MakeUGC</h4>
+                    </div>
+                    <p>MakeUGC.in<br>
+                    4G KrishtiKunja, Airport, Kolkata, India</p>
+                    <p>contact@makeugc.in<br>
+                    Mobile: +91 9239161632</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a><br>
+                    <a href="services.html">Services</a><br>
+                    <a href="creators.html">Creators</a><br>
+                    <a href="blog.html">Blog</a><br>
+                    <a href="contact.html">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <p><a href="resources.html">Free Templates</a><br>
+                    <a href="creator-brief-template.html">Creator Brief Template</a><br>
+                    <a href="roi-calculator.html">ROI Calculator</a><br>
+                    <a href="blog.html">Case Studies</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Trust & Legal</h4>
+                    <p>Trusted by 50+ D2C Brands<br>
+                    Meta Business Partner<br>
+                    <a href="public/legal/security.html">🛡️ Your Data is Secure</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MakeUGC • All rights reserved • <a href="public/legal/privacy-policy.html">Privacy Policy</a> • <a href="public/legal/terms-conditions.html">Terms of Service</a> • <a href="public/legal/refund-policy.html">Refund Policy</a> • <a href="public/legal/security.html">Security</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" onerror="handleScriptLoadError()"></script>
+    
+    <script>
+        // Global error handler for better user experience
+        window.addEventListener('error', function(event) {
+            console.error('Global error:', event.error);
+            
+            // Log to analytics if available
+            if (window.umami) {
+                window.umami.track('javascript-error', { 
+                    message: event.message,
+                    filename: event.filename,
+                    line: event.lineno
+                });
+            }
+        });
+
+        // Handle unhandled promise rejections
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+            
+            if (window.umami) {
+                window.umami.track('promise-rejection', { 
+                    reason: event.reason?.message || 'Unknown error'
+                });
+            }
+        });
+
+        // Handle main.js load failure
+        function handleScriptLoadError() {
+            console.error('Failed to load main.js');
+            const blogGrid = document.getElementById('blogGrid');
+            if (blogGrid && blogGrid.children.length === 0) {
+                blogGrid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-charcoal/70 mb-4">Unable to load blog posts. Please refresh the page.</p>
+                        <button onclick="location.reload()" class="btn-primary text-white px-6 py-3 rounded-full">
+                            Refresh Page
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Safe execution wrapper
+        function safeExecute(fn, fallback) {
+            try {
+                return fn();
+            } catch (error) {
+                console.error('Error in safe execute:', error);
+                return fallback ? fallback() : null;
+            }
+        }
+
+        // Newsletter signup function with validation and better UX
+        async function handleNewsletterSignup(event) {
+            event.preventDefault();
+            const form = event.target;
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            const button = form.querySelector('button[type="submit"]');
+            
+            // Validate email
+            if (!isValidEmail(email)) {
+                showFormMessage(form, 'Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const originalButtonText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<span class="inline-block animate-spin mr-2">⏳</span> Subscribing...';
+            
+            try {
+                // TODO: Replace with actual API endpoint
+                // const response = await fetch('/api/newsletter/subscribe', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ email })
+                // });
+                
+                // Simulate API call for now
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Success
+                showFormMessage(form, '✓ Subscribed! Check your email for confirmation.', 'success');
+                form.reset();
+                
+                // Track conversion
+                if (window.umami) {
+                    window.umami.track('newsletter-signup', { source: 'blog-page' });
+                }
+                
+                // Announce to screen readers
+                announce('Successfully subscribed to newsletter');
+                
+            } catch (error) {
+                console.error('Newsletter signup error:', error);
+                showFormMessage(form, 'Subscription failed. Please try again.', 'error');
+            } finally {
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+            }
+        }
+        
+        // Email validation
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        // Show form message
+        function showFormMessage(form, message, type) {
+            // Remove existing message
+            const existingMsg = form.querySelector('.form-message');
+            if (existingMsg) existingMsg.remove();
+            
+            // Create new message
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `form-message mt-3 p-3 rounded-lg text-sm ${
+                type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+            }`;
+            msgDiv.textContent = message;
+            msgDiv.setAttribute('role', 'alert');
+            form.appendChild(msgDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => msgDiv.remove(), 5000);
+        }
+        
+        // Screen reader announcement helper
+        function announce(message) {
+            const announcer = document.getElementById('announcements');
+            if (announcer) {
+                announcer.textContent = message;
+                setTimeout(() => announcer.textContent = '', 1000);
+            }
+        }
+
+        // Initialize Lucide icons with retry mechanism
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+                console.log('Lucide icons initialized successfully');
+            } else {
+                console.warn('Lucide not loaded, retrying...');
+                setTimeout(initializeLucideIcons, 100);
+            }
+        }
+
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLucideIcons();
+        });
+
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('mobile-open');
+                    this.innerHTML = navLinks.classList.contains('mobile-open') ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
+                
+                // Close mobile menu when clicking on links
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('mobile-open');
+                        mobileToggle.innerHTML = '<i data-lucide="menu"></i>';
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    });
+                });
+            }
+        });
+    </script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

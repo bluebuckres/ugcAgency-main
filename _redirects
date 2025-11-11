@@ -1,0 +1,14 @@
+# Short URLs for Meta Ads campaigns
+/apply              /creator-application.html    301
+/join               /creator-application.html    301
+/creators/apply     /creator-application.html    301
+/become-creator     /creator-application.html    301
+/get-started        /contact.html                301
+/consultation       /contact.html                301
+/quote              /contact.html                301
+/talk               /contact.html                301
+
+# Force HTTPS and non-www
+https://www.makeugc.in/*    https://makeugc.in/:splat    301!
+http://makeugc.in/*         https://makeugc.in/:splat    301!
+http://www.makeugc.in/*     https://makeugc.in/:splat    301!

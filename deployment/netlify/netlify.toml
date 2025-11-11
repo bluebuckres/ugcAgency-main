@@ -1,0 +1,110 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build step required'"
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Asset Caching
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Font optimization
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.makeugc.in/*"
+  to = "https://makeugc.in/:splat"
+  status = 301
+  force = true
+
+# Clean URLs for blog posts
+[[redirects]]
+  from = "/blog/ugc-hook-formula"
+  to = "/blog-ugc-hook-formula.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/ab-testing-ugc"
+  to = "/blog-ab-testing-ugc.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/tiktok-algorithm-update"
+  to = "/blog-tiktok-algorithm-update.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/creator-brief-template"
+  to = "/blog-creator-brief-template.html"
+  status = 200
+
+# Clean URLs for tools
+[[redirects]]
+  from = "/tools/roi-calculator"
+  to = "/roi-calculator.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/content-cost-calculator"
+  to = "/content-cost-calculator.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/service-quiz"
+  to = "/service-quiz.html"
+  status = 200
+
+# Clean URLs for legal pages
+[[redirects]]
+  from = "/legal/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/terms-conditions"
+  to = "/terms-conditions.html"
+  status = 200
+
+# Remove .html extension for all pages
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+  conditions = {Role = ["*"], Country = ["*"]}
+
+# Fallback for missing files
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404

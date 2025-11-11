@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free UGC Resources - Templates, Guides & Tools | D2C Brands</title>
+  <meta name="description" content="Free resources to scale your D2C brand with UGC: templates, guides, and tools. Download and implement today." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <style>
+    :root {
+        --color-warm-stone: #F5F1EB;
+        --color-sage: #8B9A7A;
+        --color-charcoal: #2C2C2C;
+        --color-clay: #C4A484;
+        --color-cream: #FAF8F5;
+        --color-muted-teal: #7A9B9B;
+        --color-soft-terracotta: #D4A574;
+        
+        --font-serif: 'Crimson Text', serif;
+        --font-sans: 'Inter', sans-serif;
+        
+        --radius-soft: 12px;
+        --radius-softer: 16px;
+        --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+        --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+        --shadow-glow: 0 8px 32px rgba(139, 154, 122, 0.15);
+        
+        --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--color-charcoal);
+        background: var(--color-warm-stone);
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+    p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section {
+        padding: 6rem 0;
+        position: relative;
+    }
+
+    /* Navigation */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(250, 248, 245, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+        transition: var(--transition-gentle);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .logo {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-charcoal);
+        text-decoration: none;
+        transition: var(--transition-gentle);
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--color-charcoal);
+        font-weight: 500;
+        position: relative;
+        transition: var(--transition-gentle);
+        padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+        color: var(--color-sage);
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-sage);
+        transition: var(--transition-gentle);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* Special styling for navbar contact button */
+    .nav-links .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1.25rem;
+        background: transparent;
+        color: var(--color-sage);
+        border: 1.5px solid var(--color-sage);
+        border-radius: 24px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-links .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    .nav-links .btn-primary:hover {
+        color: white;
+        border-color: var(--color-sage);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+    }
+
+    .nav-links .btn-primary:hover::before {
+        left: 0;
+    }
+
+    .nav-links .btn-primary::after {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--color-charcoal);
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--color-warm-stone) 0%, var(--color-cream) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%238B9A7A' fill-opacity='0.03'><path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/></g></g></svg>") repeat;
+        opacity: 0.4;
+        animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-sage) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        color: var(--color-charcoal);
+        opacity: 0.8;
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-sage);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+        color: var(--color-charcoal);
+        opacity: 0.7;
+        font-weight: 500;
+    }
+
+    /* Resource Categories */
+    .category-section {
+        background: var(--color-cream);
+        position: relative;
+    }
+
+    .category-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .category-header h2 {
+        color: var(--color-charcoal);
+        margin-bottom: 1rem;
+    }
+
+    .category-header p {
+        font-size: 1.2rem;
+        color: var(--color-charcoal);
+        opacity: 0.8;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .resource-card {
+        background: white;
+        border-radius: var(--radius-softer);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-subtle);
+        transition: var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(139, 154, 122, 0.1);
+    }
+
+    .resource-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+    }
+
+    .resource-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-glow);
+        border-color: rgba(139, 154, 122, 0.2);
+    }
+
+    .resource-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+
+    .resource-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--color-sage), var(--color-muted-teal));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+    }
+
+    .resource-icon i {
+        color: white;
+        width: 24px;
+        height: 24px;
+    }
+
+    .resource-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(139, 154, 122, 0.1);
+        color: var(--color-sage);
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid rgba(139, 154, 122, 0.2);
+    }
+
+    .resource-card h3 {
+        color: var(--color-charcoal);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .resource-card p {
+        color: var(--color-charcoal);
+        opacity: 0.8;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .resource-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        color: var(--color-charcoal);
+        opacity: 0.7;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .meta-item i {
+        width: 16px;
+        height: 16px;
+        color: var(--color-sage);
+    }
+
+    .resource-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.9rem 1.5rem;
+        background: var(--color-sage);
+        color: white;
+        border: none;
+        border-radius: var(--radius-soft);
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: var(--transition-gentle);
+        text-decoration: none;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .btn-primary:hover {
+        background: var(--color-muted-teal);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 154, 122, 0.3);
+    }
+
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.9rem 1.5rem;
+        background: transparent;
+        color: var(--color-sage);
+        border: 2px solid var(--color-sage);
+        border-radius: var(--radius-soft);
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: var(--transition-gentle);
+        text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+        background: var(--color-sage);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .btn-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(139, 154, 122, 0.1);
+        color: var(--color-sage);
+        border: 1px solid rgba(139, 154, 122, 0.2);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition-gentle);
+    }
+
+    .btn-icon:hover {
+        background: var(--color-sage);
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* Featured Resource */
+    .featured-resource {
+        background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-muted-teal) 100%);
+        color: white;
+        grid-column: 1 / -1;
+        padding: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .featured-resource::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+        50% { transform: scale(1.1) rotate(180deg); opacity: 0.1; }
+    }
+
+    .featured-content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .featured-resource h3 {
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .featured-resource p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .featured-resource .btn-primary {
+        background: white;
+        color: var(--color-sage);
+    }
+
+    .featured-resource .btn-primary:hover {
+        background: var(--color-cream);
+        transform: translateY(-2px) scale(1.05);
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+        background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-muted-teal) 100%);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .newsletter-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23ffffff' fill-opacity='0.05'><path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/></g></g></svg>") repeat;
+        animation: float 20s linear infinite;
+    }
+
+    .newsletter-section .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .newsletter-section h2 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: clamp(2rem, 4vw, 2.5rem);
+    }
+
+    .newsletter-section p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        max-width: 400px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .newsletter-input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        color: var(--color-charcoal);
+        font-size: 1rem;
+        transition: var(--transition-gentle);
+    }
+
+    .newsletter-input::placeholder {
+        color: rgba(44, 44, 44, 0.6);
+    }
+
+    .newsletter-input:focus {
+        outline: none;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .newsletter-btn {
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition-gentle);
+        backdrop-filter: blur(10px);
+        white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .newsletter-disclaimer {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.875rem;
+        margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+        .newsletter-form {
+            flex-direction: column;
+        }
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--color-charcoal);
+        color: white;
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+        color: white;
+        margin-bottom: 1rem;
+        font-family: var(--font-serif);
+    }
+
+    .footer-section p,
+    .footer-section a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        line-height: 1.6;
+        transition: var(--transition-gentle);
+    }
+
+    .footer-section a:hover {
+        color: var(--color-sage);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+        color: inherit;
+        transition: var(--transition-gentle);
+    }
+
+    .footer-bottom a:hover {
+        color: var(--color-sage);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .mobile-nav-toggle {
+            display: block;
+        }
+
+        .hero {
+            min-height: 60vh;
+            padding: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-stats {
+            gap: 2rem;
+        }
+
+        .resources-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .featured-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .newsletter-input {
+            min-width: unset;
+        }
+
+        .resource-actions {
+            flex-direction: column;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 1rem;
+        }
+
+        .resource-card {
+            padding: 2rem;
+        }
+
+        .featured-resource {
+            padding: 2rem;
+        }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: var(--transition-smooth);
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+  </style>
+
+    <!-- Professional Umami Analytics Integration -->
+    <script>
+        // Configuration - Update these values after setting up Umami
+        window.UMAMI_CONFIG = {
+            websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+            scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+            apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+            trackingEnabled: true,
+            debug: false // Set to true for development
+        };
+    </script>
+    
+    <!-- Enhanced Analytics Script -->
+    <script src="analytics-setup.js" defer></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover;">
+        <span>MakeUGC</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="creators.html">Creators</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html" style="color: var(--color-sage);">Resources</a></li>
+        <li><a href="contact.html" class="btn-primary">Contact</a></li>
+      </ul>
+      <button class="mobile-nav-toggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero section">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <h1>Free Resources to Scale Your D2C Brand with UGC</h1>
+        <p>Templates, guides, and tools used by 1,000+ brands. Download what you need, implement today.</p>
+        
+        <div class="hero-stats">
+          <div class="stat-item fade-in stagger-1">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Free Templates</span>
+          </div>
+          <div class="stat-item fade-in stagger-2">
+            <span class="stat-number">1,200+</span>
+            <span class="stat-label">Active Users</span>
+          </div>
+          <div class="stat-item fade-in stagger-3">
+            <span class="stat-number">₹2.5Cr+</span>
+            <span class="stat-label">Revenue Generated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates & Worksheets -->
+  <section class="section category-section">
+    <div class="container">
+      <div class="category-header fade-in">
+        <h2>Templates & Worksheets</h2>
+        <p>Ready-to-use templates that have generated millions in revenue for D2C brands</p>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card fade-in stagger-1">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="calendar"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="file-text"></i>
+              Template
+            </div>
+          </div>
+          <h3>UGC Content Calendar Template</h3>
+          <p>Plan your next 30 days of UGC content with our proven calendar. Includes campaign tracking, creator management, and performance metrics.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="download"></i>
+              2,450+ downloads
+            </div>
+            <div class="meta-item">
+              <i data-lucide="star"></i>
+              4.9/5 rating
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="openResourceModal('UGC Strategy Guide', 'guide')">
+              <i data-lucide="download"></i>
+              Download Free
+            </button>
+            <button class="btn-icon" title="Share">
+              <i data-lucide="share-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card fade-in stagger-2">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="user-check"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="file-text"></i>
+              Template
+            </div>
+          </div>
+          <h3>Creator Brief Template</h3>
+          <p>Align creators with your brand voice and conversion goals. Complete brief template with examples and best practices.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="users"></i>
+              Premium Tool
+            </div>
+            <div class="meta-item">
+              <i data-lucide="zap"></i>
+              Interactive
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="checkAuthAndLaunch('public/tools/creator-brief-template.html')">
+              <i data-lucide="external-link"></i>
+              Launch Template
+            </button>
+            <button class="btn-icon" title="Bookmark">
+              <i data-lucide="bookmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card fade-in stagger-3">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="trending-up"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="file-text"></i>
+              Spreadsheet
+            </div>
+          </div>
+          <h3>ROI Tracking Spreadsheet</h3>
+          <p>Track conversions, ROAS, and key UGC performance metrics. Advanced formulas included for automatic calculations.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="users"></i>
+              Premium Tool
+            </div>
+            <div class="meta-item">
+              <i data-lucide="calculator"></i>
+              Auto-Calculate
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="checkAuthAndLaunch('public/tools/roi-tracking-spreadsheet.html')">
+              <i data-lucide="external-link"></i>
+              Launch Tracker
+            </button>
+            <button class="btn-icon" title="Share">
+              <i data-lucide="share-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides & E-books -->
+  <section class="section">
+    <div class="container">
+      <div class="category-header fade-in">
+        <h2>Guides & E-books</h2>
+        <p>In-depth resources to master UGC strategy and execution</p>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card featured-resource fade-in">
+          <div class="featured-content">
+            <div>
+              <h3>🎬 The Complete UGC Playbook</h3>
+              <p>150+ pages of copy-and-paste hooks, scripts, and strategies responsible for millions in revenue. Everything you need to launch a successful UGC program.</p>
+              <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                <button class="btn-primary" onclick="openResourceModal('UGC Strategy Guide', 'guide')">
+                  <i data-lucide="download"></i>
+                  Get Free Playbook
+                </button>
+              </div>
+            </div>
+            <div style="font-size: 4rem; opacity: 0.3;">📚</div>
+          </div>
+        </div>
+
+        <div class="resource-card fade-in stagger-1">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="book-open"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="book"></i>
+              E-book
+            </div>
+          </div>
+          <h3>Hook Scripts That Convert</h3>
+          <p>50+ proven hooks and scripts that work across TikTok, Reels, Meta Ads, and YouTube. Includes performance data and optimization tips.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="download"></i>
+              3,200+ downloads
+            </div>
+            <div class="meta-item">
+              <i data-lucide="clock"></i>
+              45 min read
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="openResourceModal('Hook Scripts That Convert', 'ebook')">
+              <i data-lucide="download"></i>
+              Download E-book
+            </button>
+            <button class="btn-icon" onclick="previewResource('hook-scripts')" title="Preview Content">
+              <i data-lucide="eye"></i>
+            </button>
+            <button class="btn-icon" onclick="shareResource('hook-scripts')" title="Share Resource">
+              <i data-lucide="share-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card fade-in stagger-2">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="target"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="compass"></i>
+              Guide
+            </div>
+          </div>
+          <h3>Platform-Specific UGC Best Practices</h3>
+          <p>Detailed guide on what works best across different platforms. Optimization strategies, format recommendations, and timing insights.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="download"></i>
+              1,800+ downloads
+            </div>
+            <div class="meta-item">
+              <i data-lucide="clock"></i>
+              30 min read
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="openResourceModal('Platform-Specific UGC Best Practices', 'guide')">
+              <i data-lucide="download"></i>
+              Download Guide
+            </button>
+            <button class="btn-icon" onclick="previewResource('platform-guide')" title="Preview Content">
+              <i data-lucide="eye"></i>
+            </button>
+            <button class="btn-icon" onclick="shareResource('platform-guide')" title="Share Resource">
+              <i data-lucide="share-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Calculators -->
+  <section class="section category-section">
+    <div class="container">
+      <div class="category-header fade-in">
+        <h2>Tools & Calculators</h2>
+        <p>Interactive tools to optimize your UGC strategy and measure success</p>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card fade-in stagger-1">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="calculator"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="zap"></i>
+              Tool
+            </div>
+          </div>
+          <h3>ROI Calculator</h3>
+          <p>Estimate revenue lift from adopting UGC across your campaigns. Get instant projections based on your current metrics.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="users"></i>
+              5,600+ users
+            </div>
+            <div class="meta-item">
+              <i data-lucide="zap"></i>
+              Instant results
+            </div>
+          </div>
+          <div class="resource-actions">
+            <a onclick="checkAuthAndLaunch('public/tools/roi-calculator.html')" style="cursor: pointer;" class="btn-primary">
+              <i data-lucide="calculator"></i>
+              Try Calculator
+            </a>
+            <button class="btn-icon" title="Share">
+              <i data-lucide="share-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card fade-in stagger-2">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="calendar-days"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="zap"></i>
+              Tool
+            </div>
+          </div>
+          <h3>UGC Content Calendar</h3>
+          <p>Professional 30-day content planner with creator tracking, performance metrics, and campaign management features.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="users"></i>
+              Premium Tool
+            </div>
+            <div class="meta-item">
+              <i data-lucide="calendar"></i>
+              30-day planner
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="checkAuthAndLaunch('public/tools/ugc-content-calendar.html')">
+              <i data-lucide="external-link"></i>
+              Launch Tool
+            </button>
+            <button class="btn-icon" title="Bookmark">
+              <i data-lucide="bookmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card fade-in stagger-3">
+          <div class="resource-header">
+            <div class="resource-icon">
+              <i data-lucide="indian-rupee"></i>
+            </div>
+            <div class="resource-badge">
+              <i data-lucide="zap"></i>
+              Tool
+            </div>
+          </div>
+          <h3>Content Cost Calculator</h3>
+          <p>Get accurate estimates for your monthly UGC content pipeline. Includes creator fees, production costs, and management overhead.</p>
+          <div class="resource-meta">
+            <div class="meta-item">
+              <i data-lucide="users"></i>
+              Premium Tool
+            </div>
+            <div class="meta-item">
+              <i data-lucide="trending-up"></i>
+              Cost optimizer
+            </div>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-primary" onclick="checkAuthAndLaunch('public/tools/content-cost-calculator.html')">
+              <i data-lucide="calculator"></i>
+              Calculate Costs
+            </button>
+            <button class="btn-icon" title="Share">
+              <i data-lucide="share-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="section newsletter-section">
+    <div class="container">
+      <div class="fade-in">
+        <h2>Never Miss a UGC Insight</h2>
+        <p>Get our latest strategies, templates, and case studies delivered to your inbox weekly</p>
+        
+        <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+          <button type="submit" class="newsletter-btn">
+            Subscribe
+          </button>
+        </form>
+        
+        <p class="newsletter-disclaimer">
+          Join 15,000+ marketers getting UGC insights weekly. No spam, unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-section">
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                      <img src="assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;">
+                      <h4 style="margin: 0;">MakeUGC</h4>
+                  </div>
+                  <p>MakeUGC.in<br>
+                  4G KrishtiKunja, Airport, Kolkata, India</p>
+                  <p>contact@makeugc.in<br>
+                  Mobile: +91 9239161632</p>
+              </div>
+              
+              <div class="footer-section">
+                  <h4>Quick Links</h4>
+                  <p><a href="index.html">Home</a><br>
+                  <a href="services.html">Services</a><br>
+                  <a href="creators.html">Creators</a><br>
+                  <a href="blog.html">Blog</a><br>
+                  <a href="contact.html">Contact</a></p>
+              </div>
+              
+              <div class="footer-section">
+                  <h4>Resources</h4>
+                  <p><a href="resources.html">Free Templates</a><br>
+                  <a href="#templates">Creator Brief Template</a><br>
+                  <a onclick="checkAuthAndLaunch('public/tools/roi-calculator.html')" style="cursor: pointer;">ROI Calculator</a><br>
+                  <a href="blog.html">Case Studies</a></p>
+              </div>
+              
+              <div class="footer-section">
+                  <h4>Trust & Legal</h4>
+                  <p>Trusted by 50+ D2C Brands<br>
+                  Meta Business Partner<br>
+                  <a href="public/legal/security.html">🛡️ Your Data is Secure</a></p>
+              </div>
+          </div>
+          
+          <div class="footer-bottom">
+              <p>© 2025 MakeUGC • All rights reserved • <a href="public/legal/privacy-policy.html">Privacy Policy</a> • <a href="public/legal/terms-conditions.html">Terms of Service</a> • <a href="public/legal/refund-policy.html">Refund Policy</a> • <a href="public/legal/security.html">Security</a></p>
+          </div>
+      </div>
+  </footer>
+
+  <script>
+    // Newsletter signup handler
+    function handleNewsletterSignup(event) {
+        event.preventDefault();
+        const form = event.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = 'Subscribing...';
+        submitBtn.disabled = true;
+        
+        // Simulate signup
+        setTimeout(() => {
+            alert('Thank you for subscribing! Check your email for the latest UGC insights.');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+        }, 2000);
+    }
+
+    // Auth functions (authentication modal from existing code)
+    let pendingToolUrl = '';
+
+    function checkAuthAndLaunch(toolUrl) {
+      const currentUser = localStorage.getItem('ugc_current_user');
+      
+      if (currentUser) {
+        // Already logged in, launch tool directly
+        window.open(toolUrl, '_blank');
+      } else {
+        // Need to login, show modal
+        pendingToolUrl = toolUrl;
+        document.getElementById('authModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').style.display = 'none';
+      document.body.style.overflow = '';
+      clearAuthMessage();
+    }
+
+    function switchAuthTab(tab) {
+      // Update tabs
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Update sections
+      document.querySelectorAll('.auth-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(tab + '-section').classList.add('active');
+      
+      clearAuthMessage();
+    }
+
+    function handleModalLogin(event) {
+      event.preventDefault();
+      clearAuthMessage();
+
+      const email = document.getElementById('modal-login-email').value;
+      const password = document.getElementById('modal-login-password').value;
+      const loginBtn = document.getElementById('modal-login-btn');
+
+      loginBtn.textContent = 'Signing In...';
+      loginBtn.disabled = true;
+
+      setTimeout(() => {
+        const users = JSON.parse(localStorage.getItem('ugc_users') || '[]');
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+          localStorage.setItem('ugc_current_user', JSON.stringify({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            company: user.company,
+            loginTime: new Date().toISOString()
+          }));
+
+          showAuthMessage('Success! Opening tool...', 'success');
+          
+          setTimeout(() => {
+            closeAuthModal();
+            window.open(pendingToolUrl, '_blank');
+          }, 1000);
+        } else {
+          showAuthMessage('Invalid email or password. Try demo@makeugc.in / demo123', 'error');
+          loginBtn.textContent = 'Sign In →';
+          loginBtn.disabled = false;
+        }
+      }, 1000);
+    }
+
+    function handleModalSignup(event) {
+      event.preventDefault();
+      // Simplified signup - just redirect to tool
+      window.open(pendingToolUrl, '_blank');
+      closeAuthModal();
+    }
+
+    function showAuthMessage(message, type) {
+      const messageDiv = document.getElementById('auth-message');
+      messageDiv.textContent = message;
+      messageDiv.className = `auth-message ${type}`;
+    }
+
+    function clearAuthMessage() {
+      document.getElementById('auth-message').className = 'auth-message';
+    }
+
+    // Initialize demo user
+    window.addEventListener('load', () => {
+      const users = JSON.parse(localStorage.getItem('ugc_users') || '[]');
+      if (users.length === 0) {
+        const demoUser = {
+          id: 1,
+          name: 'Demo User',
+          email: 'demo@makeugc.in',
+          company: 'Demo Company',
+          password: 'demo123',
+          createdAt: new Date().toISOString()
+        };
+        localStorage.setItem('ugc_users', JSON.stringify([demoUser]));
+      }
+
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Initialize animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAuthModal();
+      }
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+    <script src="assets/js/resource-modal.js"></script>
+</body>
+</html>
+
+  <!-- Login Modal -->
+  <div class="auth-modal" id="authModal" style="display: none;">
+    <div class="auth-modal-overlay" onclick="closeAuthModal()"></div>
+    <div class="auth-modal-content">
+      <div class="auth-modal-header">
+        <h2><i data-lucide="target" style="display: inline; margin-right: 0.5rem;"></i>Want Even More?</h2>
+        <p>Access premium UGC tools & templates</p>
+        <button class="close-btn" onclick="closeAuthModal()">×</button>
+      </div>
+      
+      <div class="auth-modal-body">
+        <div class="auth-tabs">
+          <button class="auth-tab active" onclick="switchAuthTab('login')">Sign In</button>
+          <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+        </div>
+
+        <div id="login-section" class="auth-section active">
+          <form onsubmit="handleModalLogin(event)">
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required id="modal-login-email">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" required id="modal-login-password">
+            </div>
+            <button type="submit" class="auth-submit-btn" id="modal-login-btn">Sign In →</button>
+          </form>
+          <p class="auth-demo-info">Demo: demo@makeugc.in / demo123</p>
+        </div>
+
+        <div id="signup-section" class="auth-section">
+          <form onsubmit="handleModalSignup(event)">
+            <div class="form-group">
+              <input type="text" placeholder="Full Name" required id="modal-signup-name">
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required id="modal-signup-email">
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Company (Optional)" id="modal-signup-company">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password (6+ chars)" required minlength="6" id="modal-signup-password">
+            </div>
+            <button type="submit" class="auth-submit-btn" id="modal-signup-btn">Create Account →</button>
+          </form>
+        </div>
+
+        <div id="auth-message" class="auth-message"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .auth-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(44, 44, 44, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .auth-modal-content {
+      background: var(--color-cream);
+      border-radius: var(--radius-softer);
+      box-shadow: var(--shadow-lift);
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-modal-header {
+      background: var(--color-sage);
+      color: var(--color-cream);
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .auth-modal-header h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--color-cream);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 5px;
+      line-height: 1;
+    }
+
+    .auth-modal-body {
+      padding: 30px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 25px;
+      background: var(--color-warm-stone);
+      border-radius: var(--radius-soft);
+      padding: 4px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 10px;
+      background: none;
+      border: none;
+      border-radius: var(--radius-soft);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-gentle);
+      color: var(--color-charcoal);
+    }
+
+    .auth-tab.active {
+      background: var(--color-sage);
+      color: var(--color-cream);
+    }
+
+    .auth-section {
+      display: none;
+    }
+
+    .auth-section.active {
+      display: block;
+    }
+
+    .auth-modal .form-group {
+      margin-bottom: 15px;
+    }
+
+    .auth-modal .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid rgba(139, 154, 122, 0.2);
+      border-radius: var(--radius-soft);
+      font-size: 14px;
+      transition: var(--transition-gentle);
+      background: white;
+    }
+
+    .auth-modal .form-group input:focus {
+      outline: none;
+      border-color: var(--color-sage);
+      box-shadow: 0 0 0 3px rgba(139, 154, 122, 0.1);
+    }
+
+    .auth-submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--color-sage);
+      color: var(--color-cream);
+      border: none;
+      border-radius: var(--radius-soft);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-gentle);
+      margin-bottom: 15px;
+    }
+
+    .auth-submit-btn:hover {
+      background: var(--color-muted-teal);
+      transform: translateY(-1px);
+    }
+
+    .auth-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .auth-demo-info {
+      font-size: 12px;
+      color: rgba(44, 44, 44, 0.6);
+      text-align: center;
+      margin: 0;
+    }
+
+    .auth-message {
+      padding: 12px;
+      border-radius: var(--radius-soft);
+      font-size: 14px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .auth-message.error {
+      background: rgba(212, 165, 116, 0.1);
+      border: 1px solid var(--color-soft-terracotta);
+      color: var(--color-soft-terracotta);
+      display: block;
+    }
+
+    .auth-message.success {
+      background: rgba(139, 154, 122, 0.1);
+      border: 1px solid var(--color-sage);
+      color: var(--color-sage);
+      display: block;
+    }
+  </style>
+
+    <!-- Privacy-compliant Analytics Notice -->
+    <style>
+        .analytics-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f2937;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .analytics-notice.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .analytics-notice .notice-buttons {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .analytics-notice button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .analytics-notice .accept-btn {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .analytics-notice .decline-btn {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .analytics-notice button:hover {
+            transform: translateY(-1px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <!-- Privacy Notice HTML -->
+    <div id="analytics-notice" class="analytics-notice">
+        <div>
+            <strong>Analytics & Privacy</strong>
+            <p style="margin: 8px 0; line-height: 1.4;">
+                We use privacy-friendly analytics to improve your experience. No personal data is collected.
+            </p>
+            <div class="notice-buttons">
+                <button class="accept-btn" onclick="acceptAnalytics()">Accept</button>
+                <button class="decline-btn" onclick="declineAnalytics()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Privacy-compliant analytics consent management
+        function showAnalyticsNotice() {
+            const hasConsent = localStorage.getItem('analytics-consent');
+            if (!hasConsent) {
+                document.getElementById('analytics-notice').classList.add('show');
+            } else if (hasConsent === 'accepted') {
+                // Analytics is already accepted, ensure tracking is enabled
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = true;
+                }
+            }
+        }
+
+        function acceptAnalytics() {
+            localStorage.setItem('analytics-consent', 'accepted');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Enable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = true;
+            }
+            
+            // Reinitialize analytics if already loaded
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = true;
+                window.ugcAnalytics.init();
+            }
+        }
+
+        function declineAnalytics() {
+            localStorage.setItem('analytics-consent', 'declined');
+            document.getElementById('analytics-notice').classList.remove('show');
+            
+            // Disable tracking
+            if (window.UMAMI_CONFIG) {
+                window.UMAMI_CONFIG.trackingEnabled = false;
+            }
+            
+            if (window.ugcAnalytics) {
+                window.ugcAnalytics.trackingEnabled = false;
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('analytics-consent');
+            if (!consent) {
+                setTimeout(showAnalyticsNotice, 2000); // Show after 2 seconds
+            } else if (consent === 'declined') {
+                // Disable tracking
+                if (window.UMAMI_CONFIG) {
+                    window.UMAMI_CONFIG.trackingEnabled = false;
+                }
+            }
+        });
+    </script>
+    <script src="assets/js/resource-modal.js"></script>
+</body>
+</html>
