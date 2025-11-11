@@ -1,0 +1,39 @@
+# Documentation files (not needed in production)
+*.md
+!README.md
+
+# Development files
+node_modules/
+.git/
+.DS_Store
+*.log
+
+# Deployment configs for other platforms
+netlify.toml
+_redirects
+
+# Analytics (if using Docker locally)
+analytics/
+umami/
+deployment/docker/
+
+# Scripts
+scripts/
+deployment/scripts/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Blog source files (keep only HTML)
+Blog/*.txt
+
+# Config directories (empty)
+config/
+src/
+umami/
+
+# Development tools
+.editorconfig
+.env.example
