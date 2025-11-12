@@ -18,7 +18,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     // IMPORTANT: Replace these with your actual Supabase credentials for local testing
     // DO NOT commit real credentials to git!
     window.ENV = {
-        SUPABASE_URL: 'YOUR_SUPABASE_URL_HERE',
-        SUPABASE_ANON_KEY: 'YOUR_SUPABASE_ANON_KEY_HERE'
+        SUPABASE_URL: 'https://dsmathkrbbyfxalgsuel.supabase.co',
+        SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzbWF0aGtyYmJ5ZnhhbGdzdWVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3Njc5ODIsImV4cCI6MjA3ODM0Mzk4Mn0.IPuc62TXY9X_zn3i9zHDrA2YOybx2rQhmWyuYTe8amo'
     };
 }
