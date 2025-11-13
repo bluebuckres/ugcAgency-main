@@ -117,7 +117,7 @@
             }
             
             // Generic error
-            return 'कुछ गलत हो गया! Please try again or contact us directly at hello@makeugc.in';
+            return 'कुछ गलत हो गया! Please try again or contact us directly at connect.makeugc.in';
         }
 
         // Helper Functions
