@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free UGC Resources - Templates, Guides & Tools | D2C Brands</title>
+  <meta name="description" content="Free resources to scale your D2C brand with UGC: templates, guides, and tools. Download and implement today." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/makeugclogo-01.svg">
+  <link rel="apple-touch-icon" href="/assets/images/makeugclogo-01.svg">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <!-- Mobile Menu CSS -->
+  <link rel="stylesheet" href="/assets/css/mobile-menu.css">
+  
+  <style>
+    /* Your existing styles */
+    :root {
+        --color-warm-stone: #F5F1EB;
+        --color-sage: #8B9A7A;
+        --color-charcoal: #2C2C2C;
+        --color-clay: #C4A484;
+        --color-cream: #FAF8F5;
+        --color-muted-teal: #7A9B9B;
+        --color-soft-terracotta: #D4A574;
+        
+        --font-serif: 'Crimson Text', serif;
+        --font-sans: 'Inter', sans-serif;
+        
+        --radius-soft: 12px;
+        --radius-softer: 16px;
+        --shadow-subtle: 0 2px 8px rgba(44, 44, 44, 0.1);
+        --shadow-lift: 0 4px 16px rgba(44, 44, 44, 0.15);
+        --shadow-glow: 0 8px 32px rgba(139, 154, 122, 0.15);
+        
+        --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--color-charcoal);
+        background: var(--color-warm-stone);
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+    p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section {
+        padding: 6rem 0;
+        position: relative;
+    }
+
+    /* Navigation */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(250, 248, 245, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+        transition: var(--transition-gentle);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .logo {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-charcoal);
+        text-decoration: none;
+        transition: var(--transition-gentle);
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--color-charcoal);
+        font-weight: 500;
+        position: relative;
+        transition: var(--transition-gentle);
+        padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+        color: var(--color-sage);
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-sage);
+        transition: var(--transition-gentle);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* Special styling for navbar contact button */
+    .nav-links .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1.25rem;
+        background: transparent;
+        color: var(--color-sage);
+        border: 1.5px solid var(--color-sage);
+        border-radius: 24px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-links .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-sage), var(--color-muted-teal));
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    .nav-links .btn-primary:hover {
+        color: white;
+        border-color: var(--color-sage);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(139, 154, 122, 0.25);
+    }
+
+    .nav-links .btn-primary:hover::before {
+        left: 0;
+    }
+
+    .nav-links .btn-primary::after {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--color-charcoal);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .mobile-nav-toggle {
+            display: block;
+        }
+    }
+  </style>
+
+  <!-- Professional Umami Analytics Integration -->
+  <script>
+      // Configuration - Update these values after setting up Umami
+      window.UMAMI_CONFIG = {
+          websiteId: 'YOUR_WEBSITE_ID_HERE', // Get this from Umami dashboard
+          scriptUrl: 'http://localhost:3000/script.js', // Update to your domain in production
+          apiUrl: 'http://localhost:3000/api/collect', // Update to your domain in production
+          trackingEnabled: true,
+          debug: false // Set to true for development
+      };
+  </script>
+  
+  <!-- Enhanced Analytics Script -->
+  <script src="/assets/js/analytics-setup.js" defer></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <img src="/assets/images/makeugclogo-01.jpg" alt="MakeUGC Logo" style="height: 50px; width: 50px; border-radius: 50%; object-fit: cover;">
+        <span>MakeUGC</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="creators.html">Creators</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html" style="color: var(--color-sage);">Resources</a></li>
+        <li><a href="contact.html" class="btn-primary">Contact</a></li>
+      </ul>
+      <button class="mobile-nav-toggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- Your existing content here -->
+  
+  <!-- Mobile Menu Script - Inline version -->
+  <script>
+  // Mobile Menu Handler
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create mobile menu if it doesn't exist
+    if (!document.querySelector('.mobile-menu')) {
+      const mobileMenuHTML = `
+        <div class="mobile-menu-overlay"></div>
+        <div class="mobile-menu">
+          <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close">&times;</button>
+          </div>
+          <div class="mobile-menu-nav">
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/services.html">Services</a></li>
+              <li><a href="/creators.html">Creators</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/resources.html">Resources</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', mobileMenuHTML);
+    }
+
+    // Add event listeners for mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+    if (mobileMenuToggle && mobileMenu) {
+      // Toggle menu when hamburger is clicked
+      mobileMenuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        if (mobileMenuOverlay) {
+          mobileMenuOverlay.classList.toggle('active');
+        }
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Close menu when X button is clicked
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+          }
+          document.body.classList.remove('menu-open');
+        });
+      }
+
+      // Close menu when overlay is clicked
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      }
+
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+          if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+          }
+          document.body.classList.remove('menu-open');
+        }
+      });
+    }
+  });
+  
+  // Initialize Lucide icons
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
+  </script>
+</body>
+</html>

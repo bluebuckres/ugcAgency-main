@@ -475,10 +475,13 @@
     <!-- Supabase Client Library (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
-    <!-- Supabase Configuration -->
-    <script src="/assets/js/supabase-config.js"></script>
+    <!-- Supabase Configuration (load after Supabase library) -->
+    <script src="/assets/js/supabase-config.js" defer></script>
     
-    <!-- Creator Form Handler -->
+    <!-- Supabase Debug Script (for troubleshooting) -->
+    <script src="/assets/js/supabase-init-debug.js" defer></script>
+    
+    <!-- Creator Form Handler (load after config) -->
     <script src="/assets/js/creator-form-handler.js" defer></script>
 </head>
 <body>

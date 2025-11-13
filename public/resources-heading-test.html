@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources - Heading Fix Test</title>
+  
+  <!-- Mobile Menu CSS -->
+  <link rel="stylesheet" href="/assets/css/mobile-menu.css">
+  
+  <!-- Heading Fix CSS -->
+  <link rel="stylesheet" href="/assets/css/heading-fix.css">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F5F1EB;
+    }
+    
+    /* Fixed Navigation */
+    .main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(139, 154, 122, 0.15);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2C2C2C;
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #2C2C2C;
+      font-weight: 500;
+    }
+    
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #2C2C2C;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #F5F1EB 0%, #FAF8F5 100%);
+      position: relative;
+      padding-top: 120px; /* Clear fixed navigation */
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      color: #2C2C2C;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      color: #2C2C2C;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-nav-toggle {
+        display: block;
+      }
+      
+      .hero {
+        min-height: 60vh;
+        padding: 100px 0 2rem 0; /* Mobile padding */
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">MakeUGC</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="mobile-nav-toggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero section">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Free Resources to Scale Your D2C Brand with UGC</h1>
+        <p>Templates, guides, and tools used by 1,000+ brands. Download what you need, implement today.</p>
+        <p style="color: #8B9A7A; font-weight: bold;">✓ This heading should now be fully visible on mobile!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional content to test scrolling -->
+  <div class="container" style="padding: 4rem 2rem;">
+    <h2>Test Content</h2>
+    <p>This is additional content to test that the page scrolls properly and the heading fix works correctly.</p>
+    <p>The main heading above should be fully visible on both desktop and mobile devices, without being hidden behind the navigation bar.</p>
+  </div>
+
+  <!-- Mobile Menu Script -->
+  <script src="/assets/js/mobile-menu-fixed.js"></script>
+</body>
+</html>

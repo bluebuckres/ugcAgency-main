@@ -11,8 +11,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/makeugclogo-01.svg">
+  <link rel="apple-touch-icon" href="/assets/images/makeugclogo-01.svg">
+  
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <!-- Mobile Menu CSS -->
+  <link rel="stylesheet" href="/assets/css/mobile-menu.css">
+  
+  <!-- Heading Fix CSS -->
+  <link rel="stylesheet" href="/assets/css/heading-fix.css">
   
   <style>
     :root {
@@ -206,10 +216,12 @@
         min-height: 75vh;
         display: flex;
         align-items: center;
+        justify-content: center;
         text-align: center;
         background: linear-gradient(135deg, var(--color-warm-stone) 0%, var(--color-cream) 100%);
         position: relative;
         overflow: hidden;
+        padding-top: 80px; /* Reduced padding to show stats section */
     }
 
     .hero::before {
@@ -707,7 +719,7 @@
 
         .hero {
             min-height: 60vh;
-            padding: 2rem 0;
+            padding: 70px 0 2rem 0; /* Balanced padding for mobile */
         }
 
         .hero h1 {
@@ -1524,6 +1536,7 @@
         });
     </script>
     <script src="/assets/js/resource-modal.js"></script>
+    <script src="/assets/js/mobile-menu-fixed.js"></script>
 </body>
 </html>
 
@@ -1888,5 +1901,6 @@
         });
     </script>
     <script src="/assets/js/resource-modal.js"></script>
+    <script src="/assets/js/mobile-menu-fixed.js"></script>
 </body>
 </html>

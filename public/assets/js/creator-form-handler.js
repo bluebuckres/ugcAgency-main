@@ -56,11 +56,10 @@
             };
 
             try {
-                // Insert data into Supabase
-                const { data, error } = await client
-                    .from('creator_applications')
-                    .insert([formData])
-                    .select();
+                // Use enhanced insert with retry logic
+                const { data, error } = window.supabaseInsertWithRetry 
+                    ? await window.supabaseInsertWithRetry('creator_applications', formData)
+                    : await client.from('creator_applications').insert([formData]).select();
 
                 if (error) {
                     throw error;
@@ -81,19 +80,45 @@
             } catch (error) {
                 console.error('Error submitting application:', error);
                 
-                let errorMessage = 'कुछ गलत हो गया! Please try again or contact us directly.';
-                
-                if (error.message.includes('duplicate')) {
-                    errorMessage = 'आपने पहले ही apply किया है! You have already submitted an application with this email.';
-                } else if (error.message.includes('network')) {
-                    errorMessage = 'Internet connection issue. कृपया अपना connection check करें।';
-                }
-                
+                let errorMessage = getErrorMessage(error);
                 showError(errorMessage);
             } finally {
                 setLoadingState(false);
             }
         });
+
+        // Enhanced error message function
+        function getErrorMessage(error) {
+            console.log('Error details:', error);
+            
+            // RLS Policy Error
+            if (error.code === '42501' || error.message.includes('row-level security policy')) {
+                return 'Database access issue detected. कृपया कुछ देर बाद try करें या हमसे contact करें।';
+            }
+            
+            // Duplicate entry
+            if (error.message.includes('duplicate') || error.code === '23505') {
+                return 'आपने पहले ही apply किया है! You have already submitted an application with this email.';
+            }
+            
+            // Network/Connection errors
+            if (error.message.includes('network') || error.message.includes('fetch') || error.name === 'NetworkError') {
+                return 'Internet connection issue. कृपया अपना connection check करें और फिर से try करें।';
+            }
+            
+            // Authentication errors
+            if (error.message.includes('401') || error.message.includes('unauthorized')) {
+                return 'Authentication issue. कृपया page को refresh करें और फिर से try करें।';
+            }
+            
+            // Validation errors
+            if (error.message.includes('violates') || error.message.includes('constraint')) {
+                return 'कुछ जानकारी गलत है। कृपया सभी fields को सही तरीके से भरें।';
+            }
+            
+            // Generic error
+            return 'कुछ गलत हो गया! Please try again or contact us directly at hello@makeugc.in';
+        }
 
         // Helper Functions
         function setLoadingState(isLoading) {
